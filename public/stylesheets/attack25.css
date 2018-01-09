@@ -1,0 +1,128 @@
+﻿
+body{
+	margin:0px;
+	background-color: BurlyWood;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, Wheat), color-stop(.5, transparent), to(transparent));
+	background-image: -moz-linear-gradient(Wheat 50%, transparent 50%, transparent);
+	background-image: -o-linear-gradient(Wheat 50%, transparent 50%, transparent);
+	background-image: linear-gradient(Wheat 50%, transparent 50%, transparent);
+	-webkit-background-size: 35px 35px;
+	-moz-background-size: 35px 35px;
+	background-size: 35px 35px;
+}
+
+header{
+	font-size:45px;
+	color:white;
+}
+
+h1{
+	margin:0px;
+}
+
+#ribon{
+	background-image:url("/images/ribbonlong.png");
+	background-size:cover;
+}
+
+a{
+	text-decoration:none;
+}
+
+table{
+	border:none;
+        width:100%;
+}
+tr{
+	height:17vh;
+}
+td{
+    border-collapse:separate;
+    width:200px;
+    height:160px;
+    background-image:url("/images/hako.png");
+    background-size:100% 100%;
+    position:fixed;
+}
+
+.number{
+	text-align:center;
+	font-size:70px;
+	table-layout: fixed;
+	font-weight: 600;
+}
+
+.img{
+	width: 280px;
+	height: 180px;
+	margin-left: 30px;
+	margin-top: 50px;
+}
+
+#keihinimg{
+    display:none;
+    height: 80%;
+    width: 80%;
+    background-size: 100% 100%;
+    position: fixed;
+    top: 15%;
+    left: 10%;
+    z-index: 3 ;
+}
+#waku{
+    display:none;
+    position: fixed;
+    width: 84%;
+    height: 28%;
+    background-image: url(/images/waku.jpg);
+    background-size: 100% 100%;
+    top: 70%;
+    left: 8%;
+    z-index: 4 ;
+}
+#title{
+    height: 100%;
+    width: 100%;
+    font-size: 120px;
+    text-align: center;
+    margin-top: 31px;
+}
+html,body{
+height: 100%;
+width:100%;
+margin:0;
+}
+#center{
+ top: 50%;             
+ left: 42%; 
+ height:240px;
+ width:300px;
+ position:fixed;
+}
+#minikemuri{
+ top: 30%;             
+ left: 41%;
+ height:240px;
+ width:300px;
+ background-image:url("/images/kemuri2.png");
+ background-size:100% 100%;
+ position:fixed;
+ display:none;
+ z-index: 2 ;
+}
+#kemuri{
+ height: 100vh;
+ width: 100vw;
+ background-image:url("/images/kemuri.png");
+ background-size:100% 100%;
+ position:fixed;
+ display:none;
+ top: 0%;             
+ left: 0%;
+ z-index: 5 ;
+}
+.gazou{
+ position:fixed;
+ background-size:100% 100%;
+ z-index: 2 ;
+}

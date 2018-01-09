@@ -1,0 +1,30 @@
+﻿doctype html
+html(lang='ja')
+  head
+    meta(charaset='UTF-8')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/enter.css')
+    link(rel='stylesheet', href='/stylesheets/popup.css')
+    link(href='https://fonts.googleapis.com/css?family=Kranky', rel='stylesheet')
+    script(src='/socket.io/socket.io.js')
+    script(src='/javascripts/room.js')
+  body.bg
+    header
+      .midashi
+        h1
+          | Let's 
+          span#b B
+          span#i I
+          span#n N
+          span#g G
+          span#o O
+          span#ll !
+    p.use 自分が入る部屋名を押してください。
+    p.caution= error
+
+  ul#rooms
+
+  #layer
+  #popup
+

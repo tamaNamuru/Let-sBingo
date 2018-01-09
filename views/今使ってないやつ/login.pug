@@ -1,0 +1,11 @@
+﻿extends layout
+
+block content
+  h1 管理者Login
+  p.caution= error
+  form(method='POST',action='/login')
+    input(type='text',name='productName',placeholder='productName')
+    p: input(type='password', name='password', placeholder='password')
+    input(type='submit',value='Login')
+
+  

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Let's BINGO景品閲覧ページ</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kranky" rel="stylesheet">
+    <script type="text/javascript" src="test.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.js"></script>
+    
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <div class="midashi">
+          <h1>Let's <span id="b">B</span><span id="i">I</span><span id="n">N</span><span id="g">G</span><span id="o">O</span><span id="ll">!</span></h1>
+      </div>
+      </header>
+      <div id="contents">
+        <h2>景品閲覧</h2><table><tr>
+        <td width="100"><form><input type="text"id="ichi"value=""></form></td>
+        <td width="100"><form><input type="number" name="kazu0"id="ni" min="0" max="500" value="0" step="1" required></form></td>
+        <td width="100"><form><input type="file" name="pic0"id="san"></form></td>
+        <td width="100"><form><input type="text"id="yon"value=""></form></td>
+        <td width="100"><form><input type="number" name="pri0"id="go"min="0" max="20" value="0" step="1" required></form></td>
+        </tr></table>
+        <input type="button"name="toroku"value="とーろく"onclick="addTable()">
+        <table border="1" cellspacing="0" cellpadding="4" id="keihin">
+	<tr><th>景品名</th><th>景品の個数</th><th>画像アドレス</th><th>備考</th><th>優先度</th></tr>
+	</table>
+        
+        
+        <p><a href="/manage">ホーム</a></p>
+        <p><a href="info">景品登録</a><p>
+      </div>	
+    </div>
+  </body>
+</html>

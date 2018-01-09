@@ -1,0 +1,382 @@
+html{
+	height:100%;
+}
+body{
+	height:98%;    
+	background: linear-gradient(#ffffff, #eaeaea);
+}
+header h1{
+	margin:0px;
+	margin-top:10px;
+	font-size:90px;
+	padding-left:550px;
+	color:#000;
+}
+
+.midashi {
+	position: reletive;
+	padding: 0.2em 0.5em;
+	background: -moz-linear-gradient(to right, #FFFFE0, #E0FFFF);
+	background: -webkit-linear-gradient(to right, #FFFFE0, #E0FFFF);
+	background: linear-gradient(to right, #FFFFE0, #E0FFFF);
+	font-weight: lighter;
+	
+}
+
+#leftcontents {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+	float: left;
+	margin-top: -24vh;
+	margin-left: 5vw;
+	background-color: lime;
+	border: 1px solid;
+}
+
+#reachmen {
+	height:180px;
+	width: 25vw;
+	background-color: #fff;
+	font-size: 22px;
+	border-top: 1px solid;
+	overflow:scroll;
+}
+
+#re{
+	font-size:20px;
+}
+
+#rightcontents {
+    	border-top-left-radius: 15px;
+    	border-top-right-radius: 15px;
+	float: right;
+	margin-top: -24vh;
+	margin-right: 28.5vw;
+	background-color: rgb(255, 112, 112);
+	border: 1px solid;
+}
+
+#bingomen {
+	height:180px;
+	width: 25vw;
+	background-color: #fff;
+	font-size: 22px;
+	border-top: 1px solid;
+	overflow:scroll;
+}
+
+#leftcontents p,#rightcontents p {	
+    	margin: 9px;
+	text-align: center;
+	font-size: 35px;
+}
+
+#bingobutton{
+	margin-right: 55vw;
+	margin-left: 31.5vw;
+	text-decoration: none;
+	color: black;
+	width: 240px;
+	height: 240px;
+	line-height: 240px;
+	border-radius: 50%;
+	border: solid 2px #668ad8;
+	text-align: center;
+	vertical-align: middle;
+	overflow: hidden;
+	font-weight: bold;
+	background: #b3e1ff;
+	transition: .1s;
+}
+
+#bingobutton:hover { 
+    opacity: .4;
+}
+
+#bingobutton:active {
+	-webkit-transform: rotateY(360deg);
+	-ms-transform: rotateY(360deg);
+	transform: rotateY(360deg);
+}
+
+#info{
+	color:#000;
+	text-align:center;
+	margin:0px;
+	font-size:85px;
+}
+
+table{
+	margin:auto;
+}
+
+#numbers{
+	text-align:left;
+	font-size:60px;
+	background:white;
+	width:1100px;
+	height:200px;
+	padding-left:25px;
+	margin:0px 0px 0px 100px;
+	border: 1px solid; 
+	overflow:scroll;
+}
+
+.bangou{
+	width:300px;
+	height:80px;
+	margin:160px 0px 0px 100px;
+	padding:0px 0px 0px 0px;
+	font-size:60px;
+	text-align:center;
+	color:white;
+	background:blue;
+	border-radius: 25px 25px 0px 0px;
+}
+
+form{
+	display: inline-block;
+	margin: 0 2px;
+}
+
+.pre{
+	position: absolute;
+    	top: 0;
+    	right: 0;
+    	height: 100%;
+    	width: 27%;
+    	border-left-style: dotted;
+}
+
+.modoru{
+	padding:55px 0px 0px 580px;
+}
+.modoru a{
+	display: inline-block;
+	margin: 0 2px;
+}
+								/*～ここから全てボタン関係～*/
+
+.btn1{
+	font-size:20px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    width: 160px;
+    height: 60px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+    background-image: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.btn1:active{/*押したとき*/
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);/*沈むように*/
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    background-image: -webkit-linear-gradient(#fed6e3 0%, #ffbcbc 100%);
+    background-image: linear-gradient(#fed6e3 0%, #ffbcbc 100%);/*グラデーションを明るく*/
+}
+
+.btn1:hover { 
+    opacity: .4;
+}
+
+.btn2{
+	font-size:20px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    width: 160px;
+    height: 60px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#ff6 0%, #ff6 100%);
+    background-image: linear-gradient(#ff6 0%, #ff6 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.btn2:active{/*押したとき*/
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);/*沈むように*/
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    background-image: -webkit-linear-gradient(#ff6 0%, #ff6 100%);
+    background-image: linear-gradient(#ff6 0%, #ff6 100%);/*グラデーションを明るく*/
+}
+
+.btn2:hover { 
+    opacity: .4;
+}
+
+.disabled{
+    font-size:20px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    width: 160px;
+    height: 60px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+  background-image: -webkit-linear-gradient(#aaa 0%, #aaa 100%);
+  background-image: linear-gradient(#aaa 0%, #aaa 100%);
+}
+
+.btn3{
+	font-size:20px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    width: 160px;
+    height: 60px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#0ff 0%, #0ff 100%);
+    background-image: linear-gradient(#0ff 0%, #0ff 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.btn3:active{/*押したとき*/
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);/*沈むように*/
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    background-image: -webkit-linear-gradient(#0ff 0%, #0ff 100%);
+    background-image: linear-gradient(#0ff 0%, #0ff 100%);/*グラデーションを明るく*/
+}
+
+.btn3:hover { 
+    opacity: .4;
+}
+
+.btn4{
+	font-size:20px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    width: 160px;
+    height: 60px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#9f9 0%, #9f9 100%);
+    background-image: linear-gradient(#9f9 0%, #9f9 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.btn4:active{/*押したとき*/
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);/*沈むように*/
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    background-image: -webkit-linear-gradient(#9f9 0%, #9f9 100%);
+    background-image: linear-gradient(#9f9 0%, #9f9 100%);/*グラデーションを明るく*/
+}
+
+.btn4:hover { 
+    opacity: .4;
+}
+
+#namuru{
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+}
+
+#namuru input{   
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    width: 150px;
+    height: 60px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.btn4:hover { 
+    opacity: .4;
+}
+
+.rowadd {
+    background-image: -webkit-linear-gradient(#0ff 0%, #0ff 100%);
+    background-image: linear-gradient(#0ff 0%, #0ff 100%);
+}
+
+.rowadd:hover { 
+    opacity: .4;
+}
+
+.tabledelete {
+    background-image: -webkit-linear-gradient(#ff6 0%, #ff6 100%);
+    background-image: linear-gradient(#ff6 0%, #ff6 100%);
+   
+}
+
+.tabledelete:hover { 
+    opacity: .4;
+}
+
+.submitadd {
+    background-image: -webkit-linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+    background-image: linear-gradient(#fed6e3 0%, #ffaaaa 100%);
+}
+
+.submitadd:hover { 
+    opacity: .4;
+}
+
+input {    
+　　font-size: 20px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    width: 160px;
+    height: 60px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}

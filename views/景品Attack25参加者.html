@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charaset = "UTF-8">
+    <title>景品抽選画面(アタック〇〇風)</title>
+    <link href="/stylesheets/attack25guest.css" rel="stylesheet">
+    <link href="/stylesheets/attack25guestpop.css" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+       <box id="table1" class ="number" cellspacing="30" >
+           </box>
+       <box id="table2" class ="number" cellspacing="30" >
+           </box>    
+       <box id="table3" class ="number" cellspacing="30" >
+       </box>
+           <box id="table4" class ="number" cellspacing="30" >
+       </box>
+<div id="footer">
+    <div id="ititag"><a href="#table1" onclick= "ChangeTab('table1'); return false"></a><p>1～8</p></div>
+    <div id="nitag"><a href="#table2" onclick= "ChangeTab('table2'); return false;"></a><p>9～16</p></div>
+    <div id="santag"><a href="#table3" onclick= "ChangeTab('table3'); return false;"></a><p>17～24</p></div>
+    <div id="yontag"><a href="#table4" onclick= "ChangeTab('table4'); return false;"></a><p>25～32</p></div>
+    <input type="button" value="OK" class="okbotton">    
+</div>
+<!--ポップアップ用(操作説明)-->
+<div id="setumei">
+</div>
+<input id="setumeiok" type="button" value="説明終了" disabled>
+<!--ポップアップ用1-->
+<div id="popup-background2">
+<div id="ticket">
+<img src="/images/tike3.png" id="tike3">
+<img src="/images/tike4.png" id="tike4">
+<div id="tike4kazu">17</div>
+</div>
+</div>
+<!--ポップアップ用2-->
+<div id="popup-background3">
+</div>
+<!--ポップアップ用3-->
+<div id="popup-background">
+    <table id="popup-table">
+     <tr id="popup-tr1"><td id="popup-td1" colspan="2">抽選結果</td></tr>
+     <tr id="popup-tr2"><td id="popup-td2" colspan="2"></td></tr>
+     <tr id="popup-tr3"><td id="popup-td3" colspan="2"></td></tr>
+     <tr id="popup-tr4"><td id="popup-td4"></td><td id="popup-td5"><input id="kakunin" type="button" value="削除"></td></tr>
+    </table>
+</div>
+<script type="text/javascript" src="/javascripts/attack25guest.js"></script>
+</body>
+</html>

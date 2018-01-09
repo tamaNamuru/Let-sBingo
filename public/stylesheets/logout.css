@@ -1,0 +1,32 @@
+﻿.moji{
+	font-size:65px;
+	text-align:center;
+	margin-top:120px;
+	margin-bottom:0px;
+}
+
+.logout{
+	font-size:50px;
+	text-align:center;
+	margin:0px;
+	margin-top:160px;
+}
+
+a{
+	text-decoration-line:none;
+}
+
+.square_btn {
+	position: relative;
+	display: inline-block;
+	padding: 8px 40px;
+	text-decoration: none;
+	color: #FFF;
+	background: #00bcc4;
+	-webkit-border-radius:20px;
+	transition: .4s;
+}
+
+.square_btn:hover {
+    background: #6ec9bc;
+}

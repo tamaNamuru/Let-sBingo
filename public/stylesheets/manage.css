@@ -1,0 +1,131 @@
+﻿@charset "utf-8";
+
+header {
+	color: #66CDAA;
+}
+.midashi {
+	background: linear-gradient(to right, #FFFFE0, #E0FFFF);
+}
+#menu{
+	width:800px;
+	margin-top: 24px;
+}
+td {
+	text-align: center;
+	padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+	vertical-align: middle;
+    margin: 0;
+    height: 100px;
+}
+tr {
+    vertical-align: middle;
+}
+.joho{
+    display: inline-block;
+    padding: 5em 1em;
+    text-decoration: none;
+    color: #90d60c;
+    border: dashed 1px #67c5ff;
+    background: #e4fbc7;
+    border-radius: 3px;
+    transition: .4s;
+    width: 250px;
+	font-size: 150%;
+	position:relative;
+    left:100px;
+}
+
+.joho:hover {
+    background: #abea5a;
+    color: #FFF;
+}
+.look {
+	display: inline-block;
+    padding: 5em 1em;
+    text-decoration: none;
+    color: #4169E1;
+    border: dashed 1px #D8BFD8;
+    background:#acdfef;
+    border-radius: 3px;
+    transition: .4s;
+    width: 250px;
+
+    font-size: 150%;
+}
+
+.look:hover {
+    background:#56c7ea;
+    color: #FFF;
+}
+.bingo_c{
+    display: inline-block;
+    padding: 5em 1em;
+    text-decoration: none;
+    color: #FF4500;
+    border: dashed 1px #67c5ff;
+    background: #FFE4E1;
+    border-radius: 3px;
+    transition: .4s;
+    width: 250px;
+	font-size: 150%;
+	position:relative;
+	left:100px;
+	top:-35px;
+}
+
+.bingo_c:hover {
+    background: #ef7f72;
+    color: #FFF;
+}
+.look2 {
+	display: inline-block;
+    	padding: 5em 1em;
+    	text-decoration: none;
+    	color: #cc9329;
+    	border: dashed 1px #D8BFD8;
+    	background:#f7f48c;
+    	border-radius: 3px;
+    	transition: .4s;
+    	width: 250px;
+    	
+    	font-size: 150%;
+    	position:relative;
+    	top:-35px;
+}
+
+.look2:hover {
+    	background:#f1ec3f;
+    	color: #FFF;
+}
+
+.btn1{
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    width: 160px;
+    height: 60px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#FF9800 0%, #FF9800 100%);
+    background-image: linear-gradient(#FF9800 0%, #FF9800 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+}
+
+.btn1:active{/*押したとき*/
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);/*沈むように*/
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(#acdfef 0%, #e0ffff 100%)
+    background-image: linear-gradient(#fed6e3 0%, #ffbcbc 100%);/*グラデーションを明るく*/
+}

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+	<html lang="ja">
+	<head>
+		<title>ホーム画面</title><!--ゲームか設定に遷移するための画面-->
+		<meta charset="UTF-8"/>
+		<link href="stylesheets/screen3.css"rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Kranky" rel="stylesheet">
+	</head>
+	<header>
+		<div class="midashi">
+			<h1>Let's BINGO</h1>
+		</div>
+	</header>
+	<body>
+		<h1 id="home1">ホーム画面</h1>
+		<div id="home3">
+			<div id="home4">
+			<form method="post" name="bingoStart" action="/bingo">
+				<p class="home5"><a href="javascript:bingoStart.submit()">ビンゴ開始</a></p>
+			</form>
+			</div>
+			<nav>
+			<p class="home6"><a href="manage">設定</a></p>
+			</nav>
+		</div>
+	</body>
+</html>

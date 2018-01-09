@@ -1,0 +1,41 @@
+h1 {
+    font-size: 90px
+}
+img {
+    width: 800px;
+    height: 500px;
+}
+body {
+    text-align: center;
+    margin: 0;
+    background-color: BurlyWood;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, Wheat), color-stop(.5, transparent), to(transparent));
+    background-image: -moz-linear-gradient(Wheat 50%, transparent 50%, transparent);
+    background-image: -o-linear-gradient(Wheat 50%, transparent 50%, transparent);
+    background-image: linear-gradient(Wheat 50%, transparent 50%, transparent);
+    -webkit-background-size: 35px 35px;
+    -moz-background-size: 35px 35px;
+    background-size: 35px 35px;
+}
+#bangohyoji {
+    margin-top: 0;
+    font-size: 70px
+}
+#bangohyoji span {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 80px;
+}
+#keihinhyoji p{
+    font-size: 50px;
+    margin: 1px;
+}
+p {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+}
+b {
+    font-size: 110px;
+    font-weight: bold;
+}

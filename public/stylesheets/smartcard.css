@@ -1,0 +1,324 @@
+﻿html,body {
+	height: 100%;
+	width:100%;
+	margin:0;
+}
+
+
+@media screen and (max-width: 320px) and (max-width: 480px) {
+  div.tab {
+    width: 320px;
+    height: 480px;
+  }
+}
+
+table{
+    user-select: none; 
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+}
+
+div#card {
+	overflow-y: scroll;
+	//border: 5px solid blue;
+	background-color: #ccffff;
+	min-height:100vh;
+	width: 100vw;
+	clear: left;
+	margin-bottom:12.5vh;
+}
+div#keihin {
+	overflow-y: scroll;
+	//border: 5px solid red;
+	background-color: #ffcccc;
+	min-height:100vh;
+	width: 100vw;
+	clear: left;
+	margin-bottom:13vh;
+}
+td.kazu{
+	border-top-left-radius: 50px;
+ 	border-top-right-radius: 50px;
+ 	width: 100px;
+ 	height: 150px;
+ 	//background-color:#FFFFFF;
+ 	font-size:70px;
+ 	text-align:center;
+ 	border: 1px #000000 solid;
+}
+th{
+ 	font-size:125px;
+ 	text-align:center;
+ 	width: 100px;
+ 	height: 100px;
+ 	border: 0px #ff0000 solid;
+
+}
+#free{
+	max-width: 100px;
+ 	font-size: 40px;
+	color: red;
+	-webkit-text-stroke-width: unset;
+}
+#bingo{
+	background-color:#FFcc44;
+	background-size: cover;
+	width: 950px;
+	border-top-left-radius: 40px;
+	border-top-right-radius: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom-style: none;
+	margin-top: 1vh;
+}
+#number{			
+	background-color:#FFFFFF;
+ 	background-size: cover;
+ 	width: 950px;
+ 	height: 950px;
+ 	border-bottom-left-radius: 40px;
+ 	border-bottom-right-radius: 40px;
+ 	margin-left:auto;margin-right:auto;
+ 	border-top-style:none;
+}
+#mitame{
+ 	text-shadow:
+  	0px 1px 0px #0092b3,  
+  	0px 2px 0px #0087a6,
+  	0px 3px 0px #008099,
+  	0px 4px 0px #00758c,
+  	0px 5px 0px #555,
+  	0px 6px 0px #006a80,
+  	0px 0px 0px #006073,
+  	0px 8px 7px #005566;
+ 	font-size:100px;
+}
+.gallery img {
+	width: 380px;
+	height: 280px;
+	margin-left: 8vw;
+	margin-top: 50px;
+}
+#footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 13vh;
+	font-size:50px;
+}
+#cardtag{
+   float:left;
+   width: 50%;
+   height: 100%;
+   position:relative;
+   background:linear-gradient(#53ed53,#126623);	
+}
+#keihintag{
+   float:left;
+   width: 50%;
+   height: 100%;
+   position:relative;
+   background:linear-gradient(#548de3,#3d519e);
+}
+#keihintag a{
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   text-indent:-999px;
+}
+#cardtag a{
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   text-indent:-999px;
+}
+#keihintag p{
+   font-size:40px;
+   text-align:center;
+   margin:0;
+}
+#cardtag p{
+   font-size:40px;
+   text-align:center;
+   margin:0;
+}
+#footer i{
+   font-size:80px;
+   text-align:center;
+   margin-left:41%;
+   margin-top:5%;
+}
+#keihintag i{
+   margin-left:43%;
+}
+#cardtop{
+   font-size:100px;
+   text-align:center;
+   min-height:150px;
+   background:linear-gradient(#53ed53,#126623);
+}
+marquee{
+   font-size:100px;
+   margin-top:0px;
+}
+#reach{
+   background-color:#ffffff;
+   text-align:center;
+   display:none;
+}
+
+/*ポップアップ内容*/
+#popup-background{
+    position:fixed;     /* 位置の固定 */
+    top: 0;             /* 表示位置 */
+    right: 0;            /* 表示位置 */
+    height: 100%;       /* 画面全体に表示 */
+    width: 100%;        /* 画面全体に表示 */
+    background:#FFF;    /* 背景色 */
+    z-index:1000;       /* 要素のz座標 */
+    
+}
+#syousai{
+	border-collapse: separate;
+	font-size:40px;
+	margin:auto;
+	border-spacing: 0;
+height:80%;
+	width:100%;
+	text-align:center;
+	border:sold 3px #000000;	
+}
+#syousaitable{
+	border-collapse: separate;
+	font-size:40px;
+	margin:auto;
+	border-spacing: 0;
+	height:100%;
+	width:100%;
+	text-align:center;	
+}
+#to{
+	height:50%;
+	text-align: center;
+	margin:0;
+	background-size:100% 100%;
+border: medium solid #000000;
+
+}
+#kei{
+	height:10%;
+	width:200px;
+border: medium solid #000000;
+
+}
+#keihinname{
+	height:10%;
+	width:700px;
+border: medium solid #000000;
+
+}
+#kosuu{
+	height:10%;
+	width:200px;
+border: medium solid #000000;
+}
+#kazu{
+	height:10%;
+	width:700px;
+border: medium solid #000000;
+}
+#setu{
+	height:5%;
+border: medium solid #000000;
+}
+#setumei{
+	height:25%;
+	text-align:left;
+	border: medium solid #000000;
+}
+#popheader{
+	width: 100%;
+	height: 10%;
+	font-size:100px;
+	text-align:center;
+	background-color:#ff9;
+}
+#popfooter{
+	width: 100%;
+	height: 10%;
+	font-size:100px;
+	text-align:center;
+	background-color:#666;
+}
+p.cardtiltle{    
+    margin: 0;
+    float: left;
+    margin-left: 140px;
+    font-family: sans-serif;
+}
+.fa.fa-sign-out{   
+    background: #FFF;
+    margin-top: 5px;
+	float: left;
+    margin-left: 20px;
+    border-radius: 20px;
+    width: 170px;
+    border: 3px solid #000;
+	text-decoration: none;
+}
+p.icon{
+    margin: 0;
+    font-size: 30px;
+    padding-bottom: 5px;
+}
+.tenmetsu{
+-webkit-animation:blink 0.3s ease-in-out infinite alternate; 
+-moz-animation:blink 0.3s ease-in-out infinite alternate;
+animation:blink 0.3s ease-in-out infinite alternate;
+}
+@-webkit-keyframes blink{
+0% {opacity:0;}
+100% {opacity:1;}
+}
+@-moz-keyframes blink{
+0% {opacity:0;}
+100% {opacity:1;}
+}
+@keyframes blink{
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+#reachgif{
+    border-radius: 170px;
+    height: 55%;
+    width: 90%;
+    /* width: 100vw; */
+    position: fixed;
+    top: 23%;
+    left: 2%;
+    background-image: url(/images/usareach.gif);
+    background-size: 100% 100%;
+    display:none;
+    border: ridge 32px #ff1515;
+    z-index:10; 
+}
+#bingogif{
+    border-radius: 170px;
+    height: 55%;
+    width: 90%;
+    /* width: 100vw; */
+    position: fixed;
+    top: 23%;
+    left: 2%;
+    background-image: url(/images/usabingo.gif);
+    background-size: 100% 100%;
+    display:none;
+    border: ridge 32px #ff1515;
+    z-index:10; 
+}

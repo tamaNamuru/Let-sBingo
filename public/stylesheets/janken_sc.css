@@ -1,0 +1,114 @@
+﻿@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+/*背景*/
+.bg{ 
+	margin-top: 0;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 0;
+	background-color: BurlyWood;
+  	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, Wheat), color-stop(.5, transparent), to(transparent));
+ 	background-image: -moz-linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	background-image: -o-linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	background-image: linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	-webkit-background-size: 35px 35px;
+  	-moz-background-size: 35px 35px;
+  	background-size: 35px 35px;
+ }
+/*大画面スクリーン用*/
+h1 {
+	width: 100px;
+	height: 100%;
+	font-size: 100px;
+	font-family:"HG行書体","HGP行書体",cursive;
+	margin: 0;
+	-ms-writing-mode: tb-lr;
+	writing-mode: vertical-lr;
+	text-shadow: 0 0 5px white;
+	text-align: center;
+	letter-spacing: 0.5em;
+	padding: 0.3em 0.5em;
+	background: -webkit-repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+	background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
+
+/*スライドショー*/
+#slideshow {
+	max-width: 100%;
+	max-height: 100%;
+	margin 0;*/
+	border: none;
+}
+
+#re{
+    margin-left: 200px;
+    width: 1200px;
+    height:  900px;
+}    
+#janken{
+    width: 1900px;
+    height: 510px;
+    position: fixed;
+    top: 20%;
+}   
+#pon{     
+    width: 700px;
+    transform: rotate(27deg);
+    height: 214px;
+    position: fixed;
+    top: 3%;
+    left: 33%;
+    display: none;
+}
+#nokori{
+    background: #FFF;
+    position: fixed;
+    top: 2%;
+    left: 1300px;
+    height: 300px;
+    width: 500px;
+    margin: 0;
+    border: solid;
+    text-align: center;
+}
+#nokori2{
+    background: #FFF;
+    position: fixed;
+    top: 40%;
+    left: 1300px;
+    height: 300px;
+    width: 500px;
+    margin: 0;
+    border: solid;
+    text-align: center;
+}
+.nin{    
+    margin: 0;
+    height: 32%;
+    background: #fff;
+    font-size: 74px;
+}
+.nin2{
+    float: left;
+    margin: 0;
+    padding-top: 3px;
+    border-top: solid;
+    font-size: 128px;
+    width: 50%;
+    text-align: end;
+}
+.nin3{    
+    float: left;
+    margin: 0;
+    padding-top: 9px;
+    border-top: solid;
+    font-size: 128px;
+    width: 50%;
+    text-align: justify;
+}
+/*画像設定*/
+
+
+/*	border-radius: 25px;
+	-moz-border-radius: 25px;
+	-webkit-border-radius: 25px;*/

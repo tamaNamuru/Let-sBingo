@@ -1,0 +1,36 @@
+﻿doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    title Let's BINGO景品閲覧ページ
+    link(href='/stylesheets/style.css', rel='stylesheet')
+    link(href="/stylesheets/景品閲覧.css", rel="stylesheet")
+  body
+    #hako
+      header
+        .midashi
+          h1
+            span#b 景
+            span#i 品
+            span#n 閲
+            span#g 覧
+      #contents
+        table#keihin(border='1', cellspacing='0', cellpadding='4', align='center')
+          tr
+            th 景品名
+            th 景品の個数
+            th 景品画像
+            th 備考
+            th 優先度
+          each prize in prizes
+            tr
+              td= prize.name
+              td= prize.count
+              td
+                img(src= prize.picture_url, width='120px', height='80px')
+              td= prize.description
+              td= prize.priority
+        br
+        input.btn1(type='button', value='戻る', onclick="location.href='/manage'")
+        p
+          a(href='info') 景品登録

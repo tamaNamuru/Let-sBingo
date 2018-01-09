@@ -1,0 +1,64 @@
+﻿@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+body {
+	margin: 0px;
+}
+/*背景*/
+.bg{ 
+	background: linear-gradient(-135deg, #FFDBC9, #FFD5EC) fixed;
+ }
+/*部屋名*/
+.roomtitle p {
+	display: block;
+	position: relative;
+	padding: 10px 25px 10px 10px;
+	border-bottom: 1px solid #D9D9D6;
+	background-color: white;
+	color: black;
+	font-size: 70px;
+	font-weight: bold;
+	text-decoration: none;
+	height: 100px;
+	text-align: center;
+}
+.roomtitle p:after {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 40%;
+	right: 10px;
+	width: 6px;
+	height: 6px;
+	margin: -4px 0 0 0;
+	border-top: groove 30px#093;
+    	border-right: solid 30px #ffffff;
+	-webkit-transform: rotate(134deg);
+	transform: rotate(134deg);
+}
+ul {
+	margin-left: -40px;
+	margin-top: 0;
+}
+p{
+	margin:0;
+	font-size: 50px;
+}
+input{
+	font-size:50px;
+    margin: 60px 0;
+}
+.roomtitle:hover{
+	background-color:#59b1ed;
+}
+/*文字*/
+p.use{
+	background-color: #59b1ed;
+	text-align: center; 
+	font-family: 'Noto Sans JP';
+}
+p.caution{
+	background-color: #ff6347;
+}
+li {
+    border: solid 2px #000;
+}

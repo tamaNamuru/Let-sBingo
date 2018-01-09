@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+    background-image:url("/images/background.png");
+}
+#hako{
+	background-color:white;
+	width:900px;
+	height:930px;
+	box-shadow: -0px 10px 30px rgba(1,1,1,1.1);
+ 	position:relative;
+    top:20px;
+	left: 550px;
+}
+header {
+	font-size: 35px;
+}
+.midashi {
+	padding: 0.2em 0.5em;
+    background: linear-gradient(to right, #ffff6f78, #ffffff36);
+	font-weight: lighter;
+}
+
+#b {
+	color: Crimson;
+}
+#i {
+	color: Aqua;
+}
+#n {
+	color: Chartreuse;
+}
+#g {
+	color: Gold;
+}
+#o {
+	color: VIolet;
+}
+#ll {
+	color: MediumBlue;
+}

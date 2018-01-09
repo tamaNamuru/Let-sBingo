@@ -1,0 +1,223 @@
+h1{
+	color:black;
+	font-size:60px;
+	position:absolute;
+	top:-2px;
+	left:40px;
+	width:45px;
+	height:45px;
+	font-family:Monotype Corsiva;
+}
+h2{
+	color:black;
+	font-size:60px;
+	position:absolute;
+	top:-11px;
+	left:180px;
+	width:45px;
+	height:45px;
+	font-family:Monotype Corsiva;
+}
+body{
+	background-size:2000px;
+	margin:0;
+	background: linear-gradient(to right bottom, #000, #fff);
+}
+#soto{
+	position:relative;
+	left:-450px;
+	background-color:#88dd00;
+	height: 500px;
+	width:  500px;
+	border-radius: 50%;
+	margin-left:1100px;
+	border: 5px #000000 solid;
+}
+#rogo{
+	width:600px;
+	height:500px;
+	background-image:url("/images/title.png");
+	background-size:600px;
+	position:relative;
+	left:-650px;
+	top:0px;
+}
+#uti{
+	position:relative;
+	top: -450px;
+	left: 25px;
+	border-radius: 300px;
+	margin-left:25px;
+	margin-right:25px;
+	vertical-align:middle;
+	height: 400px;
+	width: 400px;
+	font-size:150px;
+	background-color:#ffffff;
+	text-align:center;
+}
+#uti2 {
+	position: relative;
+	top: 25px;
+	left: 0;
+	border-radius: 50%;
+	margin-left: 25px;
+	margin-right: 25px;
+	vertical-align: middle;
+	height: 350px;
+	width: 350px;
+	font-size: 150px;
+	background-color: #88dd00;;
+	text-align: center;
+}
+#uti3 {
+	background-color: white;
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	position: relative;
+	top: 25px;
+	left: 25px;
+}
+p {
+    margin: auto;
+	padding-top: 10px;
+}
+#uti3 p{
+	font-size: 200px;
+}
+#sample1_table td{
+	font-size:30px;
+}
+tr{
+	padding:10px;
+}
+table{
+	border-spacing: 30px;
+	margin-left: -123px;
+}
+td{
+	width: 60px;
+	height:60px;
+	-moz-border-radius: 65px;
+	-webkit-border-radius: 65px;
+}
+#box2{
+	height:530px;
+	position: relative;
+	padding: 0.5em 1em;
+	margin: 2em 0;
+	color: #2c2c2f;
+}
+.ball{
+	position:relative;
+	margin-top:90px;
+	margin-left: 180px;
+	background-color:red;
+	width: 70px;
+	height:70px;
+	-moz-border-radius: 65px;
+	-webkit-border-radius: 65px;
+	box-shadow: -15px 20px 60px rgba(0,0,0,0.4)inset;
+	transform:scale(4,4);
+}
+.ball2 {
+	position: absolute;
+	top:-10px;
+	left:-10px;
+	margin:17px 17px;
+	background-color: #ffffff;
+	border: solid 6px #fff;
+	width: 45px;
+	height: 45px;
+	-webkit-border-radius: 35px;
+}
+.ball3 {
+	position: absolute;
+	top: -7px;
+	margin-top: 6px;
+	margin-left: -1px;
+	background-color:#ffffff;
+	width: 41px;
+	height: 41px;
+	border-radius: 50%;
+}
+.bingo_nin {
+	position:relative;
+	left:600px;
+	border: solid 6px #f00;
+	width:300px;
+	height:400px;
+	margin: 2em 0;
+	padding: 0.5em 1em;
+	border: solid 3px #95ccff;
+	border-radius: 8px;
+}
+bingo_nin, .box-title{
+	position: absolute;
+	display: inline-block;
+	top: -13px;
+	left: 10px;
+	padding: 0 9px;
+	line-height: 1;
+	font-size: 19px;
+	background: #FFF;
+	color: #95ccff;
+	font-weight: bold;
+}
+.bingo_nin{
+	width:500px;
+	height:300px;
+	position:relative;
+	top:-850px;
+	margin: 0; 
+	padding: 0;
+	background-color:white;
+}
+p#bingosya{
+	position: relative;
+	top: 30px;
+	left: 125px;
+	font-size: 100px;
+}
+p#nin{
+	font-size: 100px;
+	position: relative;
+	top: -110px;
+	left: 300px;
+}
+
+#popup-background{
+    position:fixed;     /* 位置の固定 */
+    top: 0;             /* 表示位置 */
+    left: 0;            /* 表示位置 */
+    height: 100%;       /* 画面全体に表示 */
+    width: 100%;        /* 画面全体に表示 */
+    background:#fff;    /* 背景色 */
+    opacity: 0.80;      /* 透明度 */
+    margin: 0;          /* 余白の削除 */
+    padding: 0;         /* 余白の削除 */
+    z-index:1000;       /* 要素のz座標 */
+}
+.popup-roomname{
+    position:fixed;     /* 位置の固定 */
+    top: 10%;           /* 表示位置(真ん中に表示) */
+    left: 20%;          /* 表示位置(真ん中に表示) */
+    margin: 0;          /* 余白の削除 */
+    padding: 0;         /* 余白の削除 */
+    z-index:1001;       /* 要素のz座標 */
+    font-size: 150px;
+    color: orangered;
+    -webkit-text-stroke: 5px black;
+}
+.popup-roomid{
+    position:fixed;     /* 位置の固定 */
+    top: 40%;           /* 表示位置(真ん中に表示) */
+    left: 20%;          /* 表示位置(真ん中に表示) */
+    margin: 0;          /* 余白の削除 */
+    padding: 0;         /* 余白の削除 */
+    z-index:1001;       /* 要素のz座標 */
+    font-size: 150px;
+    color: orangered;
+    -webkit-text-stroke: 5px black;
+}

@@ -1,0 +1,30 @@
+﻿@charset "utf-8";
+/* css Document*/
+
+#letsbingo{
+	font-size:100px;
+	margin:auto;
+}
+
+body {
+	height:1050px;
+	text-align:center;
+	margin:auto;
+}
+#waku{
+	background-color:white;
+	width:900px;
+	height:1050px;
+	margin:auto;
+	border-left: dashed 2px #67c5ff;
+	border-right:dashed 2px #67c5ff;
+
+}
+
+#touroku{
+	margin: auto;
+	height:120px;
+	width:250px;
+	border-left: dashed 1px #ffaaaa;
+	border-right:dashed 1px #ffaaaa;
+}

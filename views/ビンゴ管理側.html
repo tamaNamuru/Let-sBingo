@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>ビンゴ管理</title>
+    <link href="/stylesheets/bingomain.css"rel="stylesheet">
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/javascripts/bingomain.js"></script>
+  </head>
+  <body onselectstart="return false">
+    <header>
+        <h1>番号抽選</h1>
+    </header>
+    <div id="allcontents">
+      <div id="bingobutton">START</div>
+      <div id="leftcontents">
+        <p>現在のリーチ者数<br>
+        <span id="reachNum">0</span>人</p>
+        <div id="reachmen">
+        </div>
+      </div>
+      <div id="rightcontents">
+        <p>現在のビンゴ者数<br>
+        <span id="bingoNum">0</span>人</p>
+        <div id="bingomen">
+        </div>
+      </div>
+    </div>
+    <div class="result">
+      <p class="bangou">番号履歴</p>
+      <p id="numbers"></p>
+    </div>
+    <div class="pre">
+    <h1 id="info">景品追加</h1>
+    <p style="text-align: center;">景品の数：<span id="capacity">0</span></p>
+    <table border="0" id="namuru"><tr>
+      <th><input type="button" class="rowadd" value="行追加"onclick="AddTable();"></th>
+      <th><input type="button" class="tabledelete" value="リセット" onclick="sakuzyo()"></th>
+      <th><input type="button" class="submitadd" value="登録" onclick="submitAdd()"></th>
+    </tr></table>
+    <table border="1" cellspacing="0" cellpadding="4" id="keihin"     style="background-color: #FFF;">
+    <tr><th>景品名</th><th>個数</th><!--<th>画像アドレス</th><th>備考</th><th>優先度</th>--><th>削除</th></tr>
+    <tbody id="tb"><tr id="tr1">
+    </tr></tbody>
+    </table>
+    </div>
+    <div class="modoru">
+    <input type="button" class="btn1" onclick="bingoFinish()" value="終了">
+    <input type="button" id="lotteryStart" class="btn2" value="景品抽選へ" disabled>
+    <input type="button" class="btn3" onclick="window.open('/bingo/roulette', '_blank')" value="大画面表示">
+    <input type="button" class="btn4" onclick="screenChange()" value="大画面切り替え">
+    </div>
+  </body>
+</html>

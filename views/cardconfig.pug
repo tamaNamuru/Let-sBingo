@@ -1,0 +1,122 @@
+﻿doctype html
+html(lang='ja')
+  head
+    meta(charaset='UTF-8')
+    title ビンゴ画面
+    link(href='/stylesheets/cardconfig.css', rel='stylesheet')
+    link(href= style_url, rel='stylesheet')
+  body
+    #haikei1
+      #inputtitle
+        h1
+          span#b 　ビ
+          span#n ン
+          span#g ゴ
+          span#k カ
+          span#no ー
+          span#d ド
+          span#s 作
+          span#sei 成
+      form(method='post', action='update', enctype='multipart/form-data', onsubmit='return update()')
+        #settei1
+          h2.henkoutitle 変更項目
+          | 　　①上部背景画像URL
+          ol
+            input#imagefileup_url(type='hidden', name='backimageup_url')
+            input#imagefileup(type='file', name='backimageup', accept='image/*')
+          | 　　②下部背景画像URL:
+          ol
+            input#imagefiledown_url(type='hidden', name='backimagedown_url')
+            input#imagefiledown(type='file', name='backimagedown', accept='image/*')
+          | 　　③フォント:　
+          ol
+            select#font(name='fonttype')
+              option(value='', selected='') 標準
+              option(value='arial black') arial black
+              option(value='Impact') Impact
+              option(value='Verdana') Verdana
+              option(value='"ＭＳ ゴシック"') ＭＳ ゴシック
+              option(value='cursive') cursive
+              option(value='fantasy') fantasy
+          | 　　④文字サイズ:
+          ol
+            select#size(name='fontsize')
+              option(value='50px') 50
+              option(value='60px') 60
+              option(value='70px') 70
+              option(value='80px') 80
+              option(value='90px') 90
+          | 　　⑤ビンゴの文字:　　
+          label
+            input(type='radio', name='bingofont', value='あり')
+            | あり
+          label
+            input(type='radio', name='bingofont', value='なし')
+            | なし
+          br
+          br
+          | 　　⑥枠線:　　
+          label
+            input(type='radio', name='waku', value='1')
+            | あり
+          label
+            input(type='radio', name='waku', value='2')
+            | なし
+          br
+          br
+          | 　　⑦文字色:　
+          input(type='color', name='color')
+          | 　　　⑧枠線色:　
+          input(type='color', name='wakucolor')
+          br
+          br
+          | 　　
+          input.hozon(type='submit', value='保存')
+          input.sample(type='button', value="サンプル1")
+          input.sample2(type='button', value="サンプル2")
+          input.sample3(type='button', value="サンプル3")
+    #haikei
+      #viewtitle
+        h2
+          span#sam Sample
+      #card_mitame
+        table#bingo(width='580', border='1', cellspacing='30')
+          tr#mitame
+            th B
+            th I
+            th N
+            th G
+            th O
+        table#number(width='580', border='1', cellspacing='30')
+          tr
+            td.kazu 1
+            td.kazu 2
+            td.kazu 3
+            td.kazu 4
+            td.kazu 5
+          tr
+            td.kazu 11
+            td.kazu 12
+            td.kazu 13
+            td.kazu 14
+            td.kazu 15
+          tr
+            td.kazu 21
+            td.kazu 22
+            td#free.kazu FREE
+            td.kazu 24
+            td.kazu 25
+          tr
+            td.kazu 31
+            td.kazu 32
+            td.kazu 33
+            td.kazu 34
+            td.kazu 35
+          tr
+            td.kazu 41
+            td.kazu 42
+            td.kazu 43
+            td.kazu 44
+            td.kazu 45
+    input.btn1(type='button' value='戻る' onclick="location.href='/manage'")
+    script(type='text/javascript', src='/javascripts/cardconfig.js')

@@ -1,0 +1,113 @@
+﻿@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+/*背景*/
+.bg{ 
+	margin-top: 0;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 0;
+	width: 100%;
+	background-color: BurlyWood;
+  	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, Wheat), color-stop(.5, transparent), to(transparent));
+ 	background-image: -moz-linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	background-image: -o-linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	background-image: linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	-webkit-background-size: 35px 35px;
+  	-moz-background-size: 35px 35px;
+  	background-size: 35px 35px;
+ }
+/*テーブル設定(左)*/
+.b_table {
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 100%;
+	font-size: 70px;
+	font-weight: bold;
+	margin: 0;
+	text-align: center;
+	border: solid 2px #82636b; 
+	border-collapse: collapse;
+
+}
+.b_table tr {
+	margin: 0;
+	border:  solid 2px #82636b;
+	border-collapse: collapse;
+}
+.b_table th {
+	
+	margin: 0;
+	padding: 0;
+	border:  solid 2px #82636b;
+	border-collapse: collapse;
+}
+.b_table td {
+	margin: 0;
+	border:  solid 2px #82636b;
+	border-collapse: collapse;
+}
+/*テーブル設定(右)*/
+.b1_table {
+	position: relative;
+	width: 50%;
+	height: 100%;
+	font-size: 70px;
+	font-weight: bold;
+	margin: 0;
+	text-align: center;
+	border: solid 2px #82636b; 
+	border-collapse: collapse;
+}
+.b1_table tr {
+	margin: 0;
+	border:  solid 2px #82636b;
+	border-collapse: collapse;
+}
+.b1_table th {
+	margin: 0;
+	padding: 0;
+	border:  solid 2px #82636b;
+	border-collapse: collapse;
+}
+.b1_table td {
+	margin: 0; 
+	border:  solid 2px #82636b;
+	border-collapse: collapse;
+}
+/*番号とビンゴ者名の幅を設定*/
+th.th_number {	width: 8%;	font-size: 50px;}
+th.th_name {	width: 45%;	font-size: 50px;}
+
+/*ランキング表の色付け*/
+th:nth-child(1) {	/*番号のフォント*/
+	font-size: 60px;
+	color: #000000;	
+	background: #FFFFFF;
+}
+th:nth-child(2) {	/*ビンゴ者名のフォント*/
+	font-size: 80px;
+	font-family:"HG行書体","HGP行書体",cursive;*/
+	color: #000000;	
+	background: #FFFFFF;
+}
+tr:nth-child(2n) {	/*01,11,21,31当たりの奇数の横の名前フォント*/
+	font-size: 90px;
+	font-family:"HG行書体","HGP行書体",cursive;*/
+	width: 100%;
+	height: 98px;
+	color: #00000;/**/
+	background: #f0fff0;
+}
+tr:nth-child(2n+1) {	/*02,12,22,32当たりの偶数の横の名前フォント*/
+	font-size: 90px;
+	font-family:"HG行書体","HGP行書体",cursive;*/
+	width: 100%;
+	height: 98px;
+	color: #000000;/**/
+	background: #ffffe0;
+}
+td:nth-child(1) {	/*番号(01.02.03etc)のフォント*/
+	font-size: 80px;
+	font-weight: bold;
+}

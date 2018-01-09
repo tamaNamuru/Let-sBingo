@@ -1,0 +1,36 @@
+﻿doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/k.login2.css')
+  body
+    #waku
+      br
+      br
+      br
+      br
+      br
+      header: h1#letsbingo Let's Bingo!
+
+      h2 ログイン
+      br
+      p.caution= error
+      form(method='POST' action='/administrator/login')
+        p
+          | &nbsp;&nbsp;ID:　　
+          input(type='text', name='id', maxlength='4', size='17')
+          | 　　※半角数字４桁を入力</>
+          br
+          br
+          | PASSWORD:　　
+          input(type='password', name='password', size='17', value='password')
+          | 　　※半角英数字８～１２桁を入力</>
+        br
+        p
+          input(type='reset', value='リセット', style='margin-right: 50px;')
+          input(type='submit',value='ログイン')
+        br
+        #touroku
+          h3 新規アカウント登録
+          br
+          a(href='/administrator/signup') 新規登録

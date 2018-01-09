@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Let's BINGO景品閲覧ページ</title>
+<link href="/stylesheets/style.css" rel="stylesheet">
+<link href="/stylesheets/manage.css" rel="stylesheet">
+
+<body>
+<div id="container">
+<header><h1>Let's BINGO景品閲覧ページ</h1></header>
+
+	<div id="contents">
+	<h2>景品閲覧</h2>
+<table border>
+<form method="get" action="reading.html" target="self" >
+
+<tr><th>番号</th><th>景品名</th><th>個数</th><th>景品の画像</th><th>景品の説明</th><th>編集・削除</th></tr>
+<tr><td>2-21</td><td>2-2</td><td>2-3</td><td><img src=" " alt=" "></td><td>2-5</td><td><input type="checkbox" name="prop1" value="" />削除</td></tr>
+<tr><td>3-1</td><td>3-2</td><td>3-3</td><td>3-4</td><td>3-5</td><td>3-6</td></tr>
+<tr><td>4-1</td><td>4-2</td><td>4-3</td><td>4-4</td><td>4-5</td><td>4-6</td></tr>
+<tr><td>5-1</td><td>5-2</td><td>5-3</td><td>5-4</td><td>5-5</td><td>5-6</td></tr>
+<tr><td>6-1</td><td>6-2</td><td>6-3</td><td>6-4</td><td>6-5</td><td>6-6</td></tr>
+</form>
+
+
+</table>
+
+
+<h2>景品登録</h2>
+	<form name="form1" method="post" action="javascript:func()"/>
+	<p>景品名</p>
+	<input type="text" name="name" size="30" placeholder="景品名入力" required/><strong>必須</strong>
+	<p>景品の個数</p>
+	<input type="number" name="num" size="5" placeholder="3" maxlength="3" required/><strong>必須</strong>
+	<p>画像アドレス</p>
+	<input type="text" name="url" size="60" placeholder="画像URLを入力" required /><strong>必須</strong>
+	<p>景品説明</p>
+	<textarea name="message" cols="30" rows="2" value="" placeholder="自由に入力できます"></textarea>
+	
+	<p><input type="submit" name="regist" value="登録"/>
+	<input type="submit" name="change" value="変更" />
+	<input type="submit" name="delete" value="削除" />
+	<input type="reset" name="reset" value="リセット" /></p>
+	<p><a href="/manage">ホーム</a></p>
+	<p><a href="info">景品登録</a><p>
+	</div>
+	
+</div>
+</body>
+</html>

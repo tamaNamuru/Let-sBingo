@@ -1,0 +1,158 @@
+﻿html body{
+	height:100%;
+}
+body {
+	height: auto;
+	width: auto; */
+	margin: auto;
+	padding: 0;
+	margin: 0;
+/*	font-size: 0;*/
+	font-family: 'ヒラギノ角ゴシック','メイリオ', 'ＭＳ Ｐゴシック';
+	background-color: BurlyWood;
+  	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, Wheat), color-stop(.5, transparent), to(transparent));
+ 	background-image: -moz-linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	background-image: -o-linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	background-image: linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	-webkit-background-size: 35px 35px;
+  	-moz-background-size: 35px 35px;
+  	background-size: 35px 35px;
+}
+@media screen and (max-width: 320px) and (max-width: 480px) {
+  div.tab {
+    width: 320px;
+    height: 480px;
+  }
+}
+
+div#keihin {
+	min-height:100vh;
+	width: 100vw;
+	margin-bottom:13vh;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	
+}
+div.gallery{ 
+	margin-top: 0;
+	text-align: center;
+	max-width: 100%;
+}
+/*
+a{ 
+	display: inline-block;
+	height: 20%;
+	width: 20%;
+	text-align: center;
+	text-decoration: none;
+	margin-right: 20px;
+	margin-left: 22px;
+	margin-top: 25px;
+	font-size: 120px;
+	padding: 0; 
+	border: 1px solid #333333;
+	border-radius: 20px;
+	background:linear-gradient(to right bottom, #ffc, #ff0);
+ }
+*/
+img{
+	height: 100%;
+}
+
+.gallery img {
+	width: 100%;
+	height: 100%;
+	margin-left: 20px;
+	margin-top: 40px;
+	margin-right:20px;
+}
+#popup-item{
+    position:fixed;     /* 位置の固定 */
+    top: 50%;           /* 表示位置(真ん中に表示) */
+    left: 50%;          /* 表示位置(真ん中に表示) */
+    margin: 0;          /* 余白の削除 */
+    padding: 0;         /* 余白の削除 */
+    z-index:1001;       /* 要素のz座標 */
+}
+.tiketd{
+    border-collapse: separate;
+    min-width: 48vw;
+    min-height: 19vh;
+    background-image: url(/images/tike.png);
+    background-size: 100% 100%;
+    font-size: 60px;
+}
+.number{
+	height: 80vh;
+}
+#table4{
+    margin-bottom: 25vh;
+}
+.tikekazu{
+    text-align: right;
+    padding-right: 3vw;
+    padding-top: 5.5vh;
+    color: #FFF;
+}
+tr{
+	height:16vh;
+}
+input{
+  font-size:160px;
+  height:100%;
+  width:100%;
+  }
+#footer {
+	position:fixed;
+	bottom:0;
+	width: 100%;
+	font-size:50px;
+    background-color: #FFF;
+}
+#footer div{
+   float:left;
+   width: 25%;
+   height: 10vh;
+   position:relative;
+}
+#ititag{
+background-color:#99ff66;
+border-top:groove 1px #000;
+border-bottom:groove 1px #000;	
+}
+
+#nitag{
+background-color:#34ff32;
+border-top:groove 1px #000;
+border-bottom:groove 1px #000;		
+}
+
+#santag{
+background-color:#6f2;	
+border-top:groove 1px #000;
+border-bottom:groove 1px #000;	
+}
+
+#yontag{
+background-color:#eeffd6;
+border-top:groove 1px #000;
+border-bottom:groove 1px #000;			
+}
+a{
+   position:absolute;
+   top:0;
+   left:0;
+   width:100%;
+   height:100%;
+   text-indent:-999px;
+}
+#footer p{
+   font-size:60px;
+   text-align:center;
+   margin:0;
+   line-height: 10vh;
+}

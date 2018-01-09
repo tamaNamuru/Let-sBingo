@@ -1,0 +1,30 @@
+﻿@charset "utf-8";
+
+#letsbingo{
+	font-size:100px;
+	margin:auto;
+}
+
+body {
+
+	height:1050px;
+	text-align:center;
+	margin:auto;
+}
+
+#waku2{
+	background-color:white;
+	width:900px;
+	height:1050px;
+	margin:auto;
+	border-left: dashed 2px #ffaaaa;
+	border-right:dashed 2px #ffaaaa;
+}
+
+.iti{
+	text-align:left;
+}
+
+#waku3{
+	padding-left:200px;
+}

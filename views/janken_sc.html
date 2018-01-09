@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang = "ja">
+<head>
+<meta charaset="UTF-8"/>
+<title>じゃんけん画面(大画面)</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src='/socket.io/socket.io.js'></script>
+<script type="text/javascript" src="/javascripts/janken_sc.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/janken_sc.css">
+</head>
+<body class="bg">
+<h1>じゃんけん
+<div id="slideshow" >
+  <img src="/images/usa.png" id="re" alt="パネル">
+</div>
+</h1>
+<div id="nokori"><p class="nin">景品上限まで</p><p class="nin2">0</p><p class="nin3">人</p></div>
+<div id="nokori2"><p class="nin">残り人数</p><p class="nin2">0</p><p class="nin3">人</p></div>
+<input type="button" value="グー" id="gu" class="btn"/>
+<input type="button" value="チョキ" id="ch" class="btn"/>
+<input type="button" value="パー" id="pa" class="btn"/>
+<a href="/bingo/jankenscreen" target="_blank">スクリーン用の画面を表示</a>
+<input type="button" value="元に戻す" id="def" class="btn"/>
+</body>
+</html>

@@ -1,0 +1,20 @@
+﻿doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    title 景品抽選
+    link(href='/stylesheets/katoP.css', rel='stylesheet')
+    script(src='/socket.io/socket.io.js')
+    script(src='/javascripts/lotterycontroller.js')
+  body
+    h1 景品抽選画面
+    p#message
+    p 抽選する景品を選んでください！
+    p
+      |総合景品残数
+      span#maxCount 0
+      |個
+    table#keihin
+
+    input#logout(type='button', value='景品抽選終了', onclick="finishButton()")
+    a.mado(href="/bingo/lotteryscreen" target="_blank") スクリーン用の画面を表示

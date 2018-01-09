@@ -1,0 +1,35 @@
+﻿.midashi {
+	background: linear-gradient(to right,#abea5a, #e0ffff00 );
+}
+#hako{
+	height:100%;
+	top:70px;
+}
+#namuru {
+	margin-top: 10vh;
+	position:relative;
+    top:-30px;
+}
+table {
+	margin: auto;
+}
+.btn1{
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    width: 160px;
+    height: 60px;
+    line-height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: -webkit-linear-gradient(#9f9 0%, #9f9 100%);
+    background-image: linear-gradient(#9f9 0%, #9f9 100%);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+    margin-bottom: 24px;
+}

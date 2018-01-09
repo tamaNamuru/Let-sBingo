@@ -1,0 +1,29 @@
+﻿doctype html
+html(lang='ja')
+  head
+    meta(charset='UTF-8')
+    link(href='/stylesheets/style.css', rel='stylesheet')
+    link(href='/stylesheets/ホーム画面.css', rel='stylesheet')
+    title ホーム画面
+  body
+    #hako
+      header
+        .midashi
+          h1
+            span#b ホ
+            span#i ー
+            span#n ム
+            span#g 画
+            span#o 面
+      h2 ID:
+        = id
+      p 部屋名:
+        = name
+      table(border='0')
+        tr
+          td
+            a.s_bingo(href='/bingo') ビンゴ開始
+          td
+            a.settei(href='manage') ビンゴ設定
+      br
+      a.logout(type='button', href='/logout') ログアウト

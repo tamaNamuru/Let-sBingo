@@ -1,0 +1,133 @@
+﻿@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+/*背景*/
+.bg{ 
+	margin: 0;
+	background-color: BurlyWood;
+  	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, Wheat), color-stop(.5, transparent), to(transparent));
+ 	background-image: -moz-linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	background-image: -o-linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	background-image: linear-gradient(Wheat 50%, transparent 50%, transparent);
+  	-webkit-background-size: 35px 35px;
+  	-moz-background-size: 35px 35px;
+  	background-size: 35px 35px;
+ }
+
+/*画面用*/
+
+h1 {
+	width: 100%;
+	font-size: 40px;
+	text-align: center;
+	margin: 0;
+	text-shadow: 0 0 5px white;
+	padding: 0.3em 0.5em;
+	background: -webkit-repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+	background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+}
+h2{ 
+	font-size: 25px;
+	margin: 0;
+}
+.te_btn{
+	width: 1000px;
+	height: 1000px;
+	margin-left: 10%;
+}
+.jan_tab{
+	empty-cells: show;
+}
+td{
+	padding-left: 40px;
+	padding-top: 40px;
+	empty-cells: show;
+}
+#gu_btn{    
+    position: fixed;
+    top: 100px;
+    left: 750px;
+    width: 400px;
+    height: 400px;
+    border: solid;
+    border-radius: 600px;
+    background-image: url("/images/gu.jpg");
+    background-size: 100% 100%;
+}
+#ch_btn{
+    top: 500px;
+    left: 500px;
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border: solid;
+    border-radius: 600px;
+    background-image: url("/images/ch.jpg");
+    background-size: 100% 100%;
+}
+#pa_btn{
+    top: 500px;
+    left: 1000px;
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border: solid;
+    border-radius: 600px;
+    background-image: url("/images/pa.jpg");
+    background-size: 100% 100%;
+}
+.btn{
+    background-color:#FFF;
+    border:0;
+}
+#hyoji_te {
+    background-size: cover;
+    width: 800px;
+    height: 600px;
+    border-radius: 50%;
+    margin: auto;
+    visibility: hidden;
+}
+#nokori{
+    background: #FFF;
+    position: fixed;
+    top: 14%;
+    left: 1300px;
+    height: 300px;
+    width: 500px;
+    margin: 0;
+    border: solid;
+    text-align: center;
+}
+#nin{    
+    margin: 0;
+    height: 20%;
+    background: #fff;
+    font-size: 49px;
+}
+#nin2{
+    float: left;
+    margin: 0;
+    padding-top: 0px;
+    border-top: solid;
+    font-size: 128px;
+    width: 35%;
+    text-align: -webkit-right;
+}
+#nin3{    
+    float: left;
+    margin: 0;
+    padding-top: 39px;
+    border-top: solid;
+    font-size: 128px;
+    width: 20%;
+    text-align: -webkit-center;
+}
+#nin4{    
+    float: left;
+    margin: 0;
+    padding-top: 66px;
+    border-top: solid;
+    font-size: 128px;
+    width: 45%;
+    text-align: initial;
+}

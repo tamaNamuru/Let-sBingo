@@ -1,0 +1,138 @@
+﻿html,body {
+	height: 100%;
+}
+div.tabbox {
+	margin: 0px;
+	padding: 0px;
+	width: 400px;
+}
+
+p.tabs {
+	margin: 0px;
+	padding: 0px;
+}
+p.tabs a {
+	display: block;
+	width: 5em;
+	float: left;
+	margin: 0px 1px 0px 0px;
+	padding: 3px;
+	text-align: center;
+	border-radius: 12px 12px 0px 0px;
+}
+
+p.tabs a.card {
+	background-color: blue;
+	color: white;
+}
+p.tabs a.keihin {
+	background-color: red;
+	color: white;
+}
+p.tabs a:hover {
+	color: yellow;
+}
+
+div.tab {
+	height: 95vh;
+	width: 100vw;
+	clear: left;
+}
+@media screen and (max-width: 320px) and (max-width: 480px) {
+  div.tab {
+    width: 320px;
+    height: 480px;
+  }
+}
+
+div#card {
+	border: 2px solid blue;
+	background-color: #ccffff;
+}
+div#keihin {
+	display: none;
+	border: 2px solid red;
+	background-color: #ffcccc;
+}
+td{
+	border-top-left-radius: 50px;
+ 	border-top-right-radius: 50px;
+ 	width: 100px;
+ 	height: 150px;
+ 	//background-color:#FFFFFF;
+ 	font-size:70px;
+ 	text-align:center;
+ 	border: 1px #000000 solid;
+}
+th{
+ 	font-size:125px;
+ 	text-align:center;
+ 	width: 100px;
+ 	height: 100px;
+ 	border: 0px #ff0000 solid;
+
+}
+#free{
+ 	font-size:40px;
+}
+#bingo{
+ 	background-image: url(/images/kome.jpg);
+ 	background-size: cover;
+ 	width: 950px;
+ 	border-top-left-radius: 40px;
+ 	border-top-right-radius: 40px;
+ 	margin-left: auto;
+	margin-right: auto;
+ 	border-bottom-style: none;
+	margin-top: 5vh;
+	
+}
+#number{
+ 	background-image:url(/images/kabe.jpg);
+ 	background-size: cover;
+ 	width: 950px;
+ 	height: 950px;
+ 	border-bottom-left-radius: 40px;
+ 	border-bottom-right-radius: 40px;
+ 	margin-left:auto;margin-right:auto;
+ 	border-top-style:none;
+}
+#mitame{
+ 	text-shadow:
+  	0px 1px 0px #0092b3,  
+  	0px 2px 0px #0087a6,
+  	0px 3px 0px #008099,
+  	0px 4px 0px #00758c,
+  	0px 5px 0px #555,
+  	0px 6px 0px #006a80,
+  	0px 0px 0px #006073,
+  	0px 8px 7px #005566;
+ 	font-size:100px;
+}
+
+.gallery img {
+	width: 280px;
+	height: 180px;
+	margin-left: 30px;
+	margin-top: 50px;
+}
+#popup-background{
+    position:fixed;     /* 位置の固定 */
+    top: 0;             /* 表示位置 */
+    left: 0;            /* 表示位置 */
+    height: 100%;       /* 画面全体に表示 */
+    width: 100%;        /* 画面全体に表示 */
+    background:#000;    /* 背景色 */
+    opacity: 0.60;      /* 透明度 */
+    margin: 0;          /* 余白の削除 */
+    padding: 0;         /* 余白の削除 */
+    z-index:1000;       /* 要素のz座標 */
+}
+#popup-item{
+    position:fixed;     /* 位置の固定 */
+    top: 50%;           /* 表示位置(真ん中に表示) */
+    left: 50%;          /* 表示位置(真ん中に表示) */
+    margin: 0;          /* 余白の削除 */
+    padding: 0;         /* 余白の削除 */
+    z-index:1001;       /* 要素のz座標 */
+}

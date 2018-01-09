@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charaset="UTF-8"/>
+<title>じゃんけん画面(スマホ)</title>
+<link rel="stylesheet" type="text/css" href="/stylesheets/janken_mobile.css">
+<link href="https://fonts.googleapis.com/css?family=Kranky" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src='/socket.io/socket.io.js'></script>
+<script type="text/javascript" src="/javascripts/janken_mobile.js"></script>
+</head>
+<body class="bg">
+<h2 id="use">しばらくお待ちください。</h2>
+<table class="btn">
+<tr>
+<td colspan="2"><input type="button" alt="グー"  id="gu_btn" class="btn2" img src="/images/gu.png" value="1"></td>
+</tr>
+<tr>
+<td><input type="button" alt="チョキ" id="ch_btn" class="btn2" img src="/images/ch.png" value="2"></td>
+<td><input type="button" alt="パー" id="pa_btn" class="btn2" img src="/images/pa.png" value="3"></td>
+</tr>
+</table>
+<div id="all_btn"></div>
+</body>
+</html>
+

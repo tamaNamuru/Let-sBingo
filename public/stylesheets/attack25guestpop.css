@@ -1,0 +1,135 @@
+﻿body{ 
+margin: 0;
+
+}
+/*ポップアップ3画面*/
+#popup-background{
+    margin: 0;
+    position: fixed;     /* 位置の固定 */
+    top: 0;             /* 表示位置 */
+    right: 0;            /* 表示位置 */
+    height: 100%;       /* 画面全体に表示 */
+    width: 100%;        /* 画面全体に表示 */
+    background-color:#FFF;
+    /*background:#FFF;     背景色 */
+}
+#popup-table{
+    height:100%;
+}
+#popup-tr1{
+    height: 10%;
+}
+#popup-tr2{
+    height: 54%;
+}
+#popup-tr3{
+    height: 10%;
+}
+#popup-tr4{
+    height: 25%;
+}
+#popup-td1{
+    font-weight: bold;
+    text-align: center;
+    font-size: 100px;
+    border-bottom: solid #0f0 10px;
+    background-color: #f9ff1659
+}
+#popup-td2{
+    /*background-image: url("niku.jpg");*/
+    background-size: 100% 100%;
+}
+#popup-td3{       
+    font-weight: bold;
+    text-align: center;
+    font-size: 85px;
+    border-top: double #0f0 20px;
+    border-bottom: double #0f0 20px;
+}
+#popup-td4{
+    background-image: url("/images/keihintyuui.jpg");
+    background-size: 100% 100%;
+    width: 43%;
+}
+#popup-td5{
+    width: 20%;
+}
+#kakunin{
+    font-size: 93px;
+    height: 100%;
+    width: 100%;
+}
+.star {
+    animation: kirakira 8s linear;
+    color: yellow;
+    display: inline-block;
+    height: 1em;
+    line-height: 1em;
+    position: fixed;
+    top: -1em;
+    z-index: 1000;
+}
+/*ポップアップ3画面*/
+#popup-background2{
+ margin: 0;
+    position: fixed;    
+    top: 0;             
+    right: 0;            
+    height: 100%;      
+    width: 100%;       
+}
+#popup-background3{
+    position: fixed;    
+    top: 0;             
+    right: 0;            
+    height: 100%;      
+    width: 100%;       
+    background-image:url("/images/kotatu.jpg"); 
+    background-size: 100% 100%;   
+}
+#setumei{
+    position: fixed;    
+    top: 0;             
+    right: 0;            
+    height: 100%;      
+    width: 100%;       
+    background-image:url("/images/setumei.jpg"); 
+    background-size: 100% 100%;   
+}
+#setumeiok{
+    position: fixed;    
+    top: 85%;             
+    right: 10%;
+    height: 10%;
+    width: 30%; 
+    font-size:60px;
+}
+#tike4kazu{
+    position: fixed;
+    left: 766px;
+    top: 0;
+    margin-top: 55%;
+    font-size: 140px;
+    color: #FFF;
+}
+#ticket{
+position: relative;
+margin-top:50%;
+height:390px;
+}
+#tike3{
+left:50px;
+}
+#tike4{
+top:-50px;
+position: absolute;
+top:0px;
+}
+@keyframes kirakira {
+    0% {
+        transform:translateY(0) rotateY(0);
+    }
+    100% {
+        transform:translateY(calc(100vh + 1em)) rotateY(3600deg);
+    }
+}*/

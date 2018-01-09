@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Let's BINGO景品登録ページ</title>
+<link href="stylesheets/manage.css" rel="stylesheet">
+<body>
+<div id="container">
+<header><h1>Let's BINGO景品登録ページ</h1></header>
+
+	<div id="contents">
+	
+
+	<h2>景品登録</h2>
+	
+	<form name="form1" method="post" action="javascript:func()"/>
+	<p>景品名</p>
+	<input type="text" name="name" size="30" placeholder="景品名入力" required/><strong>必須</strong>
+	<p>景品の個数</p>
+	<input type="number" name="num" size="5" placeholder="3" maxlength="3" required/><strong>必須</strong>
+	<p>画像アドレス</p>
+	<input type="text" name="url" size="30" placeholder="画像URLを入力" required /><strong>必須</strong>
+	<p>景品説明</p>
+	<textarea name="message" cols="30" rows="2" value="" placeholder="自由に入力できます"></textarea>
+	
+	<p><input type="submit" name="regist" value="登録"/>
+	<input type="reset" name="reset" value="リセット" /></p>
+	<p><a href="../">ホーム</a></p>
+	<p><a href="../showGoods">景品閲覧</a></p>
+	</div>
+	
+</div>
+</body>
+</html>

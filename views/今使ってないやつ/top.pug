@@ -1,0 +1,11 @@
+﻿extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  form(method='POST',action='/bingo')
+    input(type='submit',value='ビンゴの部屋を立てる')
+  
+  form(method='GET',action='/logout')
+    input(type='submit',value='Logout')
