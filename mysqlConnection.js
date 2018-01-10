@@ -10,7 +10,7 @@ var dbConfig = {
 
 var connection = new Connection(dbConfig);
 
-//module.exports = connection;
+module.exports = connection;
 
 connection.on('connect', function(err) {
 	if(err) {
