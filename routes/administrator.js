@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-//var connection = require('../mysqlConnection');
+var connection = require('../mysqlConnection');
 var select = 'SELECT name FROM room WHERE room_id = @room_id AND password = @password';
 
 var idselect = 'SELECT room_id FROM room';
