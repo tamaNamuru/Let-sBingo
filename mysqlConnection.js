@@ -1,15 +1,13 @@
-﻿var Connection = require('tedious').Connection;
+﻿var Connection = require('mssql');
 
 var dbConfig = {
-	userName: 'master',
+	user: 'master',
 	password: 'ikkKtmksrsr7',
 	server: 'keserasera.database.windows.net',
-	options: {enclipt: true, database: 'bingo'}
+	database: 'bingo',
+	options: {enclipt: true}
 };
 
-var connection = new Connection(dbConfig);
+var connection = Connection.createConnection(dbConfig);
 
-connection.on('connect', function(err) {
-	console.log("Connected");
-});
 module.exports = connection;
