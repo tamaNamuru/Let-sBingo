@@ -53,6 +53,7 @@ router.post('/signup', function(req, res, next) {
 			});
 			connection.execSql(request);
 			console.log("namuru");
+			connection.close();
         		/*connection.query('SELECT name FROM room WHERE name = ?', [req.body.name], function(e, r, f){
             		if(r.length > 0){
                 		res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
