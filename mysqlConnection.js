@@ -5,7 +5,7 @@ var dbConfig = {
 	password: 'ikkKtmksrsr7',
 	server: 'keserasera.database.windows.net',
 	
-	options: {enclipt: true, database: 'bingo'}
+	options: {encript: true, database: 'bingo'}
 };
 
 var connection = new Connection(dbConfig);
