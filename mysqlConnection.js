@@ -1,4 +1,4 @@
-﻿var Connection = require('tedious');
+﻿var Connection = require('tedious').Connection;
 
 var dbConfig = {
 	userName: 'master',
@@ -7,6 +7,9 @@ var dbConfig = {
 	options: {enclipt: true, database: 'bingo'}
 };
 
-var connection = Connection.createConnection(dbConfig);
+var connection = new Connection(config);
 
+connection.on('connect', function(err) {
+	console.log("Connected");
+});
 module.exports = connection;
