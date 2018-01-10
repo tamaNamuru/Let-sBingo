@@ -1,12 +1,12 @@
-﻿var mysql = require('mysql');
+﻿var Connection = require('tedious').Connection;
 
 var dbConfig = {
-	host: 'keserasera.database.windows.net',
-	user: 'master',
+	userName: 'master',
 	password: 'ikkKtmksrsr7',
-	database: 'bingo'
+	server: 'keserasera.database.windows.net',
+	options: {enclipt: true, database: 'bingo'}
 };
 
-var connection = mysql.createConnection(dbConfig);
+var connection = new Connection(dbConfig);
 
 module.exports = connection;
