@@ -42,48 +42,48 @@ router.post('/signup', function(req, res, next) {
 		//データベースに登録
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
 		connection.on('connect', function(er) {
-			request = new Request('SELECT name FROM room WHERE name = @name', function(e) {
-		});
-		request.addParameter('name', TYPES.VarChar, req.body.name);
-		request.on('row', function(columns) {
+			request = new Request('SELECT name FROM room WHERE name = @name;', function(e) {
+			});
+			request.addParameter('name', TYPES.VarChar, req.body.name);
+			request.on('row', function(columns) {
 			if(columns.value != null) {
 				res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
 				return;
 			}
-		});
-		console.log("namuru");
-        /*connection.query('SELECT name FROM room WHERE name = ?', [req.body.name], function(e, r, f){
-            if(r.length > 0){
-                res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
-                return;
-            }*/
+		//});
+			console.log("namuru");
+        		/*connection.query('SELECT name FROM room WHERE name = ?', [req.body.name], function(e, r, f){
+            		if(r.length > 0){
+                		res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
+                		return;
+            		}*/
             //room_idを取得
-            connection.query(idselect, function(err, resul, fiel) {
-                let idSet = new Set();
-                for(let re in resul) {
-                    idSet.add(re.room_id);
-                }
-                //idが重複していれば新しく作る
-                while(idSet.has(id)) id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
-                //追加
-                connection.query(insert, [id, req.body.password, req.body.name], function(error, results, fields) {
-                    if(error){
-                        res.redirect('signup');
-                    }else{
-                        //写真用のフォルダ作成
-                        fs.mkdir('public/projects/' + id, function (err) {
-                            if(err) console.log(id + "folder error");
-                        });
-                        //使用するビンゴカードの登録(ここではstandard.cssが設定される)
-                        connection.query(insert_card, [id], function(err, results, fields) {
-                            if(err) console.log(id + "insert table card error");
-                        });
-                        req.session.user = {id: id, name: req.body.name, administrator: true};
-                        res.redirect('../');
-                    }
-                });
-            });
-        });
+            		connection.query(idselect, function(err, resul, fiel) {
+                		let idSet = new Set();
+                		for(let re in resul) {
+                    		idSet.add(re.room_id);
+                		}
+                		//idが重複していれば新しく作る
+		                while(idSet.has(id)) id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
+		                //追加
+		                connection.query(insert, [id, req.body.password, req.body.name], function(error, results, fields) {
+		                    if(error){
+		                        res.redirect('signup');
+		                    }else{
+		                        //写真用のフォルダ作成
+		                        fs.mkdir('public/projects/' + id, function (err) {
+		                            if(err) console.log(id + "folder error");
+		                        });
+		                        //使用するビンゴカードの登録(ここではstandard.cssが設定される)
+		                        connection.query(insert_card, [id], function(err, results, fields) {
+		                            if(err) console.log(id + "insert table card error");
+		                        });
+		                        req.session.user = {id: id, name: req.body.name, administrator: true};
+		                        res.redirect('../');
+		                    }
+                		});
+           		 });
+        	});
 	}else {
 		res.redirect('signup');
 	}
