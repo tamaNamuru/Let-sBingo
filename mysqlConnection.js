@@ -10,7 +10,6 @@ var dbConfig = {
 
 mssql.connect(dbConfig, function(err) {
 	console.log(err);
-	mssql.close();
 });
 
 var connection = new mssql.Request();
