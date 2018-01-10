@@ -10,9 +10,9 @@ var dbConfig = {
 
 var connection = new Connection(dbConfig);
 
-//module.exports = connection;
+module.exports = connection;
 
-connection.on('connect', function(err) {
+/*connection.on('connect', function(err) {
 if(err) console.log(err);
 else{
 	console.log("Connected");
@@ -44,4 +44,4 @@ function executeStatement() {
         	console.log(rowCount + ' rows returned');  
         });  
         connection.execSql(request);  
-}
+}*/
