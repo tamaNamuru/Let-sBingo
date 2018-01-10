@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var connection = require('../mysqlConnection');
+//var connection = require('../mysqlConnection');
 var select = 'SELECT name FROM room WHERE room_id = @room_id AND password = @password';
 
 var idselect = 'SELECT room_id FROM room';
@@ -59,7 +59,7 @@ router.post('/signup', function(req, res, next) {
                 		return;
             		}*/
             //room_idを取得
-            		connection.query(idselect, function(err, resul, fiel) {
+            		/*connection.query(idselect, function(err, resul, fiel) {
                 		let idSet = new Set();
                 		for(let re in resul) {
                     		idSet.add(re.room_id);
@@ -83,7 +83,8 @@ router.post('/signup', function(req, res, next) {
 		                        res.redirect('../');
 		                    }
                 		});
-           		 });
+           		 });*/
+           		 res.redirect('signup');
         	});
 	}else {
 		res.redirect('signup');
