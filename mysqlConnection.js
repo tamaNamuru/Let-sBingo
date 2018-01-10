@@ -12,7 +12,7 @@ var connection = new Connection(dbConfig);
 
 //module.exports = connection;
 
-/*connection.on('connect', function(err) {
+connection.on('connect', function(err) {
 if(err) console.log(err);
 else{
 	console.log("Connected");
@@ -22,7 +22,7 @@ else{
 var Request = require('tedious').Request;  
 var TYPES = require('tedious').TYPES;
 
-function executeStatement() {
+/*function executeStatement() {
 	request = new Request("SELECT * FROM room;",function(err) {
 		if(err) {
 			console.log(err);
@@ -45,3 +45,16 @@ function executeStatement() {
         });  
         connection.execSql(request);  
 }*/
+connection.on('connect', function(er) {
+	request = new Request('SELECT name FROM room WHERE name = @name;', function(e) {
+	});
+	request.addParameter('name', TYPES.VarChar, 'tama');
+	request.on('row', function(columns) {
+		if(columns.value != null) {
+			//res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
+			return;
+		}
+	});
+	connection.execSql(request);
+	console.log("namuru");
+});
