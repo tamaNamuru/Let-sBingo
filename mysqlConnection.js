@@ -1,9 +1,9 @@
 ﻿var mysql = require('mysql');
 
 var dbConfig = {
-	host: 'localhost',
+	host: 'keserasera.database.windows.net',
 	user: 'master',
-	password: 'pass',
+	password: 'ikkKtmksrsr7',
 	database: 'bingo'
 };
 
