@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var connection = require('../mysqlConnection');
+//var connection = require('../mysqlConnection');
 var select = 'SELECT name FROM room WHERE room_id = @room_id AND password = @password';
 
 var idselect = 'SELECT room_id FROM room';
@@ -10,6 +10,18 @@ var insert_card = "INSERT INTO card(room_id) VALUES(@room_id)";
 
 var fs = require('fs');
 
+
+var Connection = require('tedious').Connection;
+
+var dbConfig = {
+	userName: 'master',
+	password: 'ikkKtmksrsr7',
+	server: 'keserasera.database.windows.net',
+	
+	options: {encrypt: true, database: 'bingo'}
+};
+
+var connection = new Connection(dbConfig);
 
 var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
@@ -21,6 +33,7 @@ router.get('/', function(req, res, next) {
 router.get('/signup', function(req, res, next) {
 	res.render('新規作成画面');
 });
+
 
 //新規登録
 router.post('/signup', function(req, res, next) {
