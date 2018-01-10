@@ -13,5 +13,5 @@ mssql.connect(dbConfig, function(err) {
 	mssql.close();
 });
 
-var connection = mssql.Request();
+var connection = new mssql.Request();
 module.exports = connection;
