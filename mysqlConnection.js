@@ -1,19 +1,22 @@
-﻿var sql = require('sql');
-
-sql.setDialect('mssql');
+﻿var Connection = require('tedious').Connection;
 
 var dbConfig = {
 	user: 'master',
 	password: 'ikkKtmksrsr7',
 	server: 'keserasera.database.windows.net',
-	database: 'bingo',
-	options: {enclipt: true}
+	
+	options: {enclipt: true, database: 'bingo'}
 };
 
-sql.connect(dbConfig, function(err) {
-	console.log(err);
-	sql.close();
-});
+var connection = new Connection(dbConfig);
 
-var connection = new sql.Request();
-module.exports = connection;
+//module.exports = connection;
+
+connection.on('connect', function(err) {
+	if(err) {
+		console.log(err);
+	}else {
+		console.log("suce");
+		connection.close();
+	}
+});
