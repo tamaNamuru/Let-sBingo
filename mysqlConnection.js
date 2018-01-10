@@ -13,8 +13,11 @@ var connection = new Connection(dbConfig);
 //module.exports = connection;
 
 connection.on('connect', function(err) {
+if(err) console.log(err);
+else{
 	console.log("Connected");
 	executeStatement();
+}
 });
 var Request = require('tedious').Request;  
 var TYPES = require('tedious').TYPES;
