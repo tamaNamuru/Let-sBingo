@@ -1,4 +1,6 @@
-﻿var mssql = require('mssql');
+﻿var sql = require('sql');
+
+sql.setDialect('mssql');
 
 var dbConfig = {
 	user: 'master',
@@ -10,6 +12,7 @@ var dbConfig = {
 
 mssql.connect(dbConfig, function(err) {
 	console.log(err);
+	sql.close();
 });
 
 var connection = new mssql.Request();

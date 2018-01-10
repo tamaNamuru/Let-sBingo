@@ -18,6 +18,7 @@
     "pug": "~2.0.0-beta11",
     "serve-favicon": "~2.4.2",
     "socket.io": "^2.0.3",
+    "sql": "^0.78.0",
     "tedious": "^2.1.5"
   }
 }
