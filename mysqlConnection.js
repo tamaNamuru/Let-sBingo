@@ -7,7 +7,7 @@ var dbConfig = {
 	options: {enclipt: true, database: 'bingo'}
 };
 
-var connection = new Connection(config);
+var connection = new Connection(dbConfig);
 
 connection.on('connect', function(err) {
 	console.log("Connected");
