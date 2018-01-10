@@ -28,16 +28,17 @@ router.post('/signup', function(req, res, next) {
 	if(req.body.name && req.body.password){
 		//データベースに登録
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
-	connection.on('connect', function(er) {
-		request = new Request('SELECT name FROM room WHERE name = @name', function(e) {
-			request.addParameter('name', TYPES.VarChar, req.body.name);
-			request.on('row', function(columns) {
-				if(columns.value != null) {
-					res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
-					return;
-				}
-			});
-			console.log("namuru");
+		connection.on('connect', function(er) {
+			request = new Request('SELECT name FROM room WHERE name = @name', function(e) {
+		});
+		request.addParameter('name', TYPES.VarChar, req.body.name);
+		request.on('row', function(columns) {
+			if(columns.value != null) {
+				res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
+				return;
+			}
+		});
+		console.log("namuru");
         /*connection.query('SELECT name FROM room WHERE name = ?', [req.body.name], function(e, r, f){
             if(r.length > 0){
                 res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
