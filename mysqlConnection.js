@@ -10,10 +10,10 @@ var dbConfig = {
 	options: {enclipt: true}
 };
 
-mssql.connect(dbConfig, function(err) {
+sql.connect(dbConfig, function(err) {
 	console.log(err);
 	sql.close();
 });
 
-var connection = new mssql.Request();
+var connection = new sql.Request();
 module.exports = connection;
