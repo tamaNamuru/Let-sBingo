@@ -1,4 +1,4 @@
-﻿var Connection = require('mssql');
+﻿var mssql = require('mssql');
 
 var dbConfig = {
 	user: 'master',
@@ -8,6 +8,10 @@ var dbConfig = {
 	options: {enclipt: true}
 };
 
-var connection = Connection.createConnection(dbConfig);
+mssql.connect(dbConfig, function(err) {
+	console.log(err);
+	mssql.close();
+});
 
+var connection = mssql.Request();
 module.exports = connection;
