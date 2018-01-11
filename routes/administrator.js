@@ -54,7 +54,7 @@ router.post('/signup', function(req, res, next) {
                 });
                 if(result != null){
                     console.log("同じのアリ");
-                    res.render('新規作成画面');
+                    res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
                     return;
                 }
 			});
@@ -90,7 +90,6 @@ router.post('/signup', function(req, res, next) {
                         }
                     });
              });*/
-             res.redirect('signup');
         });
 	}else {
 		res.redirect('signup');
