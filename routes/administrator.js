@@ -21,9 +21,9 @@ var dbConfig = {
 	options: {encrypt: true, database: 'bingo'}
 };
 
-var connection = new Connection(dbConfig);
+//var connection = new Connection(dbConfig);
 
-var Request = require('tedious').Request;
+var Request = require('tedious').Request;  
 var TYPES = require('tedious').TYPES;
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -37,13 +37,14 @@ router.get('/signup', function(req, res, next) {
 
 //新規登録
 router.post('/signup', function(req, res, next) {
+    var connection = new Connection(dbConfig);
 	//入力されているかのチェックなくてもいい
 	if(req.body.name && req.body.password){
 		//データベースに登録
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
-		connection.on('connect', function(er) {
+		connection.on('connect', function(error2) {
             console.log("Connected!");
-			request = new Request('SELECT name FROM room WHERE name = @name;', function(e) {
+			request = new Request('SELECT name FROM room WHERE name = homo;', function(error3) {
 			});
 			request.on('row', function(columns) {
 				if(columns.value != null) {
