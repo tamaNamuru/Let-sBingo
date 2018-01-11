@@ -47,12 +47,14 @@ router.post('/signup', function(req, res, next) {
 			request = new Request("SELECT name FROM room WHERE name = '" + req.body.name + "';", function(error3) {
                 console.log(error3);
 			});
+            var result = "";
 			request.on('row', function(columns) {
                 columns.forEach(function(column) {
                     console.log(column);
                     result+= column.value;
                 }
                 console.log(column);
+                console.log("result" + result);
                 if(columns.value != null) {
                     res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
                     return;
