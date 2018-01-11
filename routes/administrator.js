@@ -44,7 +44,7 @@ router.post('/signup', function(req, res, next) {
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
 		connection.on('connect', function(error2) {
             console.log("Connected!");
-			request = new Request('SELECT name FROM room WHERE name = homo;', function(error3) {
+			request = new Request('SELECT name FROM room WHERE name = ?;', function(error3) {
 			});
 			request.on('row', function(columns) {
 				if(columns.value != null) {
