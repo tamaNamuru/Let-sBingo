@@ -50,10 +50,10 @@ router.post('/signup', function(req, res, next) {
             var result = "";
 			request.on('row', function(columns) {
                 columns.forEach(function(column) {
-                    console.log(column);
                     result+= column.value;
                 });
                 if(result != null){
+                    console.log("同じのアリ");
                     res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
                     return;
                 }
