@@ -52,7 +52,7 @@ router.post('/signup', function(req, res, next) {
                 columns.forEach(function(column) {
                     console.log(column);
                     result+= column.value;
-                }
+                });
                 console.log(column);
                 console.log("result" + result);
                 if(columns.value != null) {
