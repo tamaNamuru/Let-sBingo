@@ -45,8 +45,10 @@ router.post('/signup', function(req, res, next) {
 		connection.on('connect', function(error2) {
             console.log("Connected!");
 			request = new Request('SELECT name FROM room WHERE name = @name;', function(error3) {
+                console.log(error3);
 			});
 			request.on('row', function(columns) {
+                console.log(columns);
 				if(columns.value != null) {
 					res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
 					return;
