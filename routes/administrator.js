@@ -46,17 +46,19 @@ router.post('/signup', function(req, res, next) {
             console.log("Connected!");
 			request = new Request("SELECT name FROM room WHERE name = '" + req.body.name + "';", function(error3) {
                 console.log(error3);
-                console.log(columns.value);
 			});
 			request.on('row', function(columns) {
-                console.log(columns);
-				if(columns.value != null) {
-					res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
-					return;
-				}
+                columns.forEach(function(column) {
+                    console.log(column);
+                    result+= column.value;
+                }
+                console.log(column);
+                if(columns.value != null) {
+                    res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
+                    return;
+                }
 			});
 			connection.execSql(request);
-			console.log("namuru");
             /*connection.query('SELECT name FROM room WHERE name = ?', [req.body.name], function(e, r, f){
                 if(r.length > 0){
                     res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
