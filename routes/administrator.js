@@ -4,7 +4,6 @@ var router = express.Router();
 /*var connection = require('../mysqlConnection');*/
 var select = 'SELECT name FROM room WHERE room_id = @room_id AND password = @password';
 
-var idselect = 'SELECT room_id FROM room';
 var insert = 'INSERT INTO room(room_id, password, name) VALUES(@room_id, @password, @name)';
 var insert_card = "INSERT INTO card(room_id) VALUES(@room_id)";
 
@@ -43,7 +42,6 @@ router.post('/signup', function(req, res, next) {
 		//データベースに登録
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
 		connection.on('connect', function(error2) {
-            console.log("Connected!");
 			request = new Request("SELECT name FROM room WHERE name = '" + req.body.name + "';", function(error3) {
                 console.log(error3);
 			});
@@ -53,18 +51,22 @@ router.post('/signup', function(req, res, next) {
                     result+= column.value;
                 });
                 if(result != null){
-                    console.log("同じのアリ");
                     res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
                     return;
                 }
+            });
+            request = new Request("SELECT room_id FROM room;",function(error4) {
+                console.log(error4);
+            });
+            
+            request.on('row', function(columns) {
+                console.log(columns);
+                res.render('新規作成画面');
 			});
 			connection.execSql(request);
-            /*connection.query('SELECT name FROM room WHERE name = ?', [req.body.name], function(e, r, f){
-                if(r.length > 0){
-                    res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
-                    return;
-                }*/
         //room_idを取得
+            var idselect = 'SELECT room_id FROM room';
+            
                 /*connection.query(idselect, function(err, resul, fiel) {
                     let idSet = new Set();
                     for(let re in resul) {
