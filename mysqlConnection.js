@@ -1,4 +1,4 @@
-﻿var Connection = require('tedious').Connection;
+﻿/*var Connection = require('tedious').Connection;
 
 var dbConfig = {
 	userName: 'master',
@@ -19,7 +19,7 @@ else{
 	//executeStatement();
 }
 });*/
-var Request = require('tedious').Request;  
+/*var Request = require('tedious').Request;  
 var TYPES = require('tedious').TYPES;
 
 /*function executeStatement() {
@@ -45,7 +45,7 @@ var TYPES = require('tedious').TYPES;
         });  
         connection.execSql(request);  
 }*/
-connection.on('connect', function(er) {
+/*connection.on('connect', function(er) {
 	request = new Request('SELECT name FROM room WHERE name = @name;', function(e) {
 	});
 	request.addParameter('name', TYPES.VarChar, 'tama');
@@ -57,4 +57,4 @@ connection.on('connect', function(er) {
 	});
 	connection.execSql(request);
 	console.log("namuru");
-});
+});*/
