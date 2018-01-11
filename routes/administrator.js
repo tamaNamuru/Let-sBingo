@@ -48,7 +48,7 @@ router.post('/signup', function(req, res, next) {
                 console.log(error3);
 			});
 			request.on('row', function(columns) {
-                console.log(columns);
+                console.log(columns.value);
 				if(columns.value != null) {
 					res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
 					return;
