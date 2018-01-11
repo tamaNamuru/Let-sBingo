@@ -37,8 +37,7 @@ router.get('/signup', function(req, res, next) {
 //新規登録
 router.post('/signup', function(req, res, next) {
     var connection = new Connection(dbConfig);
-    SqlParameters param = new SqlParameter();
-param.value = true;
+    
 	//入力されているかのチェックなくてもいい
 	if(req.body.name && req.body.password){
 		//データベースに登録
