@@ -61,12 +61,14 @@ router.post('/signup', function(req, res, next) {
             let idSet = new Set();
             request.on('row', function(columns) {
                 if(columns === null) {
-                    console.log("tamachannel");
+                        console.log("tamachannel");
                 }else {
-                    for(let re in columns.value) {
-                        idSet.add(re.room_id);
-                    }
-                    console.log("namuru");
+                    columns.forEach(function(column) {
+                        for(let re in columns.value) {
+                            idSet.add(re.room_id);
+                        }
+                        console.log("namuru");
+                    });
                 }
                 res.redirect('signup');
 			});
