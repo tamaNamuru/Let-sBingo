@@ -61,8 +61,8 @@ router.post('/signup', function(req, res, next) {
             var resultArray = new Array();
             let idSet = new Set();
             request.on('row', function(columns) {
-                while(column.value != null) {
-                    resultArray.push(column.value);
+                while(columns.value != null) {
+                    resultArray.push(columns.value);
                 }
                 for(var i = 0;resultArray.length > i; i++) {
                     console.log(resultArray.length);
