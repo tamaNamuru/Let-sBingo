@@ -48,6 +48,7 @@ router.post('/signup', function(req, res, next) {
             var result = "";
 			request.on('row', function(columns) {
                 columns.forEach(function(column) {
+                    console.log(column);
                     result+= column.value;
                 });
                 if(result != null){
@@ -72,10 +73,11 @@ router.post('/signup', function(req, res, next) {
                     console.log(error3);
                 }
             });
-            console.log("hoge");
             request.addParameter('room_id', TYPES.NVerChar, "\'" + id + "\'");
             request.addParameter('password', TYPES.NVerChar, "\'" + req.body.password + "\'");
-            console.log("hoge2");
+            
+            //thishere
+            
             request.addParameter('name', TYPES.NVerChar, "\'" + req.body.name + "\'");
             request.on('row', function(columns) {
                 columns.forEach(function(column) {
