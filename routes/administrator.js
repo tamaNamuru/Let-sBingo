@@ -60,13 +60,13 @@ router.post('/signup', function(req, res, next) {
             });
             
             request.on('row', function(columns) {
-                console.log(columns);
+                console.log(columns.values);
                 res.render('新規作成画面');
 			});
 			connection.execSql(request);
         //room_idを取得
             var idselect = 'SELECT room_id FROM room';
-            
+
                 /*connection.query(idselect, function(err, resul, fiel) {
                     let idSet = new Set();
                     for(let re in resul) {
