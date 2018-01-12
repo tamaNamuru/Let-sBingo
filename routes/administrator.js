@@ -60,7 +60,7 @@ router.post('/signup', function(req, res, next) {
             });
             let idSet = new Set();
             request.on('row', function(columns) {
-                for(let re in columns) {
+                for(let re in columns.value) {
                     idSet.add(re.room_id);
                 }
                 console.log("namuru");
