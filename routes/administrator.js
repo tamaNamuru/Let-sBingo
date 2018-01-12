@@ -60,16 +60,18 @@ router.post('/signup', function(req, res, next) {
             });
             let idSet = new Set();
             request.on('row', function(columns) {
-                if(columns === null) {
+                columns.forEach(function(column) {
+                    if(column.value === null) {
                         console.log("tamachannel");
-                }else {
-                    columns.forEach(function(column) {
+                        console.log(columns);
+                    }else {
                         for(let re in columns.value) {
                             idSet.add(re.room_id);
                         }
                         console.log("namuru");
-                    });
-                }
+                    }
+                });
+               
                 res.redirect('signup');
 			});
         //room_idを取得
