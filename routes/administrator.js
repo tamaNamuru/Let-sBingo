@@ -56,38 +56,26 @@ router.post('/signup', function(req, res, next) {
                     return;
                 }
             });
-            request = new Request("SELECT room_id FROM room;", function(error4) {
-                console.log(error4);
-            });
-            let idSet = new Set();
-            console.log("1"); //現在限界点
-            
-            /*request.on('row', function(columns) {
-                columns.forEach(function(column) {
-                });
-                res.redirect('signup');
-			});*/
-            
-            request = new Request("INSERT INTO room (room_id, password, name) VALUES (@room_id, @password, @name);", function(error3) {
-                if(error3) {
+            while(true) {
+                request = new Request("SELECT room_id FROM room WHERE room_id = '" + id + "';", function(error3) {
                     console.log(error3);
-                }
-            });
-            request.addParameter('room_id', TYPES.NVerChar, "\'" + id + "\'");
-            request.addParameter('password', TYPES.NVerChar, "\'" + req.body.password + "\'");
-            
-            //thishere
-            
-            request.addParameter('name', TYPES.NVerChar, "\'" + req.body.name + "\'");
-            request.on('row', function(columns) {
-                columns.forEach(function(column) {
-                    if(column.value === null) {
-                        console.log('null');
+                });
+                var result = "";
+                request.on('row', function(columns) {
+                    columns.forEach(function(column) {
+                        console.log(column);
+                        result+= column.value;
+                    });
+                    if(result == null) { 
+                        console.log("OK");
+                        break;
                     }else {
-                        console.log('できたかな？');
+                        console.log("NG");
+                        id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
                     }
                 });
-            });
+            }
+            
         
         //room_idを取得
             var idselect = 'SELECT room_id FROM room';
