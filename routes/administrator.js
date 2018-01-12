@@ -65,7 +65,7 @@ router.post('/signup', function(req, res, next) {
                 });
                 res.redirect('signup');
 			});*/
-            request = new Recuest("INSERT INTO room (room_id, password, name) VALUES (@room_id, @password, @name);", function(error3) {
+            request = new Request("INSERT INTO room (room_id, password, name) VALUES (@room_id, @password, @name);", function(error3) {
                 if(error3) {
                     console.log(error3);
                 }
