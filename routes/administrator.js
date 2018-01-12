@@ -58,15 +58,18 @@ router.post('/signup', function(req, res, next) {
             request = new Request("SELECT room_id FROM room;",function(error4) {
                 console.log(error4);
             });
-            console.log("kajijmoto");
             let idSet = new Set();
             request.on('row', function(columns) {
-                for(let re in columns.value) {
-                    idSet.add(re.room_id);
+                if(columns === null) {
+                    
+                }else {
+                    for(let re in columns.value) {
+                        idSet.add(re.room_id);
+                    }
+                    console.log("namuru");
                 }
-                console.log("namuru");
+                res.redirect('signup');
 			});
-			connection.execSql(request);
         //room_idを取得
             var idselect = 'SELECT room_id FROM room';
 
