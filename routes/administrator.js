@@ -69,7 +69,7 @@ router.post('/signup', function(req, res, next) {
                     }
                 });
                 let idSet = new Set();
-                for(let i = 0;resultArray.length  > i; i++) {
+                for(let i = 0;resultArray.length-1  > i; i++) {
                     idSet.add(resultArray[i]);
                     console.log(idSet);
                 }
