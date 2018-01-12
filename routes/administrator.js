@@ -77,7 +77,7 @@ router.post('/signup', function(req, res, next) {
             request.addParameter('password', TYPES.NVerChar, "\'" + req.body.password + "\'");
             console.log("hoge2");
             request.addParameter('name', TYPES.NVerChar, "\'" + req.body.name + "\'");
-            request.on('row', function(colomns) {
+            request.on('row', function(columns) {
                 columns.forEach(function(column) {
                     if(column.value === null) {
                         console.log('null');
