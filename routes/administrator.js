@@ -68,7 +68,10 @@ router.post('/signup', function(req, res, next) {
                         resultArray.push(column.value);
                     }
                 });
-                console.log(resultArray);
+                let idSet = new Set();
+                for(let re in resultArray) {
+                    idSet.add(re.roomid);
+                }
 			});
 			connection.execSql(request);
         //room_idを取得
