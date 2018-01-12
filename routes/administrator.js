@@ -58,6 +58,7 @@ router.post('/signup', function(req, res, next) {
             request = new Request("SELECT room_id FROM room;",function(error4) {
                 console.log(error4);
             });
+            console.log("kajijmoto");
             let idSet = new Set();
             request.on('row', function(columns) {
                 for(let re in columns.value) {
