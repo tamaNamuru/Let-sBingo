@@ -59,7 +59,7 @@ router.post('/signup', function(req, res, next) {
                 console.log(error4);
             });
             let idSet = new Set();
-            console.log("1");
+            console.log("1"); //現在限界点
             request.on('row', function(columns) {
                 console.log("b");
                 columns.forEach(function(column) {
@@ -75,7 +75,7 @@ router.post('/signup', function(req, res, next) {
                         console.log("namuru");
                     }
                 });
-               
+                connection.execSql(request);
                 res.redirect('signup');
 			});
         //room_idを取得
