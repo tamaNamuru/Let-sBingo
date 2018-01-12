@@ -86,7 +86,6 @@ router.post('/signup', function(req, res, next) {
                     }
                 });
             });
-            connection.execSql(request);
         
         //room_idを取得
             var idselect = 'SELECT room_id FROM room';
