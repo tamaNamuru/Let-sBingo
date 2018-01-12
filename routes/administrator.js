@@ -58,18 +58,18 @@ router.post('/signup', function(req, res, next) {
             request = new Request("SELECT room_id FROM room;",function(error4) {
                 console.log(error4);
             });
-            
+            var resultArray = new Array();
             request.on('row', function(columns) {
-                var resultArray = new Array();
                 columns.forEach(function(column) {
                     if(column.value === null) { 
+                        break;
                     }
                     else {
                         resultArray.push(column.value);
                     }
                 });
                 let idSet = new Set();
-                for(let i = 0; resultArray.length > i; i++) {
+                for(var i = 0;resultArray.length > i; i++) {
                     console.log(resultArray.length);
                     idSet.add(resultArray[i]);
                     console.log(idSet);
