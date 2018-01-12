@@ -60,18 +60,22 @@ router.post('/signup', function(req, res, next) {
             });
             let idSet = new Set();
             console.log("1"); //現在限界点
+            
             /*request.on('row', function(columns) {
                 columns.forEach(function(column) {
                 });
                 res.redirect('signup');
 			});*/
+            
             request = new Request("INSERT INTO room (room_id, password, name) VALUES (@room_id, @password, @name);", function(error3) {
                 if(error3) {
                     console.log(error3);
                 }
             });
+            console.log("hoge");
             request.addParameter('room_id', TYPES.NVerChar, "\'" + id + "\'");
             request.addParameter('password', TYPES.NVerChar, "\'" + req.body.password + "\'");
+            console.log("hoge2");
             request.addParameter('name', TYPES.NVerChar, "\'" + req.body.name + "\'");
             request.on('row', function(colomns) {
                 columns.forEach(function(column) {
