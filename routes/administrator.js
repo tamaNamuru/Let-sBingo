@@ -65,7 +65,7 @@ router.post('/signup', function(req, res, next) {
                     if(column.value === null) { 
                     }
                     else {
-                        resultArray.push(result);
+                        resultArray.push(result.value);
                     }
                 });
                 console.log(resultArray);
