@@ -58,20 +58,12 @@ router.post('/signup', function(req, res, next) {
             request = new Request("SELECT room_id FROM room;",function(error4) {
                 console.log(error4);
             });
-            var resultArray = new Array();
             let idSet = new Set();
             request.on('row', function(columns) {
-                console.log(columns);
-                while(columns.value != null) {
-                    resultArray.push(columns.value);
+                for(let re in columns) {
+                    idSet.add(re.room_id);
                 }
-                console.log(resultArray);
-                for(var i = 0;resultArray.length > i; i++) {
-                    console.log(resultArray.length);
-                    idSet.add(resultArray[i]);
-                    console.log(idSet);
-                }
-                console.log("add finish");
+                console.log("namuru");
 			});
 			connection.execSql(request);
         //room_idを取得
