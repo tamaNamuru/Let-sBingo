@@ -62,13 +62,13 @@ router.post('/signup', function(req, res, next) {
                 });
                 var result = "";
                 request.on('row', function(columns) {
-                    columns.forEach(function(column) {
+                    columns.some(function(column) {
                         console.log(column);
                         result+= column.value;
                     });
                     if(result == null) { 
                         console.log("OK");
-                        break;
+                        return true;
                     }else {
                         console.log("NG");
                         id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
