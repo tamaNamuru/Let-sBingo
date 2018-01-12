@@ -70,9 +70,11 @@ router.post('/signup', function(req, res, next) {
                 });
                 let idSet = new Set();
                 for(let i = 0; resultArray.length > i; i++) {
+                    console.log(resultArray.length);
                     idSet.add(resultArray[i]);
                     console.log(idSet);
                 }
+                console.log("add finish");
 			});
 			connection.execSql(request);
         //room_idを取得
