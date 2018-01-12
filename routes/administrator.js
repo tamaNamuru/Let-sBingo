@@ -59,16 +59,11 @@ router.post('/signup', function(req, res, next) {
                 console.log(error4);
             });
             var resultArray = new Array();
+            let idSet = new Set();
             request.on('row', function(columns) {
-                columns.forEach(function(column) {
-                    if(column.value === null) { 
-                        break;
-                    }
-                    else {
-                        resultArray.push(column.value);
-                    }
-                });
-                let idSet = new Set();
+                while(column.value != null) {
+                    resultArray.push(column.value);
+                }
                 for(var i = 0;resultArray.length > i; i++) {
                     console.log(resultArray.length);
                     idSet.add(resultArray[i]);
