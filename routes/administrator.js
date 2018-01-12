@@ -60,7 +60,7 @@ router.post('/signup', function(req, res, next) {
             });
             
             request.on('row', function(columns) {
-                console.log(columns.values);
+                console.log(columns);
                 res.render('新規作成画面');
 			});
 			connection.execSql(request);
