@@ -61,7 +61,7 @@ router.post('/signup', function(req, res, next) {
             let idSet = new Set();
             request.on('row', function(columns) {
                 if(columns === null) {
-                    
+                    console.log("tamachannel");
                 }else {
                     for(let re in columns.value) {
                         idSet.add(re.room_id);
