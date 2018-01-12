@@ -65,11 +65,10 @@ router.post('/signup', function(req, res, next) {
                     if(column.value === null) { 
                     }
                     else {
-                        resultArray.push(result.value);
+                        resultArray.push(results.value);
                     }
                 });
                 console.log(resultArray);
-                res.render('新規作成画面');
 			});
 			connection.execSql(request);
         //room_idを取得
