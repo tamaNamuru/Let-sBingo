@@ -55,29 +55,35 @@ router.post('/signup', function(req, res, next) {
                     return;
                 }
             });
-            request = new Request("SELECT room_id FROM room;",function(error4) {
+            request = new Request("SELECT room_id FROM room;", function(error4) {
                 console.log(error4);
             });
             let idSet = new Set();
             console.log("1"); //現在限界点
-            request.on('row', function(columns) {
-                console.log("b");
+            /*request.on('row', function(columns) {
                 columns.forEach(function(column) {
-                    console.log("c");
+                });
+                res.redirect('signup');
+			});*/
+            request = new Recuest("INSERT INTO room (room_id, password, name) VALUES (@room_id, @password, @name);", function(error3) {
+                if(error3) {
+                    console.log(error3);
+                }
+            });
+            request.addParameter('room_id', TYPES.NVerChar, "\'" + id + "\'");
+            request.addParameter('password', TYPES.NVerChar, "\'" + req.body.password + "\'");
+            request.addParameter('name', TYPES.NVerChar, "\'" + req.body.name + "\'");
+            request.on('row', function(colomns) {
+                columns.forEach(function(column) {
                     if(column.value === null) {
-                        console.log("d");
-                        console.log(columns);
+                        console.log('null');
                     }else {
-                        console.log("e");
-                        for(let re in columns.value) {
-                            idSet.add(re.room_id);
-                        }
-                        console.log("namuru");
+                        console.log('できたかな？');
                     }
                 });
-                connection.execSql(request);
-                res.redirect('signup');
-			});
+            });
+            connection.execSql(request);
+        
         //room_idを取得
             var idselect = 'SELECT room_id FROM room';
 
