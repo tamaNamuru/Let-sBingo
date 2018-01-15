@@ -2,7 +2,7 @@
 
 var dbConfig = {
 	host: 'mysql1.php.xdomain.ne.jp',
-	user: 'letsbingo_master',
+	user: 'letsbingo_master@sv4.php.xdomain.ne.jp',
 	password: 'ikkKtmksrsr7',
 	database: 'letsbingo_bingo'
 };
