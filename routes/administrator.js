@@ -43,9 +43,12 @@ router.post('/signup', function(req, res, next) {
 		connection.on('connect', function(error2) {
 			console.log("c");
 			request = new Request("SELECT name FROM room WHERE name = '" + req.body.name + "';", function(error) {
-				console.log(error);
+				if(error){
+					console.log(error);
+				}
 			});
 			var result = "";
+			console.log("nishibayashi");
 			request.on('row', function(columns) {
 				console.log("d");
 				columns.forEach(function(column) {
