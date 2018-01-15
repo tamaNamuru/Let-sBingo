@@ -5,7 +5,7 @@ var dbConfig = {
 	user: 'letsbingo_master',
 	password: 'ikkKtmksrsr7',
 	database: 'letsbingo_bingo',
-	ssl: true;
+	ssl: true
 };
 
 var connection = mysql.createConnection(dbConfig);
