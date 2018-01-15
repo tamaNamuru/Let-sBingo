@@ -43,42 +43,41 @@ router.post('/signup', function(req, res, next) {
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
 		connection.on('connect', function(error2) {
 			request = new Request("SELECT name FROM room WHERE name = '" + req.body.name + "';", function(error3) {
-                console.log(error3);
+                		console.log(error3);
 			});
-            var result = "";
+            		var result = "";
 			request.on('row', function(columns) {
-                columns.forEach(function(column) {
-                    console.log(column);
-                    result+= column.value;
-                });
-                if(result != null){
-                    res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
-                    return;
-                }
-            });
-            while(true) {
-                request = new Request("SELECT room_id FROM room WHERE room_id = '" + id + "';", function(error3) {
-                    console.log(error3);
-                });
-                var result = "";
-                request.on('row', function(columns) {
-                    columns.some(function(column) {
-                        console.log(column);
-                        result+= column.value;
-                    });
-                    if(result == null) { 
-                        console.log("OK");
-                        return true;
-                    }else {
-                        console.log("NG");
-                        id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
-                    }
-                });
-            }
+                		columns.forEach(function(column) {
+           	         		console.log(column);
+           	         		result+= column.value;
+           	     		});
+           	     		if(result != null){
+           	         		res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
+              	 			return;
+              			}
+           		});
+                	request = new Request("SELECT room_id FROM room WHERE room_id = '" + id + "';", function(error3) {
+                		console.log(error3);
+                	});
+                	var result = "";
+                	request.on('row', function(columns) {
+                    		columns.some(function(column) {
+                        		console.log(column);
+                        		result+= column.value;
+                    		});
+                    		if(result == null) { 
+                        		console.log("OK");
+                        		return true;
+                    		}else {
+                        		console.log("NG");
+                        		id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
+                    		}
+                	});
+        	}	
             
         
         //room_idを取得
-            var idselect = 'SELECT room_id FROM room';
+            	var idselect = 'SELECT room_id FROM room';
 
                 /*connection.query(idselect, function(err, resul, fiel) {
                     let idSet = new Set();
