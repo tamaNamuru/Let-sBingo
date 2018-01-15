@@ -35,79 +35,56 @@ router.get('/signup', function(req, res, next) {
 
 //新規登録
 router.post('/signup', function(req, res, next) {
-    var connection = new Connection(dbConfig);
-    
+	var connection = new Connection(dbConfig);
 	//入力されているかのチェックなくてもいい
 	if(req.body.name && req.body.password){
 		//データベースに登録
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
 		connection.on('connect', function(error2) {
 			request = new Request("SELECT name FROM room WHERE name = '" + req.body.name + "';", function(error3) {
-                		console.log(error3);
+				console.log(error3);
 			});
-            		var result = "";
+			var result = "";
 			request.on('row', function(columns) {
-                		columns.forEach(function(column) {
-           	         		console.log(column);
-           	         		result+= column.value;
-           	     		});
-           	     		if(result != null){
-           	         		res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
-              	 			return;
-              			}
-           		});
-                	request = new Request("SELECT room_id FROM room WHERE room_id = '" + id + "';", function(error3) {
-                		console.log(error3);
-                	});
-                	var result = "";
-                	request.on('row', function(columns) {
-                    		columns.some(function(column) {
-                        		console.log(column);
-                        		result+= column.value;
-                    		});
-                    		if(result == null) { 
-                        		console.log("OK");
-                        		return true;
-                    		}else {
-                        		console.log("NG");
-                        		id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
-                    		}
-                	});
-        		
-            
-        
-        //room_idを取得
-            	var idselect = 'SELECT room_id FROM room';
-
-                /*connection.query(idselect, function(err, resul, fiel) {
-                    let idSet = new Set();
-                    for(let re in resul) {
-                        idSet.add(re.room_id);
-                    }
-                    //idが重複していれば新しく作る
-                    while(idSet.has(id)) id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
-                    //追加
-                    connection.query(insert, [id, req.body.password, req.body.name], function(error, results, fields) {
-                        if(error){
-                            res.redirect('signup');
-                        }else{
-                            //写真用のフォルダ作成
-                            fs.mkdir('public/projects/' + id, function (err) {
-                                if(err) console.log(id + "folder error");
-                            });
-                            //使用するビンゴカードの登録(ここではstandard.cssが設定される)
-                            connection.query(insert_card, [id], function(err, results, fields) {
-                                if(err) console.log(id + "insert table card error");
-                            });
-                            req.session.user = {id: id, name: req.body.name, administrator: true};
-                            res.redirect('../');
-                        }
-                    });
-             });*/
-        });
+				columns.forEach(function(column) {
+					console.log(column);
+					result+= column.value;
+				});
+				if(result != null){
+					res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
+					return;
+				}
+			});
+			//room_idを取得
+			var idselect = 'SELECT room_id FROM room';
+			/*connection.query(idselect, function(err, resul, fiel) {
+				let idSet = new Set();
+				for(let re in resul) {
+					idSet.add(re.room_id);
+				}
+				//idが重複していれば新しく作る
+				while(idSet.has(id)) id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
+				//追加
+				connection.query(insert, [id, req.body.password, req.body.name], function(error, results, fields) {
+					if(error){
+						res.redirect('signup');
+					}else{
+						//写真用のフォルダ作成
+						fs.mkdir('public/projects/' + id, function (err) {
+							if(err) console.log(id + "folder error");
+						});
+						//使用するビンゴカードの登録(ここではstandard.cssが設定される)
+						connection.query(insert_card, [id], function(err, results, fields) {
+							if(err) console.log(id + "insert table card error");
+						});
+						req.session.user = {id: id, name: req.body.name, administrator: true};
+						res.redirect('../');
+					}
+				});
+			});*/
+		});
 	}else {
-		res.redirect('signup');
-	}
+	res.redirect('signup');
 });
 
 //管理者のログイン
