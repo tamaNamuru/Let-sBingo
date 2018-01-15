@@ -47,7 +47,7 @@ router.post('/signup', function(req, res, next) {
 			var result = "";
 			request.on('row', function(columns) {
 				columns.forEach(function(column) {
-					console.log(column);
+					console.log("tama");
 					result+= column.value;
 				});
 				if(result != null){
