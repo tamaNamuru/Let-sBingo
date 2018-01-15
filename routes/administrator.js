@@ -73,7 +73,7 @@ router.post('/signup', function(req, res, next) {
                         		id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
                     		}
                 	});
-        	}	
+        		
             
         
         //room_idを取得
