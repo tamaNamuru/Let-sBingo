@@ -57,6 +57,7 @@ router.post('/signup', function(req, res, next) {
 			});
 			//room_idを取得
 			var idselect = 'SELECT room_id FROM room';
+		});
 			/*connection.query(idselect, function(err, resul, fiel) {
 				let idSet = new Set();
 				for(let re in resul) {
@@ -82,9 +83,10 @@ router.post('/signup', function(req, res, next) {
 					}
 				});
 			});*/
-		});
+		
 	}else {
-	res.redirect('signup');
+		res.redirect('signup');
+	}
 });
 
 //管理者のログイン
