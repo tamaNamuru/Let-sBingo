@@ -35,17 +35,15 @@ router.get('/signup', function(req, res, next) {
 
 //新規登録
 router.post('/signup', function(req, res, next) {
-	console.log("a");
 	var connection = new Connection(dbConfig);
 	//入力されているかのチェックなくてもいい
 	if(req.body.name && req.body.password){
-		console.log("b");
 		//データベースに登録
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
 		connection.on('connect', function(error2) {
 			console.log("c");
 			request = new Request("SELECT name FROM room WHERE name = '" + req.body.name + "';", function(error3) {
-				console.log(error3);
+				console.log("homo");
 			});
 			var result = "";
 			request.on('row', function(columns) {
