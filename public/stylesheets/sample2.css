@@ -1,0 +1,12 @@
+﻿td.kazu {
+    color: #fc2c14;
+    font-family: Impact;
+    font-size: 90px;
+    -webkit-text-stroke: 2px #06f224;
+}
+#bingo {
+    background-image: url("/images/sample2bingo.jpg");
+}
+#number {
+    background-image: url("/images/sample2card.jpg");
+}

@@ -125,6 +125,10 @@ function display(id, randomInt) {
 	}
 }
 
+//音源
+var aAudio = $( "#media_player" );
+var bAudio = $( "#media_player1" );
+
 //socket
 const sub = io('/sub');
 
@@ -165,17 +169,24 @@ sub.on('updateBingoCount', (count) => {
 });
 //運営者がStartボタンを押すとサーバ経由で受信する
 sub.on('rouletteStart', () => {
+    aAudio.get(0).play();
+	aAudio.get(0).pause();
+	aAudio.get(0).load();
+	aAudio.get(0).play();
 	Check("bb");
 });
 
 var countflag = 0;
 //送られてきた数字を表示
 sub.on('broadcastNumber', (number) => {
+    aAudio.get(0).pause();
+	bAudio.get(0).play();
+	bAudio.get(0).load();
+	bAudio.get(0).play();
 	Check(number);	//送られてきた数字を入力
 	countflag++;
 	if(countflag < 76) {
 		if(countflag > 6) {
-			/*$('#sample1_table').animate({"left": "+=280px"},"slow");*/
 			$('.ball').animate({"left": "-=280px"},"slow");
 		}
 	}

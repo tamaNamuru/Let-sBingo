@@ -19,12 +19,13 @@ module.exports = class Attack25Lottery extends SimpleLottery {
 			this.attack25Info[j] = t;
 		}
         this.guestJumpyurl = '/guest/attack25lottery';
+        this.shaffule = false;
 	}
 	
 	reloadInit(socket, prizeMax) {
 		if(prizeMax == this.guestPriority.length) {	//抽選者がそろっていれば
 			if(this.curIndex == 0){
-				socket.emit('placeBox', prizeMax);
+				socket.emit('placeBox', prizeMax, this.shaffule);
 			}else{	//途中再開
 				let purl = [];
 				for(let i=0; i < this.prizeInfo.length; i++){
@@ -38,7 +39,7 @@ module.exports = class Attack25Lottery extends SimpleLottery {
 				//抽選者が選んだ抽選権の番号を記録していないので
 				//prize_idを使って一つ前の景品の画像を呼び出す
 				let current_url = this.prizeInfo[this.guestPrizeID.get(
-				this.guestPriority[this.curIndex[socket.request.session.user.id]-1][1])-1].picture_url;
+				this.guestPriority[this.curIndex-1][1])-1].picture_url;
 				socket.emit('reloadInit', this.roomOpens, purl, current_url);
 			}
 		}
@@ -64,10 +65,10 @@ module.exports = class Attack25Lottery extends SimpleLottery {
 	
 	//大画面用
 	subInit(socket) {
-		if(this.curIndex == 0){
+		if(this.curIndex == 0 && !this.shaffule){
 			socket.emit('placeBox', this.attack25Info.length);
 		}else{	//リロード
-			socket.emit('reloadInit', this.roomOpens, getPictureURLs());
+			socket.emit('reloadInit', this.roomOpens, this.getPictureURLs());
 		}
 	}
 	

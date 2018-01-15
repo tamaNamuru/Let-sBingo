@@ -8,7 +8,7 @@
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <title>ATTACK25方式抽選</title>
   </head>
-  <body>
+    <body>
     <div id="center"></div>
     <div id="ribon">
     <header>
@@ -28,8 +28,28 @@
     <div id="waku">
       <div id="title"></div>
     </div>
-    <!-- gifにしてみたい-->
-    <!-- <script type="text/javascript" src="photo.js"></script>-->
+<audio hidden name="media" preload="auto" id="media_player" >
+    <source src="/sounds/nc135335.mp3" type="audio/mp3" ><!-- カードのヒンズーシャッフル -->
+</audio>
+<audio hidden name="media" preload="auto" id="media_player1">
+    <source src="/sounds/e1-004_victory_01.mp3" type="audio/mp3"><!-- ファンファーレ -->
+</audio>
+<audio hidden name="media" preload="auto" id="media_player2">
+    <source src="/sounds/card-turn-over1.mp3" type="audio/mp3"><!-- カードをめくる音 -->
+</audio>
+<audio hidden name="media" preload="auto" id="media_player3">
+    <source src="/sounds/selection.mp3" type="audio/mp3"><!-- 抽選音 -->
+</audio>
+<audio hidden name="media" preload="auto" id="media_player4">
+    <source src="/sounds/紙箱・開ける.mp3" type="audio/mp3"><!-- 紙箱・閉める音 -->
+</audio>
+<audio hidden name="media" preload="auto" id="media_player5">
+    <source src="/sounds/紙箱・閉める.mp3" type="audio/mp3"><!-- 紙箱・閉める音 -->
+</audio>
+<audio hidden name="media" preload="auto" id="media_player6">
+    <source src="/sounds/tympani-roll1.mp3" type="audio/mp3"><!-- ティンパニロール -->
+    <source src="/sounds/drum-japanese2.mp3" type="audio/mp3"><!-- 和太鼓でドドン -->
+</audio>
     <script type="text/javascript" src="/javascripts/attack25.js"></script>
-  </body>
+    </body>
 </html>

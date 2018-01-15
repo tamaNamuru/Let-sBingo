@@ -279,6 +279,7 @@ module.exports = class Room {
 	
 	//大画面用の景品のurlを返す
 	attack25LotteryStart(){
+        this.lottery.shaffule = true;
 		return this.lottery.getPictureURLs();
 	}
 	

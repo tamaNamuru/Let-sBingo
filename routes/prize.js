@@ -39,10 +39,10 @@ router.get('/info', function(req, res, next) {
 });
 
 router.post('/insert', upload.array('pic'), function(req, res, next) {
-	if(!req.body.name) {	//とりあえず何も入力されていなければ何もしない
-		res.redirect('show');
-		return;
-	}
+	//if(!req.body.name) {	//とりあえず何も入力されていなければ何もしない
+	//	res.redirect('show');
+	//	return;
+	//}
 	console.log(req.body);
 	console.log(req.files);
 	let id = req.session.user.id;

@@ -35,6 +35,7 @@ for(var count = 1; count <= opens.length; count++){
     if(opens[count-1]){ //開封済み
         $('.tiketd').eq(count-1).children().text("");
         $('.tiketd').eq(count-1).css({"background-image":'url("/images/tike5.png")'});
+        selectnumber.push($('.tiketd').eq(count-1));
     }else{
         if(count <= 9){
                 $('.tikekazu').eq(count-1).text("0" + (count));

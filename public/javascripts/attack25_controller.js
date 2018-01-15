@@ -91,7 +91,7 @@ $('#startButton').bind('click', function(e){
     attack25_manager.emit('lotteryStart');
 });
 
-attack25_manager.on('placeBox', (boxNum) => {
+attack25_manager.on('placeBox', (boxNum, shaffule) => {
     boxkazu = boxNum;
     var boxkazu2 =  0;
     for(var j = 0; j< 4;j++){
@@ -137,7 +137,14 @@ attack25_manager.on('placeBox', (boxNum) => {
 			}
 		}
     }
-    $('#startButton').prop("disabled", false);
+    if(shaffule){
+        for(i = 0;i<boxkazu;i++){
+            $('td').eq(i).css('background-image',"url(/images/l_e_present_70.png)");
+		}
+        bangou();
+    }else{
+        $('#startButton').prop("disabled", false);
+    }
 });
     
     attack25_manager.on('reloadInit', (opens, images, cur_url) => {
@@ -191,11 +198,12 @@ attack25_manager.on('placeBox', (boxNum) => {
 	            $('td').eq(i).css('background-image',"url("+img1[i]+")");
 	        }else{
 	            $('td').eq(i).css('background-image',"url(/images/l_e_present_70.png)");
+                $('td').eq(i).text(i+1);
 	        }
 		}
 		$("#keihinimg").css('background-image',"url("+cur_url+")");
 		$("#keihinimg").fadeIn( 2000 ) ;
-		$("#waku").fadeIn( 4000 ) ;	
+		$("#waku").fadeIn( 4000 ) ;
     });
     
 //景品セット↓

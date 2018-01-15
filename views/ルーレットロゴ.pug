@@ -18,9 +18,6 @@ html
         p#bingosya 0
         p#nin 人
     #box2
-      //
-        <input type="button" value="変更" onclick="Check('bb')"></input>
-        <input type="button"id="buttonMove" value="変" onclick="Check('aa')"></input>
       table#sample1_table(style='text-align: center;')
     #popup-background
     p.popup-roomname
@@ -31,4 +28,8 @@ html
       | ルームID:
       = roomid
       // ルームIDの表示
+    audio#media_player(hidden name="media", preload="auto", loop)
+      source(src="/sounds/tympani-roll1.mp3" type="audio/mp3")
+    audio#media_player1(hidden name="media", preload="auto")
+      source(src="/sounds/drum-japanese2.mp3", type="audio/mp3")
     script(type='text/javascript', src='/javascripts/tamamove.js')

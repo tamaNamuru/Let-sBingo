@@ -82,4 +82,22 @@ router.post('/update', upload.fields([{name: 'backimageup'}, {name: 'backimagedo
 	});
 });
 
+router.get('/sample', function(req, res, next) {
+    let cssurl = '/stylesheets/standard.css';
+    switch(parseInt(req.query.number)){
+        case 1:
+            cssurl = '/stylesheets/sample1.css';
+            break;
+        case 2:
+            cssurl = '/stylesheets/sample2.css';
+            break;
+        //case 3:
+            //cssurl = '/stylesheets/sample3.css';
+            //break;
+    }
+	connection.query(update, [cssurl, req.session.user.id], function(error, result) {
+			res.redirect('config');
+    });
+});
+
 module.exports = router;

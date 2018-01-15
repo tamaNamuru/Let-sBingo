@@ -24,59 +24,6 @@ const attack25_sub = io('/attack25_sub');
     //3個  440;  390;
     //2個  595;  470;
     //1個  830;
-//margin-leftを追加して見た目を整える
-    /*
-    var boxkazu = 15;
-    var boxkazu2 =  0;
-    	for(var j = 0; j< 4;j++){
-		if(boxkazu2 == boxkazu){
-			break;
-		}
-    		for(i = 0; i< 8;i++){
-			$('tr').eq(j).prepend('<td ></td>');
-			boxkazu2++;
-			if(boxkazu2 == boxkazu){
-				break;
-			}
-		}	
-    		
-	}
-	var boxkazu2 = 0;
-    var boxkazu = ($('table').children.length-1) * 8 + $('table').lastChild.length;
-	for(var j = 0; j< 4;j++){
-		if(boxkazu2 == boxkazu){
-			break;
-		}
-		var vw = 10;
-    		if(Math.floor(boxkazu/8) == j && j != 0){
-			vw = vwint[boxkazu-j*8-1][0];
-    			for(var i = 0; i < 8;i++){
-				$('td').eq(count).css('margin-left',vw+"px");
-				count++;
-				vw = vw + vwint[boxkazu-j*8-1][1];
-				boxkazu2++;
-				if(boxkazu2 == boxkazu){
-					break;
-				}
-			}
-		}else{
-			for(var i = 0; i < 8;i++){
-				$('td').eq(count).css('margin-left',vw+"px");
-				count++;
-				vw = vw + 235;
-				boxkazu2++;
-				if(boxkazu2 == boxkazu){
-					break;
-				}
-			}
-		}
-    }*/
-    /*
-//画像セット	
-    for(i = 0; i<24;i++){
-	img1[i] = i+".jpg";
-    }
-    */
 
 
 //景品の取得↓
@@ -84,8 +31,31 @@ attack25_sub.on('sendPrizeNumber', (number, picture_url, name) => {
 	tenmetucount =0;
     img1[number] = picture_url; //サーバ側で抽選権の番号を-1している
     $('#title').html(name);
-	count = number;//Math.floor( Math.random() * ( boxkazu ) );				
-	setTimeout(function(){ tenmetu(count,1)},500);
+	count = number;			
+	
+    setTimeout(function(){ tenmetu(count,1)},500);
+    var mySources = $( "#media_player6" ).children("source");
+	var myAudioPlayer = document.getElementById( "media_player6" );
+	myAudioPlayer.addEventListener( "ended", function () {
+
+		//  まだ曲があるなら再生する
+		if ( 0 < mySources.length ) {
+			//  sourceタグ配列の先頭を取り出して、src属性からパスを取得
+			var mySource = mySources.splice( 0, 1 );
+			var myPath = $( mySource ).attr( "src" );
+
+			//  取得したパスを再生する
+			myAudioPlayer.pause();
+			myAudioPlayer.src = myPath;
+			myAudioPlayer.load();
+			myAudioPlayer.play();
+		}
+	} );
+	//  連続再生するための1曲名を再生する。
+	//  この再生が終わると上記で設定したイベントハンドラが呼ばれる
+	//  やってることはイベントハンドラの中身と同じ
+	var mySource = mySources.splice( 0, 1 );
+	var myPath = $( mySource ).attr( "src" );
 	setTimeout(function(){ idou(count)},5500);
 	setTimeout(function(){ henka(count)},7500);
 	setTimeout(function(){ popup(count)},8000);
@@ -117,6 +87,8 @@ function tenmetu(count,i){
 //ボックスを開け煙を出す
    function henka(count){
 	$('td').eq(count).css('background-image',"url(/images/hako.png)");
+    var Audio = $( "#media_player4" );
+    Audio.get(0).play();
 	$( "#minikemuri" ).fadeIn( "slow" ) ;
    }
 //2回目の移動
@@ -130,6 +102,8 @@ function tenmetu(count,i){
 //煙を出しポップアップを表示させる
 function popup(count){
 	$("#keihinimg").css('background-image',"url("+img1[count]+")");
+    var Audio = $( "#media_player1" );
+	Audio.get(0).play();
 	$("#kemuri").fadeIn();
 	$("#kemuri").fadeOut( 2000 ) ;
 	$("#keihinimg").fadeIn( 2000 ) ;
@@ -141,7 +115,7 @@ attack25_sub.on('hidePopup', () => {
 	$("#waku").fadeOut();
 });
 
-attack25_sub.on('placeBox', (boxNum) => {
+attack25_sub.on('placeBox', (boxNum, shaffule) => {
     boxkazu = boxNum;
     var boxkazu2 =  0;
     for(var j = 0; j< 4;j++){
@@ -186,6 +160,12 @@ attack25_sub.on('placeBox', (boxNum) => {
 				}
 			}
 		}
+    }
+    if(shaffule){
+        for(i = 0;i<boxkazu;i++){
+            $('td').eq(i).css('background-image',"url(/images/l_e_present_70.png)");
+        }
+        bangou();
     }
 });
 //リロード時は演出を飛ばす
@@ -240,6 +220,7 @@ attack25_sub.on('reloadInit', (opens, images) => {
             $('td').eq(i).css('background-image',"url("+img1[i]+")");
         }else{
             $('td').eq(i).css('background-image',"url(/images/l_e_present_70.png)");
+            $('td').eq(i).text(i+1);
         }
 	}
 });
@@ -256,6 +237,8 @@ attack25_sub.on('setImages', (images) => {
 		$('.table').append('<img class="gazou" src="'+ img1[i] +'" width="200px" height="150px"></img>');
 		$('.gazou').eq(i).css("top",imgtop);
 		$('.gazou').eq(i).css("left",imgleft);
+        var Audio = $( "#media_player3" );
+        Audio.get(0).play();
 	}
 	setTimeout(function(){ down()},1000);
 	setTimeout(function(){ henka2()},2500);	
@@ -274,6 +257,8 @@ attack25_sub.on('setImages', (images) => {
    function henka2(){
 	var tdlength = $('td').length;
 	for(i = 0;i<tdlength;i++){	
+        var Audio = $( "#media_player5" );
+		Audio.get(0).play();
 		$('td').eq(i).css('background-image',"url(/images/l_e_present_70.png)");	
 	}
    }
@@ -319,10 +304,14 @@ attack25_sub.on('setImages', (images) => {
 			$('td').eq(kae2).animate({'top':tdtop1+"px","margin-left":tdmargin1},1000,); 
 			$('td').eq(kae1).animate({'top':tdtop2+"px","margin-left":tdmargin2},1000,);  
 	   		}
+            var Audio = $( "#media_player" );
+            Audio.get(0).play();
 			stopcount++;
 			setTimeout(function(){ idou2()},1000);
    		}else{
 			//すべてのボックスを中央に移動させる
+            var Audio = $( "#media_player" );
+            Audio.get(0).pause();
    			for( count = 0; count <boxkazu;count++){
 			$('td').eq(count).animate({'left':center.left - parseInt($('td').eq(count).css("margin-left")) , 
 			'top': center.top},1000);
@@ -335,6 +324,8 @@ attack25_sub.on('setImages', (images) => {
   	if(count < boxkazu){
 		$('td').eq(count).animate({'top': tdarray1[count]+"px","left":"0px","margin-left":tdarray2[count]},1000);
 		count++;
+        var Audio = $( "#media_player2" );
+        Audio.get(0).play();
 		setTimeout(function(){ idou3(tdarray1,tdarray2,count)},200);
    		
 	}else{
