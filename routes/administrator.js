@@ -27,7 +27,7 @@ router.post('/signup', function(req, res, next) {
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
 		
         connection.query('SELECT name FROM room WHERE name = ?', [req.body.name], function(e, r, f){
-        	console.log(r);
+        	console.log(connection);
         	if(r.length > 0){
                 res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
                 return;
