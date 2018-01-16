@@ -23,10 +23,8 @@ router.get('/signup', function(req, res, next) {
 router.post('/signup', function(req, res, next) {
 	//入力されているかのチェックなくてもいい
 	if(req.body.name && req.body.password){
-		console.log(connection);
 		//データベースに登録
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
-		
         connection.query('SELECT name FROM room WHERE name = $1', [req.body.name], function(e, r, f){
         	console.log(r);
         	if(r.rows.length > 0){
