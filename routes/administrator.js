@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 var connection = require('../mysqlConnection');
-var select = 'SELECT name FROM room WHERE room_id = ? AND password = ?';
+var select = 'SELECT name FROM room WHERE room_id = $1 AND password = $2';
 
 var idselect = 'SELECT room_id FROM room';
-var insert = 'INSERT INTO room(room_id, password, name) VALUES(?, ?, ?)';
-var insert_card = "INSERT INTO card(room_id) VALUES(?)";
+var insert = 'INSERT INTO room(room_id, password, name) VALUES($1, $2, $3)';
+var insert_card = "INSERT INTO card(room_id) VALUES($1)";
 
 var fs = require('fs');
 
@@ -26,9 +26,9 @@ router.post('/signup', function(req, res, next) {
 		//データベースに登録
 		let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
 		
-        connection.query('SELECT name FROM room WHERE name = ?', [req.body.name], function(e, r, f){
-        	console.log(connection);
-        	if(r.length > 0){
+        connection.query('SELECT name FROM room WHERE name = $1', [req.body.name], function(e, r, f){
+        	console.log(r);
+        	if(r.rows.length > 0){
                 res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
                 return;
             }
@@ -91,10 +91,10 @@ router.post('/login', function(req, res, next) {
 	}
 	
 	connection.query(select, [id, pass], function(error, results, fields) {
-		if(error || results.length != 1) {
+		if(error || results.rows.length != 1) {
 			res.render('adminlogin', {error: '入力が正しくありません。'});
 		} else {
-			req.session.user = {id: id, name: results[0].name, administrator: true};
+			req.session.user = {id: id, name: results.rows[0].name, administrator: true};
 			res.redirect('../');
 		}
 	});

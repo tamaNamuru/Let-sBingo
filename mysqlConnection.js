@@ -1,4 +1,4 @@
-﻿var mysql = require('psql');
+﻿var mysql = require('pg');
 
 var dbConfig = {
 	host: 'ec2-54-235-244-185.compute-1.amazonaws.com',
