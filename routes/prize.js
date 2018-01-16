@@ -4,7 +4,7 @@ var router = express.Router();
 var connection = require('../mysqlConnection');
 var select = 'SELECT name, count, picture_url, description, priority FROM prize WHERE room_id = $1 ORDER BY priority';
 var drop = 'DELETE FROM prize WHERE room_id = $1';
-var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES ($1, $2, $3, $4, $5, $6, $7);";
+var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES ($1, $2, $3, $4, $5, $6, $7);';
 
 var multer  = require('multer')
 var storage = multer.diskStorage({
