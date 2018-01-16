@@ -7,6 +7,7 @@ var dbConfig = {
 	database: 'd59bruvr6nrgsa'
 };
 
-var connection = mysql.createConnection(dbConfig);
+const client = new mysql.Client(dbConfig);
+//var connection = mysql.createConnection(dbConfig);
 
-module.exports = connection;
+module.exports = client;
