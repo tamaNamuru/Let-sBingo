@@ -2,7 +2,7 @@
 var router = express.Router();
 
 var connection = require('../mysqlConnection');
-var lottery = 'SELECT lottery_id FROM room WHERE room_id = ?';
+var lottery = 'SELECT lottery_id FROM room WHERE room_id = $1';
 
 //ビンゴ
 router.get('/', function(req, res, next) {
@@ -27,7 +27,7 @@ router.get('/lottery', function(req, res, next) {
     //res.render('lottery_controller');
     //res.render('景品Attack25管理側.html');
     connection.query(lottery, [req.session.user.id], function(error, result) {
-    	switch(result[0].lottery_id){
+    	switch(result.rows[0].lottery_id){
     	case 0:	//景品抽選なし
     		res.render('rank_controller.html');
     		break;

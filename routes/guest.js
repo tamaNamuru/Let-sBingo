@@ -5,10 +5,10 @@ var connection = require('../mysqlConnection');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	connection.query('SELECT prize_id, picture_url FROM prize WHERE room_id = ? ORDER BY priority', [req.session.user.id], function(error, result_pri) {
+	connection.query('SELECT prize_id, picture_url FROM prize WHERE room_id = $1 ORDER BY priority', [req.session.user.id], function(error, result_pri) {
 		if(error) console.log("prize select error");
-		connection.query('SELECT card_url FROM card WHERE room_id = ?', [req.session.user.id], function(error, result_card) {
-			res.render('bingocard', { prizes: result_pri, style_url: result_card[0].card_url });
+		connection.query('SELECT card_url FROM card WHERE room_id = $1', [req.session.user.id], function(error, result_card) {
+			res.render('bingocard', { prizes: result_pri.rows, style_url: result_card.rows[0].card_url });
 		});
 	});
 });

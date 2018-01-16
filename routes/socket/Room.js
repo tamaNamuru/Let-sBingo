@@ -1,7 +1,7 @@
 //クラス共通の変数
 var connection = require('../../mysqlConnection');
-var select = 'SELECT name, count, description FROM prize WHERE room_id = ? AND prize_id = ?';
-var sum = 'SELECT SUM(count) AS prizeMax FROM prize WHERE room_id = ?';
+var select = 'SELECT name, count, description FROM prize WHERE room_id = $1 AND prize_id = $2';
+var sum = 'SELECT SUM(count) AS prizeMax FROM prize WHERE room_id = $1';
 
 var none = 'none'; //guest.winner
 var reach = 'reach'
@@ -108,7 +108,7 @@ module.exports = class Room {
 		socket.on('prizeInfo', (prizeid) => {
 			connection.query(select, [this.id, prizeid], function(error, result) {
 				if(error) console.log("select error");
-				socket.emit('getPrize', result[0].name, result[0].count, result[0].description);
+				socket.emit('getPrize', result.rows[0].name, result.rows[0].count, result.rows[0].description);
 			});
 		});
 		if(this.mode != 0 )	//ビンゴが終わっていても景品閲覧だけはできるようにする
@@ -222,12 +222,12 @@ module.exports = class Room {
 		if(this.mode != 2){
 			this.mode = 2;
 			let self = this;
-			connection.query('SELECT name, count, picture_url FROM prize WHERE room_id = ?', [this.id], function(error, result) {
+			connection.query('SELECT name, count, picture_url FROM prize WHERE room_id = $1', [this.id], function(error, result) {
 				for(let i=0; i < self.addPrize.length; i++){
-					result.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
+					result.rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
 				}
 				socket.emit('init', result, self.prizeMax);
-				self.lottery = new SimpleLottery(result);
+				self.lottery = new SimpleLottery(result.rows);
 			});
 		}else{
 			socket.emit('init', this.lottery.prizeInfo, this.prizeMax);
@@ -266,11 +266,11 @@ module.exports = class Room {
 		if(this.mode != 2){
 			this.mode = 2;
 			let self = this;
-			connection.query('SELECT name, count, picture_url FROM prize WHERE room_id = ?', [this.id], function(error, result) {
+			connection.query('SELECT name, count, picture_url FROM prize WHERE room_id = $1', [this.id], function(error, result) {
 				for(let i=0; i < self.addPrize.length; i++){
-					result.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
+					result.rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
 				}
-				self.lottery = new Attack25Lottery(result);
+				self.lottery = new Attack25Lottery(result.rows);
 			});
 		}else{
 			this.lottery.reloadInit(socket, this.prizeMax);

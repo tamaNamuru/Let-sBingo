@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var connection = require('../mysqlConnection');
-var select = 'SELECT room_id FROM room WHERE name = ?';
+var select = 'SELECT room_id FROM room WHERE name = $1';
 //連続する500枚のカードは重複しないようにする。
 //nodeはノンブロッキングなのであまりガードにはなっていない。
 var cardChecks = [];
@@ -17,8 +17,8 @@ router.post('/user', function(req, res, next) {
 		res.render('enter', {title: "Let's Bingo", error: '名前を入力してください。'});
 	} else {
 		connection.query(select, [req.body.roomName], function(error, result) {
-			if(result.length == 0 || result[0].room_id != req.body.roomid) {
-				console.log("id:" + req.body.roomid + "\npass:" + result[0].room_id);
+			if(result.rows.length == 0 || result.rows[0].room_id != req.body.roomid) {
+				console.log("id:" + req.body.roomid + "\npass:" + result.rows[0].room_id);
 				res.render('enter', {title: "Let's Bingo", error: 'IDが正しくありません。'});
 			} else {
 				if(req.session.user && req.session.guest){	//念のため

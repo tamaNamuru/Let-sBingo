@@ -2,8 +2,8 @@
 var router = express.Router();
 
 var connection = require('../mysqlConnection');
-var select = 'SELECT card_url FROM card WHERE room_id = ?';
-var update = 'UPDATE card SET card_url = ? WHERE room_id = ?';
+var select = 'SELECT card_url FROM card WHERE room_id = $1';
+var update = 'UPDATE card SET card_url = $1 WHERE room_id = $2';
 
 var multer  = require('multer')
 var storage = multer.diskStorage({
@@ -21,13 +21,13 @@ var fs = require('fs');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	connection.query(select, [req.session.user.id], function(error, result) {
-		res.render('cardconfig', { style_url: result[0].card_url });
+		res.render('cardconfig', { style_url: result.rows[0].card_url });
 	});
 });
 
 router.get('/config', function(req, res, next) {
 	connection.query(select, [req.session.user.id], function(error, result) {
-		res.render('cardconfig', { style_url: result[0].card_url });
+		res.render('cardconfig', { style_url: result.rows[0].card_url });
 	});
 });
 
