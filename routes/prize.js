@@ -31,15 +31,9 @@ router.get('/show', function(req, res, next) {
     request = new Request(
         select,
         (err, rowCount, rows) => {
-            if(rowCount == 0) {
-                res.render('reading', { prizes: rows });
-            }
+            res.render('reading', { prizes: rows });
         });
-    console.log("今からやで");
-    request.on('row', (columns) => {
-        console.log(columns);
-        res.render('reading', { prizes: columns[0].value });    
-    });
+    
     request.addParameter('ID', TYPES.NChar, req.session.user.id);
     connection.execSql(request);
 });
@@ -47,12 +41,10 @@ router.get('/show', function(req, res, next) {
 router.get('/info', function(req, res, next) {
     request = new Request(
         select,
-        (err, rowCount) => {
+        (err, rowCount, rows) => {
+            res.render('keihin_joho', { prizes: rows });
         });
     
-    request.on('row', (columns) => {
-        res.render('keihin_joho', { prizes: columns });
-    });
     request.addParameter('ID', TYPES.NChar, req.session.user.id);
     connection.execSql(request);
 	
@@ -120,7 +112,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                         ],
                         rows: []
                     };
-                    table.rows = values;
+                    table.rows.push(values);
                     next(null, values);
                 }
             });
