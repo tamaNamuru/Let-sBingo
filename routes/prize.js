@@ -27,10 +27,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/show', function(req, res, next) {
+    console.log("hoge");
     let request = new Request(
         select,
         (err, rowCount) => {
+            console.log(rowCount);
         });
+    
     
     request.on('row', (columns) => {
         console.log(columns);
@@ -47,7 +50,7 @@ router.get('/info', function(req, res, next) {
         });
     
     request.on('row', (columns) => {
-        res.render('keihin_joho', { prizes: columns.value });
+        res.render('keihin_joho', { prizes: columns });
     });
     request.addParameter('ID', TYPES.NChar, req.session.user.id);
     connection.execSql(request);
