@@ -24,7 +24,7 @@ router.post('/user', function(req, res, next) {
         });
         
         request.on('row', (columns) => {
-            if(columns.length == 0 || columns[0].value != req.body.roomid) {
+            if(columns.value == 0 || columns[0].value != req.body.roomid) {
                 console.log("id:" + req.body.roomid + "\npass:" + columns[0].room_id);
                 res.render('enter', {title: "Let's Bingo", error: 'IDが正しくありません。'});
             } else {
