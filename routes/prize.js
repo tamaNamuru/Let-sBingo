@@ -31,17 +31,14 @@ router.get('/show', function(req, res, next) {
     request = new Request(
         select,
         (err, rowCount, rows) => {
-            console.log(rows);
             if(rowCount == 0) {
-                res.render('reading');
+                res.render('reading', { prizes: rows });
             }
         });
     console.log("今からやで");
     request.on('row', (columns) => {
         console.log(columns);
-        if(columns.length != 0) {
-            res.render('reading', { prizes: columns[0].value });    
-        }
+        res.render('reading', { prizes: columns[0].value });    
     });
     request.addParameter('ID', TYPES.NChar, req.session.user.id);
     connection.execSql(request);
