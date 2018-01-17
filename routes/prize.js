@@ -2,6 +2,9 @@
 var router = express.Router();
 
 var connection = require('../tediousConnection');
+var Request = require('tedious').Request;
+var TYPES = require('tedious').TYPES;
+var async = require('async');
 var select = 'SELECT name, count, picture_url, description, priority FROM prize WHERE room_id = ? ORDER BY priority';
 var drop = 'DELETE FROM prize WHERE room_id = ?';
 var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES ?';

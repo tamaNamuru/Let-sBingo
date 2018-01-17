@@ -2,6 +2,9 @@
 var router = express.Router();
 
 var connection = require('../tediousConnection');
+var Request = require('tedious').Request;
+var TYPES = require('tedious').TYPES;
+var async = require('async');
 var select = 'SELECT card_url FROM card WHERE room_id = ?';
 var update = 'UPDATE card SET card_url = ? WHERE room_id = ?';
 

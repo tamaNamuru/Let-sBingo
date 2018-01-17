@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 var connection = require('../tediousConnection');
+var Request = require('tedious').Request;
+var TYPES = require('tedious').TYPES;
+var async = require('async');
 var select = 'SELECT room_id FROM room WHERE name = ?';
 //連続する500枚のカードは重複しないようにする。
 //nodeはノンブロッキングなのであまりガードにはなっていない。
