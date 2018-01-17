@@ -102,13 +102,13 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                     }
                     let table = {
                         columns: [
-                            {name: 'room_id', type: TYPE.NChar},
-                            {name: 'prize_id', type: TYPE.Int},
-                            {name: 'name', type: TYPE.NVarChar},
-                            {name: 'priority', type: TYPE.Int},
-                            {name: 'description', type: TYPE.NVarChar},
-                            {name: 'picture_url', type: TYPE.NVarChar},
-                            {name: 'count', type: TYPE.Int}
+                            {name: 'room_id', type: TYPES.NChar},
+                            {name: 'prize_id', type: TYPES.Int},
+                            {name: 'name', type: TYPES.NVarChar},
+                            {name: 'priority', type: TYPES.Int},
+                            {name: 'description', type: TYPES.NVarChar},
+                            {name: 'picture_url', type: TYPES.NVarChar},
+                            {name: 'count', type: TYPES.Int}
                         ],
                         rows: []
                     };
