@@ -95,7 +95,7 @@ router.get('/other/config', function(req, res, next) {
     request.on('row', (columns) => {
         res.render('その他設定画面', { lottery_id: columns[0].value});
     });
-    request.addParameter('ID', TYPES.NChar, id);
+    request.addParameter('ID', TYPES.NChar, req.session.user.id);
     connection.execSql(request);
 });
 
@@ -111,7 +111,7 @@ router.post('/other/submit', function(req, res, next) {
         res.redirect('/manage');
     });
     request.addParameter('LID', TYPES.Int, req.body.or);
-    request.addParameter('ID', TYPES.NChar, id);
+    request.addParameter('ID', TYPES.NChar, req.session.user.id);
     connection.execSql(request);
 });
 
