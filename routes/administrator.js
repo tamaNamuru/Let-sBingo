@@ -140,7 +140,7 @@ router.post('/login', function(req, res, next) {
     let request = new Request(
         select,
         (err, rowCount, rows) => {
-            if(error || rowCount != 1) {
+            if(err || rowCount != 1) {
                 res.render('adminlogin', {error: '入力が正しくありません。'});
             } else {
                 req.session.user = {id: id, name: rows[0].name, administrator: true};
