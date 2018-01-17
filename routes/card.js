@@ -4,14 +4,14 @@ var router = express.Router();
 var connection = require('../tediousConnection');
 var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
-var async = require('async');
-var select = 'SELECT card_url FROM card WHERE room_id = ?';
-var update = 'UPDATE card SET card_url = ? WHERE room_id = ?';
+
+var select = 'SELECT card_url FROM card WHERE room_id = @ID';
+var update = 'UPDATE card SET card_url = @Cardurl WHERE room_id = @ID';
 
 var multer  = require('multer')
 var storage = multer.diskStorage({
 	destination: function(req, file, cb) {
-		cb(null, 'public/projects/' + req.session.user.id + '/');
+		cb(null, '../public/projects/' + req.session.user.id + '/');
 	},
 	filename: function(req, file, cb) {
 		cb(null, file.originalname);	//originalnameだと拡張子がついているので楽
@@ -23,15 +23,29 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	connection.query(select, [req.session.user.id], function(error, result) {
-		res.render('cardconfig', { style_url: result[0].card_url });
-	});
+    let request = new Request(
+        select,
+        (err, rowCount) => {
+        });
+    
+    request.on('row', (columns) => {
+        res.render('cardconfig', { style_url: columns[0].value });
+    });
+    request.addParameter('ID', TYPES.NChar, req.session.user.id);
+    connection.execSql(request);
 });
 
 router.get('/config', function(req, res, next) {
-	connection.query(select, [req.session.user.id], function(error, result) {
-		res.render('cardconfig', { style_url: result[0].card_url });
-	});
+    let request = new Request(
+        select,
+        (err, rowCount) => {
+        });
+    
+    request.on('row', (columns) => {
+        res.render('cardconfig', { style_url: columns[0].value });
+    });
+    request.addParameter('ID', TYPES.NChar, req.session.user.id);
+    connection.execSql(request);
 });
 
 router.post('/update', upload.fields([{name: 'backimageup'}, {name: 'backimagedown'}]), function(req, res, next) {
@@ -77,11 +91,16 @@ router.post('/update', upload.fields([{name: 'backimageup'}, {name: 'backimagedo
 	}
 
 	let cssurl = '/projects/' + id + '/bingocard.css'
-	fs.writeFile('public' + cssurl, cssdata, function(err) {
+	fs.writeFile('../public' + cssurl, cssdata, function(err) {
 		if(err) throw err;
-		connection.query(update, [cssurl, id], function(error, result) {
-			res.redirect('config');
-		});
+        let request = new Request(
+        update,
+        (err, rowCount) => {
+            res.redirect('config');
+        });
+        request.addParameter('Cardurl', TYPES.NVarChar, cssurl);
+        request.addParameter('ID', TYPES.NChar, id);
+        connection.execSql(request);
 	});
 });
 
@@ -98,9 +117,14 @@ router.get('/sample', function(req, res, next) {
             //cssurl = '/stylesheets/sample3.css';
             //break;
     }
-	connection.query(update, [cssurl, req.session.user.id], function(error, result) {
-			res.redirect('config');
-    });
+    let request = new Request(
+        update,
+        (err, rowCount) => {
+            res.redirect('config');
+        });
+    request.addParameter('Cardurl', TYPES.NVarChar, cssurl);
+    request.addParameter('ID', TYPES.NChar, id);
+    connection.execSql(request);
 });
 
 module.exports = router;
