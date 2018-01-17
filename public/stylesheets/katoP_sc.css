@@ -1,41 +1,124 @@
-body {
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+/*背景*/
+.bg{ 
+	margin-top: 0;
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 0;
+	width: 100%;
+	background: #fff494;
+ }
+/*テーブル設定(左)*/
+.lottery1 {
+	position: relative;
+	float: left;
+	width: 60%;
+	height: 100%;
+	font-weight: bold;
+	margin: 0;
+	text-align: center;
+	border: none; 
+/*	background: #ffffe0;*/
+}
+/*景品画像*/
+.lottery1 td.keihin_pic {
+	height: 699px;
+    	width: 88%;
+	margin: 0;
+	padding: 1px;
+}
+
+/**/
+/*景品名*/
+.lottery1 td.keihin_name {
+	height: 255px;
+	width: 100%;
+	font-size: 80px;
+	text-align: center;
+	margin: 5px;
+	padding: 4px;
+	border: dashed thick #dc143c;
+	background:radial-gradient( at 50% 50%, #ccff99, #99ff99, #99ffcc);
+}
+/*テーブル設定(右)*/
+.lottery2 {
+
+    z-index: 2;
+	position: relative;
+	float: right;
+	width: 40.05%;
+	height: 100%;
+	font-weight: bold;
+	margin: 0;
+	padding: 0
+	text-align: center;
+	border: none; 
+	background: #ffffff;
+	background-image:
+      repeating-linear-gradient(45deg,
+                                rgba(153, 255, 153, 0.50),
+                                rgba(153, 255, 153, 0.50) 50px,
+                                rgba(0, 0, 0, 0) 0,
+                                rgba(0, 0, 0, 0) 100px),
+      repeating-linear-gradient(315deg,
+                                rgba(255, 166, 77, 0.50),
+                                rgba(255, 166, 77, 0.50) 50px,
+                                rgba(0, 0, 0, 0) 0,
+                                rgba(0, 0, 0, 0) 100px);
+}
+/*抽選番号の文字*/
+.lottery2 td.tyusen_name {
+	height: 449px;
+	width: 100%;
+	font-size: 190px;
+	text-align: center;
+	margin: 0;
+	color: #000000;
+}
+/*抽選番号の数字*/
+.lottery2 td.tyusen_num {
+	height: 449px;
+	width: 100%;
+	font-size: 350px;
+	text-align: center;
+	margin: 0;
+	color: #000000;
+}
+#sumaho {    
+    position: absolute;
+    height:139%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+.image{
+    position: absolute;
+    height: 123%;
+    padding-left: -14%;
+    margin-bottom: 39px;
+    left: 136px;
+    top: 47px;
+    width: 77%;
+}
+#img2{
+left: -749px;
+}
+#title{
+z-index: 1;
+top:-140px;
+    position: absolute;
+    font-size: 91px;
+    background-color: #ffffffb8;;
+    width: 77%;
+    height: 30%;
+    left: 134px;
+    
+}
+#titlename{  
+    font-size: 170px;
     text-align: center;
     margin: 0;
-}
-#right {
-    margin-right: 200px;
-    margin-bottom: 0;
-    margin-top: 0;
-    float: right;
-}
-#left {
-    float: left;
-    margin-left: 100px;
-    margin-top: 0;
-}
-h1 {
-    margin: 0;
-}
-p {
-    font-size: 150px;
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-#namae {
-    font-size: 100px;
-    width: 1000px;
-    word-wrap: break-word;
-    margin-bottom: 10px;
-}
-img {
-    margin-top: 80px;
-    width: 800px;
-    height: 500px;
-}
-span {
-    font-size: 150px;
-}
-#perfectNumber {
-    margin-left: 0;
-    margin-top: 180px;
+    color: #000000;
 }

@@ -4,7 +4,7 @@ module.exports = class NoLottery extends BaseLottery {
 	constructor() {
 		super();
 		this.roomGuestInfo = [];	//[0～抽選者数-1] = {rank:, name:}
-        this.guestJumpyurl = '/guest/nolottery';
+        this.guestJumpurl = '/guest/nolottery'
 	}
 	
 	reloadInit(socket) {

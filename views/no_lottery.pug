@@ -2,8 +2,13 @@
 html(lang='ja')
   head
     meta(charaset='UTF-8')
-    title 景品抽選(スマホ)
+    title 当選画面
     script(type='text/javascript', src='/socket.io/socket.io.js')
     script(type='text/javascript', src='/javascripts/no_lottery.js')
+    link(href='/stylesheets/no_lottery.css', rel='stylesheet')
   body
-    h1 景品抽選おめでとうございます！！
+    #popup-background
+      p#name= userName
+        | さん
+      p#popup-td3 BINGO
+      p#p おめでとう!

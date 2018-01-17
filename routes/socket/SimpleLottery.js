@@ -7,7 +7,7 @@ module.exports = class SimpleLottery extends BaseLottery {
 		this.prizeInfo = prizes;	//{name:, count:, picture_url:}
 		this.numbers = [];	//抽選番号
 		this.curIndex = 0;	//現在の進行
-        this.guestJumpyurl = '/guest/lottery';
+        this.guestJumpurl = '/guest/lottery';
 	}
 	
 	getPrizeInfo(prize_id) {

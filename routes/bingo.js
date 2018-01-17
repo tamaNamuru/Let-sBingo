@@ -2,7 +2,7 @@
 var router = express.Router();
 
 var connection = require('../mysqlConnection');
-var lottery = 'SELECT lottery_id FROM room WHERE room_id = $1';
+var lottery = 'SELECT lottery_id FROM room WHERE room_id = ?';
 
 //ビンゴ
 router.get('/', function(req, res, next) {
@@ -24,10 +24,8 @@ router.get('/jankenscreen', function(req, res, next) {
 
 //景品抽選
 router.get('/lottery', function(req, res, next) {
-    //res.render('lottery_controller');
-    //res.render('景品Attack25管理側.html');
     connection.query(lottery, [req.session.user.id], function(error, result) {
-    	switch(result.rows[0].lottery_id){
+    	switch(result[0].lottery_id){
     	case 0:	//景品抽選なし
     		res.render('rank_controller.html');
     		break;
@@ -49,7 +47,7 @@ router.get('/nolotteryscreen', function(req, res, next) {
 
 //景品抽選大画面
 router.get('/lotteryscreen', function(req, res, next) {
-	res.render('katoP_sc.html');
+	res.render('simple_lottery_sc.html');
 });
 
 //Attack25大画面

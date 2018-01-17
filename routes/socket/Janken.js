@@ -50,7 +50,7 @@ module.exports = class Janken {
 			}
 			for(let sess of this.guestTe[make]){	//まけ
 				this.katinuke.set(sess, 2);
-				janken_guest.to(tis.winnerSessions.get(sess)).emit('sendLose');
+				janken_guest.to(this.winnerSessions.get(sess)).emit('sendLose');
 				--bc[0];
 				--bc[1];
 				++this.resultJanken;

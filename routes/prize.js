@@ -2,9 +2,9 @@
 var router = express.Router();
 
 var connection = require('../mysqlConnection');
-var select = 'SELECT name, count, picture_url, description, priority FROM prize WHERE room_id = $1 ORDER BY priority';
-var drop = 'DELETE FROM prize WHERE room_id = $1';
-var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES ($1, $2, $3, $4, $5, $6, $7);';
+var select = 'SELECT name, count, picture_url, description, priority FROM prize WHERE room_id = ? ORDER BY priority';
+var drop = 'DELETE FROM prize WHERE room_id = ?';
+var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES ?';
 
 var multer  = require('multer')
 var storage = multer.diskStorage({
@@ -26,7 +26,7 @@ router.get('/show', function(req, res, next) {
 	connection.query(select, [req.session.user.id], function(error, result) {
 		if(error) console.log("select error");
 
-		res.render('reading', { prizes: result.rows });
+		res.render('reading', { prizes: result });
 	});
 });
 
@@ -34,7 +34,7 @@ router.get('/info', function(req, res, next) {
 	connection.query(select, [req.session.user.id], function(error, result) {
 		if(error) console.log("select error");
 
-		res.render('keihin_joho', { prizes: result.rows });
+		res.render('keihin_joho', { prizes: result });
 	});
 });
 

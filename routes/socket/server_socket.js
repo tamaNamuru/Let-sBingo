@@ -170,7 +170,7 @@ module.exports = function(io) {
 			return;
 		}
 		let idroom = roomMaps.get(socket.request.session.user.id);
-		if(idroom === undefined){
+		if(idroom === undefined || idroom.janken === undefined){
 			socket.emit('redirect', '/logout/userexit');	//ログインしたけど部屋がなくなっていた場合のため
 			return;
 		}
@@ -290,13 +290,14 @@ module.exports = function(io) {
 		//スクリーンに商品を映す
 		socket.on('sendScreenLottery', (prize_id) => {
 			let info = idroom.getPrizeInfo(prize_id);
-			lottery_sub.to(idroom.id).emit('setNumber', '?');
+			lottery_sub.to(idroom.id).emit('resetNumber');
 			lottery_sub.to(idroom.id).emit('setLottery', info.name, info.picture_url);
 		});
 		//当選した抽選番号を決定して景品情報を送る
 		socket.on('lotteryStart', (prize_id) => {
 			if(idroom.simpleLotteryStart(socket)){
 				let num = idroom.getCurrentNumber(prize_id);
+                console.log(num);
 				let info = idroom.getPrizeInfo(prize_id);
 				lottery_sub.to(idroom.id).emit('setNumber', num + 1);
 				lottery_guest.to(idroom.getWinnerSocketID(num)).emit('lotteryResult',

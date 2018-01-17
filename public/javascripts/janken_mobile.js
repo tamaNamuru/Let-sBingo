@@ -73,11 +73,13 @@ janken_guest.on('sendLose', () => {
     $("#use").text("あなたの負け<br>お疲れさまでした。下のボタンからログアウトしてください。");
     janken_guest.emit('resultLose');
     $("#all_btn").after("<input type='button' onclick='location.href=\"/logout/userexit\"' value='ログアウト'/>");
+    //setTimeout(()=>{ window.location.href = "/logout/userexit" },5000);
 });
     
 janken_guest.on('logoutOn', () => {
-    $("#use").text("お疲れさまでした。下のボタンからログアウトしてください。");
+    $("#use").text("お疲れさまでした。下のボタンからログアウトしてください。"); //5秒後に自動でログアウトします。
     $("#all_btn").after("<input type='button' onclick='location.href=\"/logout/userexit\"' value='ログアウト'/>");
+    //setTimeout(()=>{ window.location.href = "/logout/userexit" },5000);
 })
 //リダイレクト
 janken_guest.on('redirect', (url) => {

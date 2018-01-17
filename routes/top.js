@@ -13,9 +13,9 @@ router.get('/manage', function(req, res, next) {
 	res.render('manage.html');
 });
 
-var deletecard = 'DELETE FROM card WHERE room_id = $1';
-var deleteprize = 'DELETE FROM prize WHERE room_id = $1';
-var deleteroom = 'DELETE FROM room WHERE room_id = $1';
+var deletecard = 'DELETE FROM card WHERE room_id = ?';
+var deleteprize = 'DELETE FROM prize WHERE room_id = ?';
+var deleteroom = 'DELETE FROM room WHERE room_id = ?';
 //ルームを削除する
 router.get('/delete', function(req, res, next) {
 	// targetRemoveDirectoryPathに消したいディレクトリを指定
@@ -42,14 +42,14 @@ router.get('/delete', function(req, res, next) {
 	res.redirect('/logout');
 });
 
-var selectconfig = 'SELECT lottery_id FROM room WHERE room_id = $1';
+var selectconfig = 'SELECT lottery_id FROM room WHERE room_id = ?';
 router.get('/other/config', function(req, res, next) {
 	connection.query(selectconfig, [req.session.user.id], function(error, results) {
-		res.render('その他設定画面', { lottery_id: results.rows[0].lottery_id});
+		res.render('その他設定画面', { lottery_id: results[0].lottery_id});
 	});
 });
 
-var updateconfig = 'UPDATE room SET lottery_id = $1 WHERE room_id = $2';
+var updateconfig = 'UPDATE room SET lottery_id = ? WHERE room_id = ?';
 router.post('/other/submit', function(req, res, next) {
 	connection.query(updateconfig, [req.body.or, req.session.user.id], function(error, result) {
 		res.redirect('/manage');

@@ -4,8 +4,8 @@ function show(rname) {
 	let popup = document.getElementById("popup");
 	popup.innerHTML = '<form method="POST" action="/login/user">' +
 	'<input type="hidden" name="roomName" value="' + rname.innerHTML + '">' +
-	'<p>部屋の番号：<input type="text" name="roomid" placeholder="roomid" size="4"></p>' +
-	'<p>自分の名前：<input type="text" name="userName" placeholder="username" size="8"></p>' +
+	'<p>部屋の番号：<input type="text" name="roomid" placeholder="roomid" size="4" maxlength="4"></p>' +
+	'<p>自分の名前：<input type="text" name="userName" placeholder="username" size="8" maxlength="8"></p>' +
 	'<p><input type="button" id="close" value="閉じる" style="margin-right: 10%;"><input type="submit" value="ログイン"></p></form>';
 	
 	let layer = document.getElementById("layer");

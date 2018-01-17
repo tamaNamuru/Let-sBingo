@@ -18,7 +18,7 @@ module.exports = class Attack25Lottery extends SimpleLottery {
 			this.attack25Info[a] = this.attack25Info[j];
 			this.attack25Info[j] = t;
 		}
-        this.guestJumpyurl = '/guest/attack25lottery';
+        this.guestJumpurl = '/guest/attack25lottery';
         this.shaffule = false;
 	}
 	

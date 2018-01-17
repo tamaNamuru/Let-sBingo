@@ -34,7 +34,7 @@ attack25_sub.on('sendPrizeNumber', (number, picture_url, name) => {
 	count = number;			
 	
     setTimeout(function(){ tenmetu(count,1)},500);
-    var mySources = $( "#media_player6" ).children("source");
+    var mySources = $( "#media_player6" ).children("source");   //ティンパニロール
 	var myAudioPlayer = document.getElementById( "media_player6" );
 	myAudioPlayer.addEventListener( "ended", function () {
 
@@ -87,7 +87,7 @@ function tenmetu(count,i){
 //ボックスを開け煙を出す
    function henka(count){
 	$('td').eq(count).css('background-image',"url(/images/hako.png)");
-    var Audio = $( "#media_player4" );
+    var Audio = $( "#media_player4" );  //紙箱・閉める音
     Audio.get(0).play();
 	$( "#minikemuri" ).fadeIn( "slow" ) ;
    }
@@ -102,7 +102,7 @@ function tenmetu(count,i){
 //煙を出しポップアップを表示させる
 function popup(count){
 	$("#keihinimg").css('background-image',"url("+img1[count]+")");
-    var Audio = $( "#media_player1" );
+    var Audio = $( "#media_player1" );  //ファンファーレ
 	Audio.get(0).play();
 	$("#kemuri").fadeIn();
 	$("#kemuri").fadeOut( 2000 ) ;
@@ -237,7 +237,7 @@ attack25_sub.on('setImages', (images) => {
 		$('.table').append('<img class="gazou" src="'+ img1[i] +'" width="200px" height="150px"></img>');
 		$('.gazou').eq(i).css("top",imgtop);
 		$('.gazou').eq(i).css("left",imgleft);
-        var Audio = $( "#media_player3" );
+        var Audio = $( "#media_player3" );  //抽選音
         Audio.get(0).play();
 	}
 	setTimeout(function(){ down()},1000);
@@ -257,7 +257,7 @@ attack25_sub.on('setImages', (images) => {
    function henka2(){
 	var tdlength = $('td').length;
 	for(i = 0;i<tdlength;i++){	
-        var Audio = $( "#media_player5" );
+        var Audio = $( "#media_player5" );  //紙箱・閉める音
 		Audio.get(0).play();
 		$('td').eq(i).css('background-image',"url(/images/l_e_present_70.png)");	
 	}
@@ -304,7 +304,7 @@ attack25_sub.on('setImages', (images) => {
 			$('td').eq(kae2).animate({'top':tdtop1+"px","margin-left":tdmargin1},1000,); 
 			$('td').eq(kae1).animate({'top':tdtop2+"px","margin-left":tdmargin2},1000,);  
 	   		}
-            var Audio = $( "#media_player" );
+            var Audio = $( "#media_player" );   //カードのヒンズーシャッフル
             Audio.get(0).play();
 			stopcount++;
 			setTimeout(function(){ idou2()},1000);
@@ -324,7 +324,7 @@ attack25_sub.on('setImages', (images) => {
   	if(count < boxkazu){
 		$('td').eq(count).animate({'top': tdarray1[count]+"px","left":"0px","margin-left":tdarray2[count]},1000);
 		count++;
-        var Audio = $( "#media_player2" );
+        var Audio = $( "#media_player2" );  //カードをめくる音
         Audio.get(0).play();
 		setTimeout(function(){ idou3(tdarray1,tdarray2,count)},200);
    		
@@ -345,88 +345,6 @@ attack25_sub.on('setImages', (images) => {
    	});
    }		
 })(jQuery)
-
-/* http://column.noith.com/modal-window/ */
-
-/*(function($){  // 無名関数($の競合を回避)
-    // ポップアップ用のタグを消す
-    $('#popup-background').hide();
-    $('#popup-item').hide();
-    
-    // class「popupimg」のリンクがクリックされた時のイベント定義
-    $('.popupimg').bind('click', function(e){
-        // aタグでデフォルト動作を無効にする
-        e.preventDefault(); 
- 
-        // 画像の読み込み
-        var img = new Image();
-        // クリックされたaタグのhrefを取得する
-        var imgsrc = this.href;
-        
-        // Image()のロードイベントを定義する
-        $(img).load(function(){
-            $('#popup-item').attr('src', imgsrc);
-            // ポップアップで表示するためのimgタグに画像が読み込まれているかチェックする
-            $('#popup-item').each(function(){
-                // 読み込み済みならばポップアップ表示用の関数を呼び出す
-                if (this.complete) {
-                    imgload(img);
-                    return;
-                }
-            });
-            // imgタグのロードイベントを定義
-            $('#popup-item').bind('load', function(){
-                // 画像がロードされたらポップアップ表示用の関数を呼び出す
-                imgload(img);
-            });
-            
-        });
-        // Image()に画像を読み込ませる
-        img.src = imgsrc;
-    });
-    
-    // ポップアップされた領域のクリックイベント
-    $('#popup-background, #popup-item').bind('click', function(){
-        // ポップアップを消すため、タグをフェードアウトさせる
-        $('#popup-background').fadeOut();
-        $('#popup-item').fadeOut();
-        
-    });
-    
-    // ポップアップ表示用関数
-    function imgload(imgsource){
-        // ポップアップの背景部分を表示する
-        $('#popup-background').fadeIn(function(){
-            // 画像を中心に表示させるため、画像の半分のサイズを取得
-            /* 
-            * 画像を表示するimgタグ「popup-item」はCSSで画面の中心に
-            * 表示するようにしているため、そのまま表示すると画像の左上の端が
-            * 中心に来ます。
-            * そのため、マイナスのマージンを画像の半分のサイズ設定します。
-            */
-	    /*if(window.innerWidth < imgsource.width || window.innerHeight < imgsource.height){
-	      imgsource.height /=1.3;
-	      imgsource.width /=1.3;
-	     }
-
-            var item_hieght_margin = (imgsource.height / 1.8) * -1;
-            var item_width_margin = (imgsource.width / 2) * -1;
-            
-            // 取得したマージンと画像のサイズをCSSで定義する
-            var cssObj = {
-                marginTop: item_hieght_margin
-                , marginLeft: item_width_margin
-                , width: imgsource.width
-                , height: imgsource.height
-            }
-            // 画像の表示用タグにCSSを当て、表示を行う
-            $('#popup-item').css(cssObj).fadeIn(100);
-        });
-    }
-
-})(jQuery) */
-
-/* http://column.noith.com/modal-window/ */
 
 $(function(){
     
