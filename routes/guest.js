@@ -8,12 +8,36 @@ var async = require('async');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	connection.query('SELECT prize_id, picture_url FROM prize WHERE room_id = ? ORDER BY priority', [req.session.user.id], function(error, result_pri) {
-		if(error) console.log("prize select error");
-		connection.query('SELECT card_url FROM card WHERE room_id = ?', [req.session.user.id], function(error, result_card) {
-			res.render('bingocard', { prizes: result_pri, style_url: result_card[0].card_url });
-		});
-	});
+    async.waterfall([
+        (next) => {
+            let request = new Request(
+            'SELECT prize_id, picture_url FROM prize WHERE room_id = @ID ORDER BY priority;',
+            (err, rowCount, rows) => {
+            });
+            
+            request.on('row', (columns) => {
+                console.log(columns);
+                next(null, columns);
+            });
+            request.addParameter('ID', TYPES.NChar, req.session.user.id);
+            connection.execSql(request);
+        },
+        (next, prizes) => {
+            let request = new Request(
+            'SELECT card_url FROM card WHERE room_id = @ID;',
+            (err, rowCount, rows) => {
+            });
+            
+            request.on('row', (columns) => {
+                next(null, prizes, columns[0].value);
+            });
+        }],
+    (err, prizes, card_url) => {
+        if(err){
+            console.log("guest bingocard error");
+        }
+        res.render('bingocard', { prizes: prizes, style_url: card_url });
+    });
 });
 
 router.get('/janken', function(req, res, next) {

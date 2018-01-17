@@ -1,13 +1,13 @@
 //クラス共通の変数
-var connection = require('../../tediousConnection');
+var connection = require('../tediousConnection');
 var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
-var async = require('async');
-var select = 'SELECT name, count, description FROM prize WHERE room_id = ? AND prize_id = ?';
-var sum = 'SELECT SUM(count) AS prizeMax FROM prize WHERE room_id = ?';
+
+var select = 'SELECT name, count, description FROM prize WHERE room_id = @ID AND prize_id = @PrizeID;';
+var sum = 'SELECT SUM(count) AS prizeMax FROM prize WHERE room_id = @ID;';
 
 var none = 'none'; //guest.winner
-var reach = 'reach'
+var reach = 'reach';
 var winner = 'winner'; //勝ち残りのroom分け
 
 var Janken = require('./Janken');
@@ -39,11 +39,18 @@ module.exports = class Room {
 		this.addPrize = [];  //[index] = {name: , count: }
 		let self = this;
 		//景品の総数を取得
-		connection.query(sum, [this.id], function(error, result) {
-			self.prizeMax = result[0].prizeMax;	//景品の数
+        let request = new Request(
+            sum,
+            (err, rowCount) => {
+            });
+        request.on('row', (columns) => {
+            console.log(columns[0]);
+            self.prizeMax = columns[0].value;	//景品の数
 			//景品の数, ビンゴ人数
-			socket.emit('roomInit', result[0].prizeMax, self.bingoCount);
-		});
+			socket.emit('roomInit', self.prizeMax, self.bingoCount);
+        });
+        request.addParameter('ID', TYPES.NChar, this.id);
+        connection.execSql(request);
 	}
 	
 	//ビンゴ中以外であればtrueを返す
@@ -109,10 +116,17 @@ module.exports = class Room {
 		}
 		//景品詳細表示
 		socket.on('prizeInfo', (prizeid) => {
-			connection.query(select, [this.id, prizeid], function(error, result) {
-				if(error) console.log("select error");
-				socket.emit('getPrize', result[0].name, result[0].count, result[0].description);
-			});
+            let request = new Request(
+                select,
+                (err, rowCount) => {
+                });
+            request.on('row', (columns) => {
+                console.log(columns[0]);
+                socket.emit('getPrize', columns[0].name, columns[0].count, columns[0].description);
+            });
+            request.addParameter('ID', TYPES.NChar, this.id);
+            request.addParameter('PrizeID', TYPES.Int, prizeid);
+            connection.execSql(request);
 		});
 		if(this.mode != 0 )	//ビンゴが終わっていても景品閲覧だけはできるようにする
 			return true;
@@ -225,13 +239,21 @@ module.exports = class Room {
 		if(this.mode != 2){
 			this.mode = 2;
 			let self = this;
-			connection.query('SELECT name, count, picture_url FROM prize WHERE room_id = ?', [this.id], function(error, result) {
-				for(let i=0; i < self.addPrize.length; i++){
-					result.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
+            
+            let request = new Request(
+                'SELECT name, count, picture_url FROM prize WHERE room_id = @ID;',
+                (err, rowCount) => {
+                });
+            request.on('row', (columns) => {
+                console.log(columns);
+                for(let i=0; i < self.addPrize.length; i++){
+					columns.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
 				}
-				socket.emit('init', result, self.prizeMax);
-				self.lottery = new SimpleLottery(result);
-			});
+				socket.emit('init', columns, self.prizeMax);
+				self.lottery = new SimpleLottery(columns);
+            });
+            request.addParameter('ID', TYPES.NChar, this.id);
+            connection.execSql(request);
 		}else{
 			socket.emit('init', this.lottery.prizeInfo, this.prizeMax);
 		}
@@ -269,12 +291,18 @@ module.exports = class Room {
 		if(this.mode != 2){
 			this.mode = 2;
 			let self = this;
-			connection.query('SELECT name, count, picture_url FROM prize WHERE room_id = ?', [this.id], function(error, result) {
-				for(let i=0; i < self.addPrize.length; i++){
+            let request = new Request(
+                'SELECT name, count, picture_url FROM prize WHERE room_id = @ID;',
+                (err, rowCount) => {
+                });
+            request.on('row', (columns) => {
+                for(let i=0; i < self.addPrize.length; i++){
 					result.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
 				}
 				self.lottery = new Attack25Lottery(result);
-			});
+            });
+            request.addParameter('ID', TYPES.NChar, this.id);
+            connection.execSql(request);
 		}else{
 			this.lottery.reloadInit(socket, this.prizeMax);
 		}
