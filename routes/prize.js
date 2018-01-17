@@ -32,11 +32,16 @@ router.get('/show', function(req, res, next) {
         select,
         (err, rowCount, rows) => {
             console.log(rows);
+            if(rowCount == 0) {
+                res.render('reading');
+            }
         });
     console.log("今からやで");
     request.on('row', (columns) => {
         console.log(columns);
-        res.render('reading', { prizes: columns[0].value });
+        if(columns.length != 0) {
+            res.render('reading', { prizes: columns[0].value });    
+        }
     });
     request.addParameter('ID', TYPES.NChar, req.session.user.id);
     connection.execSql(request);
