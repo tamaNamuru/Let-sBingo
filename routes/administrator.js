@@ -142,21 +142,14 @@ router.post('/login', function(req, res, next) {
         (err, rowCount, rows) => {
             if(err || rowCount != 1) {
                 res.render('adminlogin', {error: '入力が正しくありません。'});
-            } else {
-               request.on('row', (columns) =>{
-                   console.log(columns);
-                   req.session.user = {id: id, name: columns[0].value, administrator: true};
-                   res.redirect('../');
-               });
             }
         });
-    /*request.on('row', (columns) =>{
-       console.log(columns);
+    request.on('row', (columns) =>{
         if(columns.length == 1) {
             req.session.user = {id: id, name: columns[0].value, administrator: true};
             res.redirect('../');
         }
-    });*/
+    });
     request.addParameter('ID', TYPES.NChar, id);
     request.addParameter('Password', TYPES.NVarChar, pass);
     connection.execSql(request);
