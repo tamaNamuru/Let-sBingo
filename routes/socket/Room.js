@@ -1,5 +1,5 @@
 //クラス共通の変数
-var connection = require('../tediousConnection');
+var connection = require('../../tediousConnection');
 var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
 
