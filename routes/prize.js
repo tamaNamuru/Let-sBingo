@@ -37,7 +37,7 @@ router.get('/show', function(req, res, next) {
     
     request.on('row', (columns) => {
         console.log(columns);
-        res.render('reading', { prizes: columns });
+        res.render('reading', { prizes: columns[0].value });
     });
     request.addParameter('ID', TYPES.NChar, req.session.user.id);
     connection.execSql(request);
