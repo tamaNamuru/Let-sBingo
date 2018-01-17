@@ -18,7 +18,7 @@ router.post('/user', function(req, res, next) {
 	if(0 == req.body.userName.length) {
 		res.render('enter', {title: "Let's Bingo", error: '名前を入力してください。'});
 	} else {
-        let request = new Request('SELECT room_id FROM room WHERE name = @name;',
+        request = new Request('SELECT room_id FROM room WHERE name = @name;',
         (err, rowCount) => {
         });
         

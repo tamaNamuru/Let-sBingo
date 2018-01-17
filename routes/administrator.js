@@ -35,7 +35,7 @@ router.post('/signup', function(req, res, next) {
     async.waterfall([
         (next) => {
             //データベースに登録
-            let request = new Request(
+            request = new Request(
             nameselect,
             (err, rowCount, rows) => {
                 if(err || rowCount > 0) {
@@ -50,7 +50,7 @@ router.post('/signup', function(req, res, next) {
         },
         (next) => {
             //room_idを取得
-            let request = new Request(idselect,
+            request = new Request(idselect,
             (err, rowCount, rows) => {
                 if(err) {
                     next(err);
@@ -69,7 +69,7 @@ router.post('/signup', function(req, res, next) {
         (next) => {
             //追加
              //room_idを取得
-            let request = new Request(insert,
+            request = new Request(insert,
             (err, rowCount, rows) => {
                 if(err) {
                     next(err);
@@ -88,7 +88,7 @@ router.post('/signup', function(req, res, next) {
                 if(err) console.log(id + "folder error");
             });
             //使用するビンゴカードの登録(ここではstandard.cssが設定される)
-            let request = new Request(insert_card,
+            request = new Request(insert_card,
             (err, rowCount, rows) => {
                 if(err) {
                     console.log(id + "insert table card error");
@@ -137,7 +137,7 @@ router.post('/login', function(req, res, next) {
 		return;
 	}
 	
-    let request = new Request(
+    request = new Request(
         select,
         (err, rowCount, rows) => {
             if(err || rowCount != 1) {

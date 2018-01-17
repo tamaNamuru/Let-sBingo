@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/show', function(req, res, next) {
     console.log("hoge");
-    let request = new Request(
+    request = new Request(
         select,
         (err, rowCount) => {
             console.log(rowCount);
@@ -44,7 +44,7 @@ router.get('/show', function(req, res, next) {
 });
 
 router.get('/info', function(req, res, next) {
-    let request = new Request(
+    request = new Request(
         select,
         (err, rowCount) => {
         });
@@ -127,7 +127,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
             connection.execSql(request);
         },
         (next, tables) => {
-            let request = new Request(
+            request = new Request(
             insert,
             (err, rowCount, rows) => {
                 if(err) {
