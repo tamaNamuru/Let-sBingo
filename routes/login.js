@@ -28,11 +28,11 @@ router.post('/user', function(req, res, next) {
                 console.log("id:" + req.body.roomid + "\npass:" + columns[0].value);
                 res.render('enter', {title: "Let's Bingo", error: 'IDが正しくありません。'});
             } else {
-                console.log(req.body.roomid);
                 if(req.session.user && req.session.guest){	//念のため
                     if(req.session.user.id != req.body.roomid)	//別の部屋に入る場合は勝利フラグを消す
                         req.session.guest.winner = 'none';
                 }
+                console.log("namuru");
                 req.session.user = {id: req.body.roomid, name: req.body.userName, administrator: false};
                 if(!req.session.guest){	//参加者固有のセッション
                     //ここでビンゴカードのもとを作る
@@ -40,6 +40,7 @@ router.post('/user', function(req, res, next) {
                     let card = "";
                     do {
                         for(let i=0; i < 5; i++) {
+                            console.log("chige");
                             let range = i * 15 + 1;
                             let numSet = new Set();
                             for(let j=0; j < 5; j++) {
