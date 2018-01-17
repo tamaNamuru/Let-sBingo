@@ -32,7 +32,6 @@ router.post('/user', function(req, res, next) {
                     if(req.session.user.id != req.body.roomid)	//別の部屋に入る場合は勝利フラグを消す
                         req.session.guest.winner = 'none';
                 }
-                console.log("namuru");
                 req.session.user = {id: req.body.roomid, name: req.body.userName, administrator: false};
                 if(!req.session.guest){	//参加者固有のセッション
                     //ここでビンゴカードのもとを作る
@@ -40,7 +39,6 @@ router.post('/user', function(req, res, next) {
                     let card = "";
                     do {
                         for(let i=0; i < 5; i++) {
-                            console.log("chige");
                             let range = i * 15 + 1;
                             let numSet = new Set();
                             for(let j=0; j < 5; j++) {
@@ -62,6 +60,7 @@ router.post('/user', function(req, res, next) {
                     //参加者のカード, 勝利フラグ none:ビンゴ中, reach:リーチ, 4～75:ビンゴ済み(数字はビンゴまでの抽選回数)
                     req.session.guest = {card: card, winner: 'none'};
                 }
+                console.log("hoge");
                 res.redirect('../guest');
             }
         });
