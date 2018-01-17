@@ -4,8 +4,8 @@ var router = express.Router();
 var connection = require('../tediousConnection');
 var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
-var async = require('async');
-var lottery = 'SELECT lottery_id FROM room WHERE room_id = ?';
+
+var lottery = 'SELECT lottery_id FROM room WHERE room_id = @ID;';
 
 //ビンゴ
 router.get('/', function(req, res, next) {
@@ -27,8 +27,13 @@ router.get('/jankenscreen', function(req, res, next) {
 
 //景品抽選
 router.get('/lottery', function(req, res, next) {
-    connection.query(lottery, [req.session.user.id], function(error, result) {
-    	switch(result[0].lottery_id){
+    let request = new Request(
+    lottery,
+    (err, rowCount) => {
+    });
+    
+    request.on('row', (columns) => {
+        switch(colums[0].value){
     	case 0:	//景品抽選なし
     		res.render('rank_controller.html');
     		break;
@@ -38,9 +43,10 @@ router.get('/lottery', function(req, res, next) {
     	case 2:	//アタック25
     		res.render('景品Attack25管理側.html');
     		break;
-    	
     	}
     });
+    request.addParameter('ID', TYPES.NChar, req.session.user.id);
+    connection.execSql(request);
 });
 
 //景品抽選なし大画面
