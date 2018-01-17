@@ -123,7 +123,7 @@ router.get('/sample', function(req, res, next) {
             res.redirect('config');
         });
     request.addParameter('Cardurl', TYPES.NVarChar, cssurl);
-    request.addParameter('ID', TYPES.NChar, id);
+    request.addParameter('ID', TYPES.NChar, req.session.user.id);
     connection.execSql(request);
 });
 
