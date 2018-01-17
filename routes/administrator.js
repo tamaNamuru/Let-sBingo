@@ -86,7 +86,7 @@ router.post('/signup', function(req, res, next) {
             },
             (next) => {
                 //写真用のフォルダ作成
-                fs.mkdir('public/projects/' + id, function (err) {
+                fs.mkdir('../public/projects/' + id, function (err) {
                     if(err) console.log(id + "folder error");console.log(err);
                 });
                 //使用するビンゴカードの登録(ここではstandard.cssが設定される)
