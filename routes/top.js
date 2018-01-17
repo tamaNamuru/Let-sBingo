@@ -104,12 +104,9 @@ router.post('/other/submit', function(req, res, next) {
     let request = new Request(
     updateconfig,
     (err, rowCount) => {
-
-    });
-    
-    request.on('row', (columns) => {
         res.redirect('/manage');
     });
+    
     request.addParameter('LID', TYPES.Int, req.body.or);
     request.addParameter('ID', TYPES.NChar, req.session.user.id);
     connection.execSql(request);
