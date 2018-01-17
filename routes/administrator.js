@@ -143,7 +143,7 @@ router.post('/login', function(req, res, next) {
             if(err || rowCount != 1) {
                 res.render('adminlogin', {error: '入力が正しくありません。'});
             } else {
-                console.log(rows);
+                console.log(rows[0]);
                 req.session.user = {id: id, name: rows[0].name, administrator: true};
                 res.redirect('../');
             }
