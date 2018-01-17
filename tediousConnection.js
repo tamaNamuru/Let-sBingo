@@ -4,7 +4,7 @@ var dbConfig = {
 	userName: 'master',
 	password: 'ikkKtmksrsr7',
 	server: 'keserasera.database.windows.net',
-	options: { database: 'bingo'}
+	options: { encrypt: true, database: 'bingo'}
 };
 
 var connection = new tedious(dbConfig);
