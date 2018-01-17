@@ -1,5 +1,5 @@
 //クラス共通の変数
-var connection = require('../../mysqlConnection');
+var connection = require('../tediousConnection');
 var select = 'SELECT name, count, description FROM prize WHERE room_id = ? AND prize_id = ?';
 var sum = 'SELECT SUM(count) AS prizeMax FROM prize WHERE room_id = ?';
 

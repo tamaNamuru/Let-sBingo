@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var connection = require('../mysqlConnection');
+var connection = require('../tediousConnection');
 var select = 'SELECT room_id FROM room WHERE name = ?';
 //連続する500枚のカードは重複しないようにする。
 //nodeはノンブロッキングなのであまりガードにはなっていない。

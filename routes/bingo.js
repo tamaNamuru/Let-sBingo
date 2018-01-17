@@ -1,7 +1,7 @@
 ﻿var express = require('express');
 var router = express.Router();
 
-var connection = require('../mysqlConnection');
+var connection = require('../tediousConnection');
 var lottery = 'SELECT lottery_id FROM room WHERE room_id = ?';
 
 //ビンゴ
