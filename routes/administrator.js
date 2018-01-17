@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var connection = require('../tediousConnection');
-var Request = request('tedious').Request;
+var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
 var async = require('async');
 
