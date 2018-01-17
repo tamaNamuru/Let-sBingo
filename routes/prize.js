@@ -30,11 +30,9 @@ router.get('/show', function(req, res, next) {
     console.log("hoge");
     request = new Request(
         select,
-        (err, rowCount) => {
-            console.log(rowCount);
+        (err, rowCount, rows) => {
         });
-    
-    
+    console.log("今からやで");
     request.on('row', (columns) => {
         console.log(columns);
         res.render('reading', { prizes: columns[0].value });
