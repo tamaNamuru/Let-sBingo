@@ -30,7 +30,7 @@ router.post('/signup', function(req, res, next) {
         res.redirect('signup');
         return;
     }
-    connection.on('connect', function(error) {
+    //connection.on('connect', function(error) {
         let id = ('000' + Math.floor(Math.random() * (10000))).slice(-4);
         async.waterfall([
             (next) => {
@@ -111,7 +111,7 @@ router.post('/signup', function(req, res, next) {
                 }
             }
         );
-    });
+    //});
 });
 
 //管理者のログイン
