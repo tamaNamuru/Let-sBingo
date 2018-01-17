@@ -35,9 +35,11 @@ router.post('/signup', function(req, res, next) {
         async.waterfall([
             (next) => {
                 //データベースに登録
+                console.log("1");
                 let request = new Request(
                 'SELECT name FROM room WHERE name = @Name;',
                 (err, rowCount, rows) => {
+                    console.log("2");
                     if(err || rowCount > 0) {
                         res.render('新規作成画面', { error: "すでに同じ名前の部屋があります。"});
                         return;
