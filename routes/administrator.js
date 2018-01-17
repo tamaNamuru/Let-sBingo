@@ -100,7 +100,7 @@ router.post('/signup', function(req, res, next) {
                 request.addParameter('ID', TYPES.NChar, id);
                 connection.execSql(request);                    
             }],
-            (err){
+            (err) => {
                 if(err){
                     res.redirect('signup');
                 }else{
