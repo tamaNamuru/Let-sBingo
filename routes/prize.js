@@ -31,6 +31,7 @@ router.get('/show', function(req, res, next) {
     request = new Request(
         select,
         (err, rowCount, rows) => {
+            console.log(rows);
         });
     console.log("今からやで");
     request.on('row', (columns) => {
