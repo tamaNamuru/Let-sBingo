@@ -5,7 +5,6 @@ var connection = require('../tediousConnection');
 var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
 var async = require('async');
-var select = 'SELECT room_id FROM room WHERE name = ?';
 //連続する500枚のカードは重複しないようにする。
 //nodeはノンブロッキングなのであまりガードにはなっていない。
 var cardChecks = [];
@@ -20,7 +19,7 @@ router.post('/user', function(req, res, next) {
 		res.render('enter', {title: "Let's Bingo", error: '名前を入力してください。'});
 	} else {
         let request = new Request('SELECT room_id FROM room WHERE name = @name;',
-        (err, rowCount, rows) => {
+        (err, rowCount) => {
         });
         
         request.on('row', (columns) => {
@@ -29,6 +28,7 @@ router.post('/user', function(req, res, next) {
                 console.log("id:" + req.body.roomid + "\npass:" + columns[0].value);
                 res.render('enter', {title: "Let's Bingo", error: 'IDが正しくありません。'});
             } else {
+                console.log(req.body.roomid);
                 if(req.session.user && req.session.guest){	//念のため
                     if(req.session.user.id != req.body.roomid)	//別の部屋に入る場合は勝利フラグを消す
                         req.session.guest.winner = 'none';
