@@ -75,7 +75,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
         (next) => {
             let request = new Request(
             drop,
-            (err, rowCount, rows) => {
+            (err, rowCount) => {
                 if(err) {
                     next(err);
                 } else {
@@ -93,13 +93,11 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                             let url = null;
                             if(req.body.url[i]){
                                 url = req.body.url[i];
-                                console.log(url);
 
                                 if(url.indexOf(pattern) == -1) {
                                     if(fileIndex >= 0) url = "/projects/" + id + "/" + req.files[fileIndex++].originalname;
                                     else url = "/projects/" + id + "/" + req.files[0].originalname;
                                 }
-                                console.log(url);
                             }
                             let desc = req.body.biko[i];
                             let pri = req.body.pri[i];
@@ -115,6 +113,8 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                         }
                         values.push([id, 1, req.body.name, req.body.pri, req.body.biko, url, req.body.kazu]);
                     }
+                    console.log(values);
+                    console.log("nishi");
                     next(null, values);
                 }
             });
@@ -125,7 +125,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
             let prizeCount = 0;
             let request = new Request(
             insert,
-            (err, rowCount, rows) => {
+            (err, rowCount) => {
                 if(err) {
                     next(err);
                 } else {
