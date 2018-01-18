@@ -60,7 +60,6 @@ router.post('/user', function(req, res, next) {
                     //参加者のカード, 勝利フラグ none:ビンゴ中, reach:リーチ, 4～75:ビンゴ済み(数字はビンゴまでの抽選回数)
                     req.session.guest = {card: card, winner: 'none'};
                 }
-                console.log("hoge");
                 res.redirect('../guest');
             }
         });

@@ -17,7 +17,6 @@ router.get('/', function(req, res, next) {
                 next(null, rows);
             });
             request.on('row', function(columns) {
-                console.log(columns);
                 let row = {};
                 columns.forEach(function(column) {
                     row[column.metadata.colName] = column.value;
@@ -32,11 +31,9 @@ router.get('/', function(req, res, next) {
             let request = new Request(
             'SELECT card_url FROM card WHERE room_id = @ID;',
             (err, rowCount) => {
-                console.log(prizes);
                 next(null, prizes, rows[0].card_url);
             });
             request.on('row', function(columns) {
-                console.log(columns);
                 let row = {};
                 columns.forEach(function(column) {
                     row[column.metadata.colName] = column.value;
