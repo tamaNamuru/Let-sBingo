@@ -8,7 +8,7 @@ var async = require('async');
 
 var select = 'SELECT name, count, picture_url, description, priority FROM prize WHERE room_id = @ID ORDER BY priority;';
 var drop = 'DELETE FROM prize WHERE room_id = @ID';
-var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES @Values';
+var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES @Values;';
 
 var multer  = require('multer')
 var storage = multer.diskStorage({
@@ -27,27 +27,25 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/show', function(req, res, next) {
-    console.log("hoge");
-    request = new Request(
-        select,
-        (err, rowCount, rows) => {
-            res.render('reading', { prizes: rows });
-        });
-    
-    request.addParameter('ID', TYPES.NChar, req.session.user.id);
-    connection.execSql(request);
+	let request = new Request(
+		select,
+		(err, rowCount, rows) => {
+			console.log(rows);
+			res.render('reading', { prizes: rows });
+		});
+	request.addParameter('ID', TYPES.NChar, req.session.user.id);
+	connection.execSql(request);
 });
 
 router.get('/info', function(req, res, next) {
-    request = new Request(
-        select,
-        (err, rowCount, rows) => {
-            res.render('keihin_joho', { prizes: rows });
-        });
-    
-    request.addParameter('ID', TYPES.NChar, req.session.user.id);
-    connection.execSql(request);
-	
+	let request = new Request(
+		select,
+	        (err, rowCount, rows) => {
+			console.log(rows);
+			res.render('keihin_joho', { prizes: rows });
+	        });
+	request.addParameter('ID', TYPES.NChar, req.session.user.id);
+	connection.execSql(request);
 });
 
 router.post('/insert', upload.array('pic'), function(req, res, next) {
@@ -100,7 +98,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                         }
                         values.push([id, 1, req.body.name, req.body.pri, req.body.biko, url, req.body.kazu]);
                     }
-                    let table = {
+                    let tables = {
                         columns: [
                             {name: 'room_id', type: TYPES.NChar},
                             {name: 'prize_id', type: TYPES.Int},
@@ -110,17 +108,16 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                             {name: 'picture_url', type: TYPES.NVarChar},
                             {name: 'count', type: TYPES.Int}
                         ],
-                        rows: []
+                        rows: values
                     };
-                    table.rows.push(values);
-                    next(null, values);
+                    next(null, tables);
                 }
             });
             request.addParameter('ID', TYPES.NChar, id);
             connection.execSql(request);
         },
-        (next, tables) => {
-            request = new Request(
+        (tables, next) => {
+            let request = new Request(
             insert,
             (err, rowCount, rows) => {
                 if(err) {

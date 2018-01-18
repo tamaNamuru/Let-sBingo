@@ -13,23 +13,19 @@ router.get('/', function(req, res, next) {
             let request = new Request(
             'SELECT prize_id, picture_url FROM prize WHERE room_id = @ID ORDER BY priority;',
             (err, rowCount, rows) => {
+		console.log(rows);
+                next(null, rows);
             });
             
-            request.on('row', (columns) => {
-                console.log(columns);
-                next(null, columns);
-            });
             request.addParameter('ID', TYPES.NChar, req.session.user.id);
             connection.execSql(request);
         },
-        (next, prizes) => {
+        (prizes, next) => {
             let request = new Request(
             'SELECT card_url FROM card WHERE room_id = @ID;',
             (err, rowCount, rows) => {
-            });
-            
-            request.on('row', (columns) => {
-                next(null, prizes, columns[0].value);
+		console.log(rows);
+		next(null, prizes, rows[0].value);
             });
         }],
     (err, prizes, card_url) => {
