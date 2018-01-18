@@ -132,7 +132,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
         }],
     (err, values) => {
         if(err){
-            console.log("insert error");
+            console.log(err);
         }
         res.redirect('show');
     });
