@@ -10,7 +10,6 @@ var select = 'SELECT name, count, picture_url, description, priority FROM prize 
 var drop = 'DELETE FROM prize WHERE room_id = @ID';
 var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES (@rid, @pid, @name, @yuusen, @setumei, @purl, @count);';
 
-var insert2 = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES (@rid);';
 var multer  = require('multer')
 var storage = multer.diskStorage({
 	destination: function(req, file, cb) {
@@ -28,23 +27,40 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/show', function(req, res, next) {
+    let rows = [];
 	let request = new Request(
 		select,
-		(err, rowCount, rows) => {
+		(err, rowCount) => {
 			console.log(rows);
 			res.render('reading', { prizes: rows });
 		});
+    
+    request.on('row', function(columns) {
+        var row = {};
+        columns.forEach(function(column) {
+            row[column.metadata.colName] = column.value;
+        });
+        rows.push(row);
+    });
 	request.addParameter('ID', TYPES.NChar, req.session.user.id);
 	connection.execSql(request);
 });
 
 router.get('/info', function(req, res, next) {
+    let rows = [];
 	let request = new Request(
 		select,
-	        (err, rowCount, rows) => {
+	        (err, rowCount) => {
 			console.log(rows);
 			res.render('keihin_joho', { prizes: rows });
 	        });
+    request.on('row', function(columns) {
+        var row = {};
+        columns.forEach(function(column) {
+            row[column.metadata.colName] = column.value;
+        });
+        rows.push(row);
+    });
 	request.addParameter('ID', TYPES.NChar, req.session.user.id);
 	connection.execSql(request);
 });
