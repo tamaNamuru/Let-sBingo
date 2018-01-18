@@ -106,27 +106,31 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
             connection.execSql(request);
         },
         (values, next) => {
+            let prizeCount = 0;
             let request = new Request(
             insert,
             (err, rowCount, rows) => {
                 if(err) {
                     next(err);
                 } else {
-                    next(null);
+                    if(++prizeCount == values.length) {
+                        next(null);
+                    }
+                    console.log(prizeCount);
                 }
             });
             for(let i = 0; i < values.length; i++) {
                 request.addParameter('rid', TYPES.NChar, values[i][0]);
-                request.addParameter('pid', TYPES.NChar, tables[i][1]);
-                request.addParameter('name', TYPES.NVarChar, tables[i][2]);
-                request.addParameter('yuusen', TYPES.Int, tables[i][3]);
-                request.addParameter('setumei', TYPES.NVarChar, tables[i][4]);
-                request.addParameter('purl', TYPES.NVarChar, tables[i][5]);
-                request.addParameter('count', TYPES.Int, tables[i][6]);
+                request.addParameter('pid', TYPES.NChar, values[i][1]);
+                request.addParameter('name', TYPES.NVarChar, values[i][2]);
+                request.addParameter('yuusen', TYPES.Int, values[i][3]);
+                request.addParameter('setumei', TYPES.NVarChar, values[i][4]);
+                request.addParameter('purl', TYPES.NVarChar, values[i][5]);
+                request.addParameter('count', TYPES.Int, values[i][6]);
                 connection.execSql(request);
             }
         }],
-    (err) => {
+    (err, values) => {
         if(err){
             console.log("insert error");
         }
