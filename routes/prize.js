@@ -123,19 +123,20 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
         },
         (values, next) => {
             let prizeCount = 0;
-            let request = new Request(
-            insert,
-            (err, rowCount) => {
-                if(err) {
-                    next(err);
-                } else {
-                    if(++prizeCount == values.length) {
-                        next(null);
-                    }
-                    console.log(prizeCount);
-                }
-            });
             for(let i = 0; i < values.length; i++) {
+                let request = new Request(
+                insert,
+                (err, rowCount) => {
+                    if(err) {
+                        next(err);
+                        break;
+                    } else {
+                        if(++prizeCount == values.length) {
+                            next(null);
+                        }
+                        console.log(prizeCount);
+                    }
+                });
                 request.addParameter('rid', TYPES.NChar, values[i][0]);
                 request.addParameter('pid', TYPES.NChar, values[i][1]);
                 request.addParameter('name', TYPES.NVarChar, values[i][2]);
