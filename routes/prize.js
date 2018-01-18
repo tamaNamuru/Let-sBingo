@@ -10,6 +10,7 @@ var select = 'SELECT name, count, picture_url, description, priority FROM prize 
 var drop = 'DELETE FROM prize WHERE room_id = @ID';
 var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES @Values;';
 
+var insert2 = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES (@Values);';
 var multer  = require('multer')
 var storage = multer.diskStorage({
 	destination: function(req, file, cb) {
@@ -119,7 +120,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
         },
         (tables, next) => {
             let request = new Request(
-            insert,
+            insert2,
             (err, rowCount, rows) => {
                 if(err) {
                     next(err);
