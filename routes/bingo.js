@@ -33,7 +33,7 @@ router.get('/lottery', function(req, res, next) {
     });
     
     request.on('row', (columns) => {
-        switch(colums[0].value){
+        switch(columns[0].value){
     	case 0:	//景品抽選なし
     		res.render('rank_controller.html');
     		break;
