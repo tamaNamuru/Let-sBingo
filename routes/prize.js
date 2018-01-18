@@ -129,7 +129,6 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                 (err, rowCount) => {
                     if(err) {
                         next(err);
-                        break;
                     } else {
                         if(++prizeCount == values.length) {
                             next(null);
