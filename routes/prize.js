@@ -110,6 +110,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                         ],
                         rows: values
                     };
+                    console.log(tables);
                     next(null, tables);
                 }
             });
