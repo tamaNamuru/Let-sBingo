@@ -8,7 +8,6 @@ var async = require('async');
 
 var select = 'SELECT name, count, picture_url, description, priority FROM prize WHERE room_id = @ID ORDER BY priority;';
 var drop = 'DELETE FROM prize WHERE room_id = @ID';
-var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES (@rid, @pid, @name, @yuusen, @setumei, @purl, @count);';
 
 var multer  = require('multer')
 var storage = multer.diskStorage({
@@ -66,6 +65,10 @@ router.get('/info', function(req, res, next) {
 });
 
 router.post('/insert', upload.array('pic'), function(req, res, next) {
+    if(!req.body.name){
+        res.redirect('info');
+        return;
+    }
 	console.log(req.body);
 	console.log(req.files);
 	let id = req.session.user.id;
@@ -122,33 +125,39 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
             connection.execSql(request);
         },
         (values, next) => {
-            let prizeCount = 0;
+            let insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES';
             for(let i = 0; i < values.length; i++) {
-                let request = new Request(
-                insert,
-                (err, rowCount) => {
-                    if(err) {
-                        next(err);
-                    } else {
-                        if(++prizeCount == values.length) {
-                            next(null);
-                        }
-                        console.log(prizeCount);
-                    }
-                });
-                request.addParameter('rid', TYPES.NChar, values[i][0]);
-                request.addParameter('pid', TYPES.NChar, values[i][1]);
-                request.addParameter('name', TYPES.NVarChar, values[i][2]);
-                request.addParameter('yuusen', TYPES.Int, values[i][3]);
-                request.addParameter('setumei', TYPES.NVarChar, values[i][4]);
-                request.addParameter('purl', TYPES.NVarChar, values[i][5]);
-                request.addParameter('count', TYPES.Int, values[i][6]);
-                connection.execSql(request);
+                insert = insert + '(@rid' + i + ', @pid' + i + ', @name' + i + ', @yuusen' + i + ', @setumei' + i + ', @purl' + i + ', @count' + i + ')';
+                if(i < value.length - 1) {
+                    insert+= ',';
+                }
             }
+            insert+= ';';
+            
+            let request = new Request(
+            insert,
+            (err, rowCount) => {
+                if(err) {
+                    next(err);
+                } else {
+                    next(null);
+                }
+            });
+            for(let i = 0; i < values.length; i++) {
+                request.addParameter('rid' + i, TYPES.NChar, values[i][0]);
+                request.addParameter('pid' + i, TYPES.NChar, values[i][1]);
+                request.addParameter('name' + i, TYPES.NVarChar, values[i][2]);
+                request.addParameter('yuusen' + i, TYPES.Int, values[i][3]);
+                request.addParameter('setumei' + i, TYPES.NVarChar, values[i][4]);
+                request.addParameter('purl' + i, TYPES.NVarChar, values[i][5]);
+                request.addParameter('count' + i, TYPES.Int, values[i][6]);
+            }
+            connection.execSql(request);
         }],
     (err, values) => {
         if(err){
             console.log(err);
+            console.log("負けないで！ケセラセラの精神よ！")
         }
         res.redirect('show');
     });
