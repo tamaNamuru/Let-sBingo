@@ -128,7 +128,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
             let insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES';
             for(let i = 0; i < values.length; i++) {
                 insert = insert + '(@rid' + i + ', @pid' + i + ', @name' + i + ', @yuusen' + i + ', @setumei' + i + ', @purl' + i + ', @count' + i + ')';
-                if(i < value.length - 1) {
+                if(i < values.length - 1) {
                     insert+= ',';
                 }
             }
