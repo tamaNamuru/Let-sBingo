@@ -10,23 +10,41 @@ var async = require('async');
 router.get('/', function(req, res, next) {
     async.waterfall([
         (next) => {
+            let rows = [];
             let request = new Request(
             'SELECT prize_id, picture_url FROM prize WHERE room_id = @ID ORDER BY priority;',
-            (err, rowCount, rows) => {
-		console.log(rows);
+            (err, rowCount) => {
                 next(null, rows);
             });
-            
+            request.on('row', function(columns) {
+                console.log(columns);
+                let row = {};
+                columns.forEach(function(column) {
+                    row[column.metadata.colName] = column.value;
+                });
+                rows.push(row);
+            });
             request.addParameter('ID', TYPES.NChar, req.session.user.id);
             connection.execSql(request);
         },
         (prizes, next) => {
+            let rows = [];
             let request = new Request(
             'SELECT card_url FROM card WHERE room_id = @ID;',
-            (err, rowCount, rows) => {
-		console.log(rows);
-		next(null, prizes, rows[0].value);
+            (err, rowCount) => {
+                console.log(prizes);
+                next(null, prizes, rows[0].card_url);
             });
+            request.on('row', function(columns) {
+                console.log(columns);
+                let row = {};
+                columns.forEach(function(column) {
+                    row[column.metadata.colName] = column.value;
+                });
+                rows.push(row);
+            });
+            request.addParameter('ID', TYPES.NChar, req.session.user.id);
+            connection.execSql(request);
         }],
     (err, prizes, card_url) => {
         if(err){
