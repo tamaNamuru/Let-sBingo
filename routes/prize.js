@@ -128,7 +128,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                 }
             });
             request.addParameter('Values', TYPES.TVP, tables);
-            connection.execSql(request);
+            connection.callProcedure(request);
         }],
     (err) => {
         if(err){
