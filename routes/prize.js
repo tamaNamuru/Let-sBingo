@@ -8,9 +8,9 @@ var async = require('async');
 
 var select = 'SELECT name, count, picture_url, description, priority FROM prize WHERE room_id = @ID ORDER BY priority;';
 var drop = 'DELETE FROM prize WHERE room_id = @ID';
-var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES @Values;';
+var insert = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES @rid, @pid, @name, @yuusen, @setumei, @purl, @count);';
 
-var insert2 = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES (@Values);';
+var insert2 = 'INSERT INTO prize(room_id, prize_id, name, priority, description, picture_url, count) VALUES (@rid);';
 var multer  = require('multer')
 var storage = multer.diskStorage({
 	destination: function(req, file, cb) {
@@ -99,28 +99,15 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                         }
                         values.push([id, 1, req.body.name, req.body.pri, req.body.biko, url, req.body.kazu]);
                     }
-                    let tables = {
-                        columns: [
-                            {name: 'room_id', type: TYPES.NChar},
-                            {name: 'prize_id', type: TYPES.Int},
-                            {name: 'name', type: TYPES.NVarChar},
-                            {name: 'priority', type: TYPES.Int},
-                            {name: 'description', type: TYPES.NVarChar},
-                            {name: 'picture_url', type: TYPES.NVarChar},
-                            {name: 'count', type: TYPES.Int}
-                        ],
-                        rows: values
-                    };
-                    console.log(tables);
-                    next(null, tables);
+                    next(null, values);
                 }
             });
             request.addParameter('ID', TYPES.NChar, id);
             connection.execSql(request);
         },
-        (tables, next) => {
+        (values, next) => {
             let request = new Request(
-            insert2,
+            insert,
             (err, rowCount, rows) => {
                 if(err) {
                     next(err);
@@ -128,9 +115,16 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                     next(null);
                 }
             });
-            request.addParameter('Values', TYPES.TVP, tables);
-            console.log(request);
-            connection.callProcedure(request);
+            for(let i = 0; i < values.length; i++) {
+                request.addParameter('rid', TYPES.NChar, values[i][0]);
+                request.addParameter('pid', TYPES.NChar, tables[i][1]);
+                request.addParameter('name', TYPES.NVarChar, tables[i][2]);
+                request.addParameter('yuusen', TYPES.Int, tables[i][3]);
+                request.addParameter('setumei', TYPES.NVarChar, tables[i][4]);
+                request.addParameter('purl', TYPES.NVarChar, tables[i][5]);
+                request.addParameter('count', TYPES.Int, tables[i][6]);
+                connection.execSql(request);
+            }
         }],
     (err) => {
         if(err){
