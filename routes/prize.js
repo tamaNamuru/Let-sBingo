@@ -128,6 +128,7 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                 }
             });
             request.addParameter('Values', TYPES.TVP, tables);
+            console.log(request);
             connection.callProcedure(request);
         }],
     (err) => {
