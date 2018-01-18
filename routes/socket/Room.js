@@ -119,12 +119,9 @@ module.exports = class Room {
             let rows = [];
 			let request = new Request(
 				select,
-				(err, rowCount, rows) => {
-				console.log(rows);
-			});
-            request.on('row', (columns) => {
+				(err, rowCount) => {
                 socket.emit('getPrize', rows[0].name, rows[0].count, rows[0].description);
-            });
+			});
             request.on('row', function(columns) {
                 let row = {};
                 columns.forEach(function(column) {
