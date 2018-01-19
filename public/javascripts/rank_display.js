@@ -11,6 +11,7 @@ var count = 0;
         guests = guestInfo;
 	var Audio = $( "#media_player" );
 	Audio.get(0).play();
+	Audio.volume = 0.5;
         setTimeout(function(){a()}, 0);
     });
 	function a(){
