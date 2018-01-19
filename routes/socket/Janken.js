@@ -98,6 +98,7 @@ module.exports = class Janken {
 				//セッションを保存
 				socket.request.session.save((err) => {
 				});
+                socket.emit('logoutOn');
 			}
 		}
 		return 0;

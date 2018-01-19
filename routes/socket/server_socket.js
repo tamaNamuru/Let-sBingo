@@ -170,7 +170,7 @@ module.exports = function(io) {
 			return;
 		}
 		let idroom = roomMaps.get(socket.request.session.user.id);
-		if(idroom === undefined || idroom.janken === undefined){
+		if(idroom === undefined){
 			socket.emit('redirect', '/logout/userexit');	//ログインしたけど部屋がなくなっていた場合のため
 			return;
 		}
@@ -233,6 +233,7 @@ module.exports = function(io) {
 		
 		//終了
 		socket.on('lotteryFinish', () => {
+            idroom.janken = null;
 			roomMaps.delete(idroom.id);
 			
 			guest.to(idroom.id).emit('redirect', '/logout/userexit');	//ルーム参加者を強制ログアウト
@@ -308,6 +309,7 @@ module.exports = function(io) {
 		//終了
 		socket.on('lotteryFinish', () => {
 			if(idroom.simpleLotteryFinish()){
+                idroom.janken = null;
 				roomMaps.delete(idroom.id);
 			}else{
 				socket.emit('setMessage', "まだ配られていない景品があります。");
@@ -381,6 +383,7 @@ module.exports = function(io) {
 		
 		//終了
 		socket.on('lotteryFinish', () => {
+            idroom.janken = null;
 			roomMaps.delete(idroom.id)
 			
 			guest.to(idroom.id).emit('redirect', '/logout/userexit');	//ルーム参加者を強制ログアウト

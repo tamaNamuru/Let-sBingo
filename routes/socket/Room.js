@@ -170,6 +170,11 @@ module.exports = class Room {
 		}
         socket.emit('setPrizeMax', this.prizeMax);
         socket.emit('setNin', this.bingoCount - this.lastBingoCount);
+        if(this.bingoCount - this.lastBingoCount == this.prizeMax){
+            socket.emit('goLottery');
+        }else if(this.lastBingoCount == this.janken.jankenWait){
+            socket.emit('setMessage', '準備OK!出す手を選んでください');
+        }
 	}
 	
 	//-1:送信失敗, それ以外:変動した人数
@@ -215,7 +220,6 @@ module.exports = class Room {
 	jankenGuestUpdate() {
 		if(this.janken.isJankenResultEnd()){
 			if(this.bingoCount - this.lastBingoCount == this.prizeMax){
-				this.janken = null;	//破棄は無理にここでしなくてもいいか？
 				return 1;
 			}
 			return 2;

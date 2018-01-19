@@ -9,8 +9,6 @@ var count = 0;
     let guests; //[]{rank, name}
     nolottery_sub.on('sendResult', (guestInfo) => {
         guests = guestInfo;
-	var Audio = $( "#media_player" );	//BGM素材28　まずはここから
-	Audio.get(0).play();
         setTimeout(function(){a()}, 0);
     });
 	function a(){

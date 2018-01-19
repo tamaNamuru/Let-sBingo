@@ -53,6 +53,9 @@ janken_manager.on('jankenStart', () => {
     }, 3000);
 })
 janken_manager.on('goLottery', () => {
+    document.getElementById("gu_btn").style.visibility ="hidden";
+    document.getElementById("ch_btn").style.visibility ="hidden";
+    document.getElementById("pa_btn").style.visibility ="hidden";
     document.getElementById("next").disabled = false;
     document.getElementById("message").innerHTML = "下のボタンから景品抽選に進んでください。";
 });
