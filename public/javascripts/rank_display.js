@@ -10,8 +10,8 @@ var count = 0;
     nolottery_sub.on('sendResult', (guestInfo) => {
         guests = guestInfo;
 	var Audio = $( "#media_player" );
+	$( "#media_player" ).volume = 0.5;
 	Audio.get(0).play();
-	Audio.volume = 0.5;
         setTimeout(function(){a()}, 0);
     });
 	function a(){

@@ -198,6 +198,7 @@ module.exports = class Room {
 		}else{  //景品取得確定済み
 			if(socket.request.session.guest.winner == none || socket.request.session.guest.winner == reach) return true;
 			socket.join(socket.request.session.user.id + winner);
+            socket.emit('katinuke');
 			return true;
 		}
 		switch(this.janken.guestCheck(socket)){

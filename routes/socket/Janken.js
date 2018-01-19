@@ -91,6 +91,7 @@ module.exports = class Janken {
 			if(this.katinuke.get(socket.request.sessionID) == 1){	//勝っている
 				socket.leave(socket.request.session.user.id);
 				socket.join(socket.request.session.user.id + 'winner');	//winner直接書き込んでるので注意
+                socket.emit('katinuke');
 			}else{  //負けている
 				//ここまでくるということはセッションだけ更新されていない
 				socket.leave(socket.request.session.user.id);   //退室

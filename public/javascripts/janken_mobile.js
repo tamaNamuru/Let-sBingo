@@ -64,6 +64,10 @@ janken_guest.on('jankenStart', () => {
     reset();
 });
 
+janken_guest.on('katinuke', () => {
+    $("#use").text("あなたは景品を獲得できます！");
+});
+
 janken_guest.on('sendWin', () => {
     $("#use").text("あなたの勝ち！");
     janken_guest.emit('resultWin');
