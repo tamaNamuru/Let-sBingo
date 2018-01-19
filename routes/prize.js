@@ -30,7 +30,6 @@ router.get('/show', function(req, res, next) {
 	let request = new Request(
 		select,
 		(err, rowCount) => {
-			console.log(rows);
 			res.render('reading', { prizes: rows });
 		});
     
@@ -50,7 +49,6 @@ router.get('/info', function(req, res, next) {
 	let request = new Request(
 		select,
 	        (err, rowCount) => {
-			console.log(rows);
 			res.render('keihin_joho', { prizes: rows });
 	        });
     request.on('row', function(columns) {
@@ -69,8 +67,6 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
         res.redirect('info');
         return;
     }
-	console.log(req.body);
-	console.log(req.files);
 	let id = req.session.user.id;
 	
 	//テーブルの内容を消す
@@ -116,8 +112,6 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
                         }
                         values.push([id, 1, req.body.name, req.body.pri, req.body.biko, url, req.body.kazu]);
                     }
-                    console.log(values);
-                    console.log("nishi");
                     next(null, values);
                 }
             });
@@ -154,10 +148,10 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
             }
             connection.execSql(request);
         }],
-    (err, values) => {
+    (err) => {
         if(err){
             console.log(err);
-            console.log("負けないで！ケセラセラの精神よ！")
+            console.log("負けないで！ケセラセラの精神よ！");
         }
         res.redirect('show');
     });
