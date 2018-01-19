@@ -41,8 +41,7 @@ module.exports = class Room {
 		//景品の総数を取得
 	        let request = new Request(
 	            sum,
-	            (err, rowCount, rows) => {
-			console.log(rows);
+	            (err, rowCount) => {
 	            });
 	        request.on('row', (columns) => {
 			self.prizeMax = columns[0].value;	//景品の数
@@ -308,7 +307,7 @@ module.exports = class Room {
             let rows = [];
 			let request = new Request(
                 'SELECT name, count, picture_url FROM prize WHERE room_id = @ID;',
-                (err, rowCount, rows) => {
+                (err, rowCount) => {
                     for(let i=0; i < self.addPrize.length; i++){
                         rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
 				    }
