@@ -8,8 +8,6 @@ router.get('/', function(req, res, next) {
 		if(req.session.user.administrator){
 			logoutView = 'adminlogout.html';
 			req.session.destroy();
-		}else{
-			delete req.session.user;
 		}
 		res.render(logoutView);
 	}else
