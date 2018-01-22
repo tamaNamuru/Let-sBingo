@@ -441,7 +441,7 @@ module.exports = function(io) {
         if(socket.request.session.user && socket.request.session.guest) {
             let idroom = roomMaps.get(socket.request.session.user.id);
             if(idroom != null){ //ログイン状態の部屋が残っていれば
-                socket.emit('reload');
+                socket.emit('reloadRoom');
             }
 		}
 		

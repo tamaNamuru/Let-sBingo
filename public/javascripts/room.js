@@ -39,8 +39,9 @@ room.on('removeRoom', (name) => {
 });
 
 //再ログイン
-room.on('reload', () => {
-    if(confirm("現在参加中のルームがあります。再ログインしますか？")){
+room.on('reloadRoom', () => {
+    /*if(confirm("現在参加中のルームがあります。再ログインしますか？")){
         window.location.href = '/guest/';
-    }
+    }*/
+    console.log("rerode!");
 });
