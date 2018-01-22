@@ -367,16 +367,12 @@ input {
 Å@Å@font-size: 20px;
     display: inline-block;
     position: relative;
-    text-decoration: none;
     color: #333;
-    width: 50px;
-    height: 35px;
     line-height: 50px;
     border-radius: 5px;
     text-align: center;
     vertical-align: middle;
     overflow: hidden;
-    font-weight: bold;
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
 }
