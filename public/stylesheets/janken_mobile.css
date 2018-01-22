@@ -43,6 +43,7 @@ table.hand{
     display:none;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
+	color: transparent;
 }
 #ch_btn{
 	width: 300px;
@@ -56,6 +57,7 @@ table.hand{
     display:none;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
+	color: transparent;
 }
 #pa_btn{
 	width: 300px;
@@ -69,6 +71,7 @@ table.hand{
     display:none;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
+	color: transparent;
 }
 #all_btn{
     position: fixed;
