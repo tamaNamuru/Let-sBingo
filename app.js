@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var MSSQLStore = require('connect-mssql')(session);
 var socket_io = require('socket.io');
 
 var app = express();
@@ -43,8 +44,18 @@ var card = require('./routes/card');
 var bingo = require('./routes/bingo');
 
 //express-session
+//微妙にコンフィグの書き方が違ったのでtediousConnectionと別にしたが、基本は同じ
+var config = {
+	user: 'master',
+	password: 'ikkKtmksrsr7',
+	server: 'keserasera.database.windows.net',
+	database: 'bingo',
+	options: { encrypt: true }
+};
+
 var sessionMiddleware = session({
 	secret: 'secret keykeserasera',
+	store: new MSSQLStore(config),	//optionsを省略
 	resave: false,
 	saveUninitialized: false,
 	cookie: {

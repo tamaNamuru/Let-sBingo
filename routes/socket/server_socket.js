@@ -55,8 +55,8 @@ module.exports = function(io) {
 		socket.on('closeRoom', () => {
 			roomMaps.delete(idroom.id);
 			room.emit('removeRoom', socket.request.session.user.name);
-			guest.to(idroom.id).emit('redirect', '/logout');	//ルーム参加者を強制ログアウト
-			guest.to(idroom.id + Room.winner()).emit('redirect', '/logout');
+			guest.to(idroom.id).emit('redirect', '/logout/userexit');	//ルーム参加者を強制ログアウト(セッションも消去)
+			guest.to(idroom.id + Room.winner()).emit('redirect', '/logout/userexit');
 			socket.emit('redirect', '/');
 		});
 	});
