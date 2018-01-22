@@ -362,6 +362,9 @@ form{
 .submitadd:hover { 
     opacity: .4;
 }
+#goo {
+	width: 50px;
+}
 
 input {    
 Å@Å@font-size: 20px;
