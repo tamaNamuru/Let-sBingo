@@ -132,8 +132,10 @@ module.exports = class Room {
 			request.addParameter('PrizeID', TYPES.Int, prizeid);
 			connection.execSql(request);
 		});
-		if(this.mode != 0 )	//ビンゴが終わっていても景品閲覧だけはできるようにする
+		if(this.mode != 0 ){	//ビンゴが終わっていても景品閲覧だけはできるようにする
+            socket.emit('cardSet', socket.request.session.guest.card, []);
 			return true;
+        }
 		
 		//カードを設定するここで抽選済みの数も送る
 		socket.emit('cardSet', socket.request.session.guest.card, this.numbers.slice(0, this.curIndex));
@@ -253,7 +255,7 @@ module.exports = class Room {
 				'SELECT name, count, picture_url FROM prize WHERE room_id = @ID;',
 				(err, rowCount) => {
 				for(let i=0; i < self.addPrize.length; i++){
-					rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: self.addPrize[i].url});
+					rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
 				}
 				socket.emit('init', rows, self.prizeMax);
 				self.lottery = new SimpleLottery(rows);
@@ -309,7 +311,7 @@ module.exports = class Room {
                 'SELECT name, count, picture_url FROM prize WHERE room_id = @ID;',
                 (err, rowCount) => {
                     for(let i=0; i < self.addPrize.length; i++){
-                        rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: self.addPrize[i].url});
+                        rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
 				    }
 				    self.lottery = new Attack25Lottery(rows);
                 });

@@ -38,3 +38,9 @@ room.on('removeRoom', (name) => {
 	document.getElementById("layer").style.display="none";
 });
 
+//再ログイン
+room.on('reload', () => {
+    if(confirm("現在参加中のルームがあります。再ログインしますか？")){
+        window.location.href = '/guest/';
+    }
+});

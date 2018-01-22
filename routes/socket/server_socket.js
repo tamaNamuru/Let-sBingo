@@ -438,6 +438,13 @@ module.exports = function(io) {
 	
 	//ルーム選択
 	var room = io.of('/room').on('connection', function (socket) {
+        if(socket.request.session.user && socket.request.session.guest) {
+            let idroom = roomMaps.get(socket.request.session.user.id);
+            if(idroom){ //ログイン状態の部屋が残っていれば
+                socket.emit('reload');
+            }
+		}
+		
 		roomMaps.forEach(function(value, key, map){
 			if(value.isRoomModeBingo())
 				socket.emit('addRoom', value.name);
