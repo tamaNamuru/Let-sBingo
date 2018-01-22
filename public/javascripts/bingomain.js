@@ -139,14 +139,18 @@ function AddTable() {
 	var cell1 = row1.insertCell(0);
 	var cell2 = row1.insertCell(1);
 	var cell3 = row1.insertCell(2);
+	var cell4 = row1.insertCell(3);
 	
 	var HTML1 = '<input type="text" name="name" value="" size="10" maxlength="20" />';
 	var HTML2 = '<input type="number" name="kazu" min="1" max="500" value="1" step="1" required />';
-	var HTML3 = '<input type="button" name="dl" value="削除" onclick="deleteRow(this)">'
+	var HTML3 = '<select name="pictype"><option value="/images/追加景品_ギフト券.png" selected>ギフト券</option><option value="/images/追加景品_衣服.png">衣服</option><option value="/images/追加景品_食品類.png">食品類</option><option value="/images/追加景品_豪華景品.png">豪華景品</option></select>';
+	var HTML4 = '<input type="button" name="dl" value="削除" onclick="deleteRow(this)">'
+	
 	
 	cell1.innerHTML = HTML1;
 	cell2.innerHTML = HTML2;
-	cell3.innerHTML = HTML3
+	cell3.innerHTML = HTML3;
+	cell4.innerHTML = HTML4;
 }
 	
 //行削除
@@ -166,9 +170,10 @@ function submitAdd() {
     if(confirm("景品を追加します。\n一度追加した景品は取り消すことができませんがよろしいですか？")){
         let name = document.getElementsByName("name");
         let kazu = document.getElementsByName("kazu");
+        let pictype = document.getElementsByName("pictype");
         prizes = [];
         for(let i=0; i < kazu.length; i++){
-            prizes.push({ name: name[i].value, count: kazu[i].value});
+            prizes.push({ name: name[i].value, count: kazu[i].value, url: pictype[i].value});
         }
         manager.emit("addPrize", prizes);
         let tbody = document.getElementById("tb");
