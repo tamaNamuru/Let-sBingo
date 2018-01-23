@@ -8,6 +8,7 @@ var i = 0;
 var count = 0;
 var cols = 0;
 var rows = 0;
+let kaitenflag = false;
 function Check(hantei){
 	var box2= document.getElementById("soto");
 	var box3 = document.getElementById("uti2");
@@ -26,7 +27,7 @@ function Check(hantei){
             }else{
                 box2.style.backgroundColor=box3.style.backgroundColor="#f4a460";
             }
-        }, 1000);
+        }, 100);
 	}else{
 		if(generated.length < 75){
 			randomInt = hantei;	//数字が入っているはず
@@ -124,7 +125,6 @@ $(function() {
 	countflag++;
 		if(countflag < 76) {
 			if(countflag > 6) {
-				/*$('#sample1_table').animate({"left": "+=280px"},"slow");*/
 				$('.ball').animate({"left": "-=280px"},"slow");
 			}
 		}
@@ -155,6 +155,8 @@ sub.on('updateBingoCount', (count) => {
 });
 //運営者がStartボタンを押すとサーバ経由で受信する
 sub.on('rouletteStart', () => {
+    if(kaitenflag) return;
+    kaitenflag = true;
     aAudio.get(0).play();
 	aAudio.get(0).pause();
 	aAudio.get(0).load();
@@ -165,6 +167,7 @@ sub.on('rouletteStart', () => {
 var countflag = 0;
 //送られてきた数字を表示
 sub.on('broadcastNumber', (number) => {
+    kaitenflag = false;
     aAudio.get(0).pause();
 	bAudio.get(0).play();
 	bAudio.get(0).load();

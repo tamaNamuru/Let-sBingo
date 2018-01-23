@@ -5,6 +5,7 @@ window.onload = function(){
 	let button = document.getElementById('bingobutton');
 	button.onclick = function(){
 		if(startstop == 0){
+			startstop = -1;
 			//button.disabled = true;	//ボタンを押せなくする(div要素なので効果なし)
 			//setTimeout(() => { button.disabled = false; }, 800 );	//0.8秒後解除
 			manager.emit('rouletteStart', () => {
@@ -12,7 +13,8 @@ window.onload = function(){
 				button.innerHTML ="STOP";
 			});
 			
-		}else{
+		}else if(startstop == 1) {
+			startstop = -1;
 			//button.disabled = true;
 			//setTimeout(() => { button.disabled = false; }, 800 );	//0.8秒後解除
 //for(var i=0; i < 10; i++){	//テスト用後で消す
