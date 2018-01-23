@@ -12,35 +12,21 @@ function Check(hantei){
 	var box2= document.getElementById("soto");
 	var box3 = document.getElementById("uti2");
 	if(hantei == "bb"){
-        randomInt = Math.floor( Math.random() * ( 75 - 1 ) + 1 );
-        box[0].innerHTML  = randomInt;
-        if(randomInt > 60){
-            box2.style.backgroundColor=box3.style.backgroundColor="#FFFF66";
-        }else if(randomInt > 45){
-            box2.style.backgroundColor=box3.style.backgroundColor="#DD0000";
-        }else if(randomInt > 30){
-            box2.style.backgroundColor=box3.style.backgroundColor="#0000CC";
-        }else if(randomInt > 15){
-            box2.style.backgroundColor=box3.style.backgroundColor="#FFAAFF";
-        }else{
-            box2.style.backgroundColor=box3.style.backgroundColor="#f4a460";
-        }
-        id = setTimeout("Check('cc')", 100);
-	}else if(hantei == "cc"){
-		randomInt = Math.floor( Math.random() * ( 75 - 1 ) + 1 );
-		box[0].innerHTML  = randomInt;
-		if(randomInt > 60){
-			box2.style.backgroundColor=box3.style.backgroundColor="#FFFF66";
-		}else if(randomInt > 45){
-			box2.style.backgroundColor=box3.style.backgroundColor="#DD0000";
-		}else if(randomInt > 30){
-			box2.style.backgroundColor=box3.style.backgroundColor="#0000CC";
-		}else if(randomInt > 15){
-			box2.style.backgroundColor=box3.style.backgroundColor="#FFAAFF";
-		}else{
-			box2.style.backgroundColor=box3.style.backgroundColor="#f4a460";
-		}
-		id = setTimeout("Check('cc')", 100);
+        id = setInterval(function () {
+            randomInt = Math.floor( Math.random() * ( 75 - 1 ) + 1 );
+            box[0].innerHTML  = randomInt;
+            if(randomInt > 60){
+                box2.style.backgroundColor=box3.style.backgroundColor="#FFFF66";
+            }else if(randomInt > 45){
+                box2.style.backgroundColor=box3.style.backgroundColor="#DD0000";
+            }else if(randomInt > 30){
+                box2.style.backgroundColor=box3.style.backgroundColor="#0000CC";
+            }else if(randomInt > 15){
+                box2.style.backgroundColor=box3.style.backgroundColor="#FFAAFF";
+            }else{
+                box2.style.backgroundColor=box3.style.backgroundColor="#f4a460";
+            }
+        }, 1000);
 	}else{
 		if(generated.length < 75){
 			randomInt = hantei;	//数字が入っているはず
@@ -59,7 +45,7 @@ function Check(hantei){
 			generated[i] = randomInt;  
 			i++;
 			generatedCount++;
-			clearTimeout(id);
+			clearInterval(id);
 			addTable("sample1_table",randomInt);
 		}
 	}
