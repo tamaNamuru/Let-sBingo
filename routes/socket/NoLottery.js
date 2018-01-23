@@ -4,7 +4,14 @@ module.exports = class NoLottery extends BaseLottery {
 	constructor() {
 		super();
 		this.roomGuestInfo = [];	//[0～抽選者数-1] = {rank:, name:}
-        this.guestJumpurl = '/guest/nolottery'
+        this.guestJumpurl = '/guest/nolottery';
+        //ここkらテスト
+        for(let i=0; i < 30; i++){
+            this.winnerSession.set(i, 1);
+            this.guestPriority.push( [i+20, "テスト"+i] );
+        }
+        this.prizeMax += 30;
+        //ここまで
 	}
 	
 	reloadInit(socket) {
