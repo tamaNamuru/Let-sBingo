@@ -74,7 +74,7 @@ $(".tiketd").hover(function(){
 	}
 });
         $('#setumeiok').text("Your Turn!");
-        $('#setumeiok').css("color":'tomato');
+        $('#setumeiok').css({"color":'tomato'});
         $('#setumeiok').prop("disabled", false);
     });
     
