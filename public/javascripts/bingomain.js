@@ -15,7 +15,7 @@ window.onload = function(){
 		}else{
 			//button.disabled = true;
 			//setTimeout(() => { button.disabled = false; }, 800 );	//0.8秒後解除
-for(var i=0; i < 10; i++){	//テスト用後で消す
+//for(var i=0; i < 10; i++){	//テスト用後で消す
 			manager.emit('sendNumber', function(number) {
 				let element = document.getElementById("numbers");
 				if(number < 10)
@@ -23,7 +23,7 @@ for(var i=0; i < 10; i++){	//テスト用後で消す
 				element.innerHTML += number + ' ';
                 startstop = 0;
 			});
-}
+//}
 			document.getElementById('bingobutton').innerHTML = "START";
 		}
 		
