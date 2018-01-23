@@ -73,6 +73,8 @@ $(".tiketd").hover(function(){
 		$(this).css({"background-image":'url("/images/tike.png")'});
 	}
 });
+        $('#setumeiok').text("Your Turn!");
+        $('#setumeiok').css("color":'tomato');
         $('#setumeiok').prop("disabled", false);
     });
     
