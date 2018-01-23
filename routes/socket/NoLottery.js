@@ -6,11 +6,11 @@ module.exports = class NoLottery extends BaseLottery {
 		this.roomGuestInfo = [];	//[0～抽選者数-1] = {rank:, name:}
         this.guestJumpurl = '/guest/nolottery';
         //ここkaらテスト
-        for(let i=0; i < 30; i++){
+        /*for(let i=0; i < 30; i++){
             this.winnerSessions.set(i, 1);
             this.guestPriority.push( [i+20, "テスト"+i] );
         }
-        this.prizeMax += 30;
+        this.prizeMax += 30;*/
         //ここまで
 	}
 	
