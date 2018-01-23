@@ -29,7 +29,7 @@ function Check(hantei){
             }
         }, 100);
 	}else{
-		if(generated.length < 75){
+		//if(generated.length < 75){
 			randomInt = hantei;	//数字が入っているはず
 			box[0].innerHTML = randomInt;
 			if(randomInt > 60){
@@ -48,7 +48,7 @@ function Check(hantei){
 			generatedCount++;
 			clearInterval(id);
 			addTable("sample1_table",randomInt);
-		}
+		//}
 	}
 }
 function addTable(id,randomInt) {
