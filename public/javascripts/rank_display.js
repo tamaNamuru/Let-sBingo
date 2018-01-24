@@ -9,7 +9,7 @@ var count = 0;
     let guests; //[]{rank, name}
     nolottery_sub.on('sendResult', (guestInfo) => {
         guests = guestInfo;
-        for(let i = 0; i < 35; i++) {
+        for(let i = 0; i < 10; i++) {
 		Array.prototype.push.apply(guests, guestInfo);
 	}
 	console.log(guests);
