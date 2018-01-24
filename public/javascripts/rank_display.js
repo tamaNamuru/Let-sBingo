@@ -1,4 +1,4 @@
-﻿const nolottery_sub = io('/nolottery_sub');
+﻿const nolottery_sub = io('/nolottery_sub', {transports: ['websocket']});
 
 $(function() {
 

@@ -1,4 +1,4 @@
-﻿const attack25_guest = io('/attack25_guest');
+﻿const attack25_guest = io('/attack25_guest', {transports: ['websocket']});
 
 (function($){  // 無名関数($の競合を回避)
 // ポップアップ用のタグを消す

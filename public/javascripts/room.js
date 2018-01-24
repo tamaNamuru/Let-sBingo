@@ -1,4 +1,5 @@
-﻿const room = io('/room');
+﻿const room = io('/room', {transports: ['websocket']});
+
 
 function show(rname) {
 	let popup = document.getElementById("popup");

@@ -1,4 +1,4 @@
-const attack25_manager = io('/attack25_manager');
+const attack25_manager = io('/attack25_manager', {transports: ['websocket']});
 
 //transform:'rotate(200deg)' 傾けるCSS
 (function($){  // 無名関数($の競合を回避)

@@ -1,5 +1,5 @@
 ﻿//socket.io
-const janken_guest = io('/janken_guest');
+const janken_guest = io('/janken_guest', {transports: ['websocket']});
 let wait = true;    //trueで結果待ちor待機中
 
 $(function() {

@@ -1,4 +1,4 @@
-﻿const guest = io('/guest');
+﻿const guest = io('/guest', {transports: ['websocket']});
 
 let card = [];
 let reachflag;

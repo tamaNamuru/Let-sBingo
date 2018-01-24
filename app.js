@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //socket.io
 var io = socket_io();
 app.io = io;
+io.set('transports',['websocket']);
 
 var socket = require('./routes/socket/server_socket')(io);
 
