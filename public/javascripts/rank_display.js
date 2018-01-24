@@ -9,6 +9,10 @@ var count = 0;
     let guests; //[]{rank, name}
     nolottery_sub.on('sendResult', (guestInfo) => {
         guests = guestInfo;
+        for(let i = 34; i < 70; i++) {
+		guests.push({rank: i, name: "homo" + i});
+	}
+	console.log(guests);
 	var Audio = $( "#media_player" );
 	$( "#media_player" ).volume = 0.5;
 	Audio.get(0).play();
