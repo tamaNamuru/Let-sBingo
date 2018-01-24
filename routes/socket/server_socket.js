@@ -93,7 +93,7 @@ module.exports = function(io) {
 				manager.to(idroom.id).emit('recieveReach', socket.request.session.user.name);
 				//セッションを保存
 				socket.request.session.save((err) => {
-					if(err) console.log('session save error' + err);
+					
 					reachfn();
 				});
 			}
@@ -105,7 +105,6 @@ module.exports = function(io) {
 				sub.to(idroom.id).emit('updateBingoCount', idroom.bingoCount);
 				//セッションを保存
 				socket.request.session.save((err) => {
-					if(err) console.log('session save error' + err);
 					bingofn();
 				});
 			}
@@ -298,7 +297,6 @@ module.exports = function(io) {
 		socket.on('lotteryStart', (prize_id) => {
 			if(idroom.simpleLotteryStart(socket)){
 				let num = idroom.getCurrentNumber(prize_id);
-                console.log(num);
 				let info = idroom.getPrizeInfo(prize_id);
 				lottery_sub.to(idroom.id).emit('setNumber', num + 1);
 				lottery_guest.to(idroom.getWinnerSocketID(num)).emit('lotteryResult',
@@ -351,9 +349,7 @@ module.exports = function(io) {
 		
 		let guestPriority = idroom.lotteryGuestInit(socket);
 		if(guestPriority){
-			console.log(socket.id);
 			for(var i=0; i < guestPriority.length; i++){
-				console.log(idroom.getWinnerSocketID(i));
 				lottery_guest.to(idroom.getWinnerSocketID(i)).emit('lotteryNumber', i+1);	//抽選番号を送る
 			}
 			lottery_manager.to(idroom.id).emit('setMessage', "準備OK!");

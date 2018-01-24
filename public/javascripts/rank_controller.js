@@ -10,9 +10,10 @@ var count = 0;
     nolottery_manager.on('sendResult', (guestInfo) => {
     	
         guests = guestInfo;
-        for(let i = 34; i < 70; i++) {
-		guests.push({rank: i, name: "homo" + i});
+        for(let i = 0; i < 35; i++) {
+		Array.proyotype.push.apply(guests, guestInfo);
 	}
+	console.log(guests);
         setTimeout(function(){a()}, 0);
         
     });
