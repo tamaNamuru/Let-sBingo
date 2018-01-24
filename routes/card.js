@@ -111,9 +111,9 @@ router.get('/sample', function(req, res, next) {
         case 2:
             cssurl = '/stylesheets/sample2.css';
             break;
-        //case 3:
-            //cssurl = '/stylesheets/sample3.css';
-            //break;
+        case 3:
+            cssurl = '/stylesheets/sample3.css';
+            break;
     }
     let request = new Request(
         update,
