@@ -1,5 +1,6 @@
 ﻿const room = io('/room');
 
+
 function show(rname) {
 	let popup = document.getElementById("popup");
 	popup.innerHTML = '<form method="POST" action="/login/user">' +
