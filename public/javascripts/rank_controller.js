@@ -10,11 +10,17 @@ var count = 0;
     nolottery_manager.on('sendResult', (guestInfo) => {
     	
         guests = guestInfo;
-        for(let i = 0; i < 10; i++) {
-		Array.prototype.push.apply(guests, guestInfo);
-	}
-	console.log(guests);
-        setTimeout(function(){a()}, 0);
+        let homo = 0;
+        setInterval(function() {
+        	homo++;
+        	if(homo < 30) {
+        		Array.prototype.push.apply(guests, guestInfo);
+        	}else {
+        		console.log(guests);
+        		setTimeout(function(){a()}, 0);
+        	}
+        }, 10);
+        //setTimeout(function(){a()}, 0);
         
     });
 	$('.btn1').click(function(e){

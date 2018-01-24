@@ -9,14 +9,20 @@ var count = 0;
     let guests; //[]{rank, name}
     nolottery_sub.on('sendResult', (guestInfo) => {
         guests = guestInfo;
-        for(let i = 0; i < 10; i++) {
-		Array.prototype.push.apply(guests, guestInfo);
-	}
-	console.log(guests);
+        let homo = 0;
+        setInterval(function() {
+        	homo++;
+        	if(homo < 30) {
+        		Array.prototype.push.apply(guests, guestInfo);
+        	}else {
+        		console.log(guests);
+        		setTimeout(function(){a()}, 0);
+        	}
+        }, 10);
 	var Audio = $( "#media_player" );
 	$( "#media_player" ).volume = 0.5;
 	Audio.get(0).play();
-        setTimeout(function(){a()}, 0);
+        //setTimeout(function(){a()}, 0);
     });
 	function a(){
 		if(idx < guests.length){
