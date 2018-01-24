@@ -10,7 +10,7 @@ var count = 0;
     nolottery_manager.on('sendResult', (guestInfo) => {
     	
         guests = guestInfo;
-        let homo = 0;
+        /*let homo = 0;
 	let id = setInterval(function(){
 		homo++;
 		if(homo < 6) {
@@ -19,9 +19,9 @@ var count = 0;
 			setTimeout(function(){a()}, 0);
 			clearInterval(id);
 		}
-	}, 10);
+	}, 10);*/
 	
-        //setTimeout(function(){a()}, 0);
+        setTimeout(function(){a()}, 0);
         
     });
 	$('.btn1').click(function(e){
