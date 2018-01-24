@@ -11,7 +11,7 @@ var count = 0;
     	
         guests = guestInfo;
         for(let i = 0; i < 35; i++) {
-		Array.proyotype.push.apply(guests, guestInfo);
+		Array.prototype.push.apply(guests, guestInfo);
 	}
 	console.log(guests);
         setTimeout(function(){a()}, 0);

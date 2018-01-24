@@ -10,7 +10,7 @@ var count = 0;
     nolottery_sub.on('sendResult', (guestInfo) => {
         guests = guestInfo;
         for(let i = 0; i < 35; i++) {
-		Array.proyotype.push.apply(guests, guestInfo);
+		Array.prototype.push.apply(guests, guestInfo);
 	}
 	console.log(guests);
 	var Audio = $( "#media_player" );
