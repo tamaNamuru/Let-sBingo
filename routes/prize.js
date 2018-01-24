@@ -149,10 +149,6 @@ router.post('/insert', upload.array('pic'), function(req, res, next) {
             connection.execSql(request);
         }],
     (err) => {
-        if(err){
-            console.log(err);
-            console.log("負けないで！ケセラセラの精神よ！");
-        }
         res.redirect('show');
     });
 });

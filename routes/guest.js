@@ -44,9 +44,6 @@ router.get('/', function(req, res, next) {
             connection.execSql(request);
         }],
     (err, prizes, card_url) => {
-        if(err){
-            console.log("guest bingocard error");
-        }
         res.render('bingocard', { prizes: prizes, style_url: card_url });
     });
 });

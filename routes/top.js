@@ -29,7 +29,6 @@ router.get('/delete', function(req, res, next) {
 	var targetRemoveDirectoryPath = targetRmDirPath + '/';
 	var targetRemoveFiles = fs.readdirSync(targetRemoveDirectoryPath);
 	for (var file in targetRemoveFiles) {
-		console.log(targetRemoveFiles[file]);
 		fs.unlinkSync(targetRemoveDirectoryPath + targetRemoveFiles[file]);
 	}
 	// 消したいフォルダを削除
@@ -77,9 +76,6 @@ router.get('/delete', function(req, res, next) {
             connection.execSql(request);
         }],
     (err) => {
-        if(!err){
-            console.log(id + ":delete success");
-        }
         res.redirect('/logout');
     });
 });

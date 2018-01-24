@@ -49,8 +49,6 @@ router.get('/config', function(req, res, next) {
 });
 
 router.post('/update', upload.fields([{name: 'backimageup'}, {name: 'backimagedown'}]), function(req, res, next) {
-	console.log(req.body);
-	console.log(req.files);
 	let id = req.session.user.id;
 	
 	cssdata = "";
