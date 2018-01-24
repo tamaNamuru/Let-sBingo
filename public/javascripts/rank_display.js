@@ -10,10 +10,21 @@ var count = 0;
     nolottery_sub.on('sendResult', (guestInfo) => {
         guests = guestInfo;
         
+        let homo = 0;
+	let id = setInterval(function(){
+		homo++;
+		if(homo < 6) {
+			Array.prototype.push.apply(guests, guestInfo);
+		}else {
+			setTimeout(function(){a()}, 0);
+			clearInterval(id);
+		}
+	}, 10);
+
 	var Audio = $( "#media_player" );
 	$( "#media_player" ).volume = 0.5;
 	Audio.get(0).play();
-        setTimeout(function(){a()}, 0);
+        //setTimeout(function(){a()}, 0);
     });
 	function a(){
 		if(idx < guests.length){
