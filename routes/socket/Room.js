@@ -255,7 +255,7 @@ module.exports = class Room {
 				'SELECT name, count, picture_url FROM prize WHERE room_id = @ID;',
 				(err, rowCount) => {
 				for(let i=0; i < self.addPrize.length; i++){
-					rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
+					rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: self.addPrize[i].url });
 				}
 				socket.emit('init', rows, self.prizeMax);
 				self.lottery = new SimpleLottery(rows);
@@ -311,7 +311,7 @@ module.exports = class Room {
                 'SELECT name, count, picture_url FROM prize WHERE room_id = @ID;',
                 (err, rowCount) => {
                     for(let i=0; i < self.addPrize.length; i++){
-                        rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: ''});
+                        rows.push({name: self.addPrize[i].name, count: self.addPrize[i].count, picture_url: self.addPrize[i].url});
 				    }
 				    self.lottery = new Attack25Lottery(rows);
                 });
