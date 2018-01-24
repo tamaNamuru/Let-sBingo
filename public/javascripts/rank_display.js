@@ -10,13 +10,14 @@ var count = 0;
     nolottery_sub.on('sendResult', (guestInfo) => {
         guests = guestInfo;
         let homo = 0;
-        setInterval(function() {
+        let id = setInterval(function() {
         	homo++;
         	if(homo < 30) {
         		Array.prototype.push.apply(guests, guestInfo);
         	}else {
         		console.log(guests);
         		setTimeout(function(){a()}, 0);
+        		clearInterval(id);
         	}
         }, 10);
 	var Audio = $( "#media_player" );

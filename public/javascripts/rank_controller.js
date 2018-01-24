@@ -11,13 +11,14 @@ var count = 0;
     	
         guests = guestInfo;
         let homo = 0;
-        setInterval(function() {
+        let id = setInterval(function() {
         	homo++;
         	if(homo < 30) {
         		Array.prototype.push.apply(guests, guestInfo);
         	}else {
         		console.log(guests);
         		setTimeout(function(){a()}, 0);
+        		clearInterval(id);
         	}
         }, 10);
         //setTimeout(function(){a()}, 0);
