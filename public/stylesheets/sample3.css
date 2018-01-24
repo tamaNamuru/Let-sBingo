@@ -1,0 +1,11 @@
+td.kazu{
+color: #ff00ff;
+font-size: 70px;
+-webkit-text-stroke: 2px #ff8080;
+}
+#bingo{
+background-image: url('/images/可愛いすだれパターン.jpg');
+}
+#number{
+background-image: url('/images/羊のイラスト_ベージュ.png');
+}
