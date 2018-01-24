@@ -1,4 +1,4 @@
-﻿const lottery_sub = io('/lottery_sub', {transports: ['websocket']});
+﻿const lottery_sub = io('/lottery_sub');
 
 (function($){ 
 //var generated = new Array();

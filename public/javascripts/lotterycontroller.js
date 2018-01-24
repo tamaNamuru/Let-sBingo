@@ -1,4 +1,4 @@
-﻿const lottery_manager = io('/lottery_manager', {transports: ['websocket']});
+﻿const lottery_manager = io('/lottery_manager');
 
 //景品が選択された
 function prizeSubmit(pic){

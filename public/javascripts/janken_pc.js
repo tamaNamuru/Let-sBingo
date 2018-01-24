@@ -1,4 +1,4 @@
-const janken_manager = io('/janken_manager', {transports: ['websocket']});
+const janken_manager = io('/janken_manager');
 
 var unei_te;
 var eventkakunin = 0;

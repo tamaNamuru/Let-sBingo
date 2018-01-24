@@ -1,5 +1,5 @@
 ﻿
-const attack25_sub = io('/attack25_sub', {transports: ['websocket']});
+const attack25_sub = io('/attack25_sub');
 
 //transform:'rotate(200deg)' 傾けるCSS
 (function($){  // 無名関数($の競合を回避)

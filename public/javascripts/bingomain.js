@@ -1,4 +1,4 @@
-﻿const manager = io('/manager', {transports: ['websocket']});
+﻿const manager = io('/manager');
 
 window.onload = function(){
     let startstop = 0;

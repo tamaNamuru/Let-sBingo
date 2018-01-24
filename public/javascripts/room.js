@@ -1,4 +1,4 @@
-﻿const room = io('/room', {transports: ['websocket']});
+﻿const room = io('/room');
 
 
 function show(rname) {

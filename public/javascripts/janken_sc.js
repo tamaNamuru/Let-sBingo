@@ -1,4 +1,4 @@
-﻿const janken_sub = io('/janken_sub', {transports: ['websocket']});
+﻿const janken_sub = io('/janken_sub');
 
 $(function() {
 	var first_img = "/images/usa.png"; //じゃんけんなし

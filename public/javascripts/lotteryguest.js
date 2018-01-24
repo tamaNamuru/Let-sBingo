@@ -1,4 +1,4 @@
-﻿const lottery_guest = io('/lottery_guest', {transports: ['websocket']});
+﻿const lottery_guest = io('/lottery_guest');
 
 //抽選番号を受け取る
 lottery_guest.on('lotteryNumber', (number) => {
