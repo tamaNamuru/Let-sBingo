@@ -9,21 +9,11 @@ var count = 0;
     let guests; //[]{rank, name}
     nolottery_sub.on('sendResult', (guestInfo) => {
         guests = guestInfo;
-        let homo = 0;
-        let id = setInterval(function() {
-        	homo++;
-        	if(homo < 6) {
-        		Array.prototype.push.apply(guests, guestInfo);
-        	}else {
-        		console.log(guests);
-        		setTimeout(function(){a()}, 0);
-        		clearInterval(id);
-        	}
-        }, 10);
+        
 	var Audio = $( "#media_player" );
 	$( "#media_player" ).volume = 0.5;
 	Audio.get(0).play();
-        //setTimeout(function(){a()}, 0);
+        setTimeout(function(){a()}, 0);
     });
 	function a(){
 		if(idx < guests.length){
@@ -74,7 +64,7 @@ var count = 0;
 				}
 			}else{
 				if(count == 0){
-					$('.b_table tbody').html('<tr><th class="th_number">番号</th><th class="th_name"><input type="button" value="追加" class="btn1">ビンゴ者名</th></tr>');
+					$('.b_table tbody').html('<tr><th class="th_number">番号</th><th class="th_name">ビンゴ者名</th></tr>');
 					$('.b_table').append('<tr class ="tr1" ><td>'+ rank +'</td><td style="font-size:0px">'+guests[idx].name+'</td></tr>').slice(-2);
 					$('.tr1').eq(count).children().eq(1).animate({fontSize: '90px'},400);
 					count++;
