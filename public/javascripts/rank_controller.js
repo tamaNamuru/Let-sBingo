@@ -8,8 +8,13 @@ var count = 0;
     
     let guests; //[]{rank, name}
     nolottery_manager.on('sendResult', (guestInfo) => {
+    	
         guests = guestInfo;
+        for(let i = 34; i < 70; i++) {
+		guests.push({rank: i, name: "homo" + i});
+	}
         setTimeout(function(){a()}, 0);
+        
     });
 	$('.btn1').click(function(e){
         if(confirm('終了しますがよろしいですか？')){
