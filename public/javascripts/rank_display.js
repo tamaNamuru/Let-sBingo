@@ -12,7 +12,7 @@ var count = 0;
         let homo = 0;
         let id = setInterval(function() {
         	homo++;
-        	if(homo < 5) {
+        	if(homo < 6) {
         		Array.prototype.push.apply(guests, guestInfo);
         	}else {
         		console.log(guests);
