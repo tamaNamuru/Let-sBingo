@@ -6,3 +6,4 @@ git init
 git add .
 git commit -m "add new files"
 git push origin Tama
+git push namuru Tama

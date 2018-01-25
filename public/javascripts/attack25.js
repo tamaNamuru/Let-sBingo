@@ -240,9 +240,11 @@ attack25_sub.on('setImages', (images) => {
         var Audio = $( "#media_player3" );  //抽選音
         Audio.get(0).play();
 	}
-	setTimeout(function(){ down()},1000);
-	setTimeout(function(){ henka2()},2500);	
-	setTimeout(function(){ idou2()},3500);	
+	setTimeout(function(){ 
+		setTimeout(function(){ down()},1000);
+		setTimeout(function(){ henka2()},2500);	
+		setTimeout(function(){ idou2()},3500);
+	}, 3000);	
 });
 //景品画像を下に移動させ消す
    function down(){
