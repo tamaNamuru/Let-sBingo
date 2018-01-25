@@ -119,7 +119,9 @@ io.use(function(socket, next) {
 	if(socket.request.res) {
 		sessionMiddleware(socket.request, socket.request.res, next);
 	}else {
-		console.log(socket);
+		console.log("ここから");
+		console.log(socket.request.res);
+		console.log("ここまで");
 	}
 });
 
