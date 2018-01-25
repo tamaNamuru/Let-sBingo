@@ -117,7 +117,7 @@ var aAudio = $( "#media_player" );
 var bAudio = $( "#media_player1" );
 
 //socket
-const sub = io('/sub', {transports: ['websocket']});
+const sub = io('/sub');
 
 $(function() {
 	var countflag = 0;
