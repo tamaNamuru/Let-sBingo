@@ -116,7 +116,11 @@ app.use(function(err, req, res, next) {
 });
 
 io.use(function(socket, next) {
-	sessionMiddleware(socket.request, socket.request.res, next);
+	if(socket.request) {
+		sessionMiddleware(socket.request, socket.request.res, next);
+	}else {
+		console.log(socket);
+	}
 });
 
 module.exports = app;
