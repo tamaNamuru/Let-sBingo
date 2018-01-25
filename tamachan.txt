@@ -5,4 +5,4 @@ cd C:\167006\workspace\project\bingo
 git init
 git add .
 git commit -m "add new files"
-git push namuru Tama
+git push origin Tama
