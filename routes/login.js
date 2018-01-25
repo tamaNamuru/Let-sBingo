@@ -20,6 +20,9 @@ router.post('/user', function(req, res, next) {
 	} else {
         request = new Request('SELECT room_id FROM room WHERE name = @name;',
         (err, rowCount) => {
+        	if(!err && rowCount == 1) {
+        		res.redirect('../guest');
+        	}
         });
         
         request.on('row', (columns) => {
@@ -58,7 +61,7 @@ router.post('/user', function(req, res, next) {
                     //参加者のカード, 勝利フラグ none:ビンゴ中, reach:リーチ, 4～75:ビンゴ済み(数字はビンゴまでの抽選回数)
                     req.session.guest = {card: card, winner: 'none'};
                 }
-                res.redirect('../guest');
+                
             }
         });
         request.addParameter('name', TYPES.NVarChar, req.body.roomName);

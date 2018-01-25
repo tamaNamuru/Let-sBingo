@@ -142,12 +142,14 @@ router.post('/login', function(req, res, next) {
         (err, rowCount, rows) => {
             if(err || rowCount != 1) {
                 res.render('adminlogin', {error: '入力が正しくありません。'});
+            }else {
+            	res.redirect('../');
             }
         });
     request.on('row', (columns) =>{
         if(columns.length == 1) {
             req.session.user = {id: id, name: columns[0].value, administrator: true};
-            res.redirect('../');
+            
         }
     });
     request.addParameter('ID', TYPES.NChar, id);
