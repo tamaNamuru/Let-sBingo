@@ -28,27 +28,27 @@ body{
 }
 #soto{
 	position:relative;
-	left:-450px;
+	left: -423px;
 	background-color:#88dd00;
 	height: 500px;
 	width:  500px;
 	border-radius: 50%;
-	margin-left:1100px;
+	margin-left: 955px;
 	border: 5px #000000 solid;
 }
 #rogo{
-	width:600px;
-	height:500px;
+	width: 525px;
+	height: 500px;
 	background-image:url("/images/title.png");
-	background-size:600px;
+	background-size: 100% 100%;
 	position:relative;
-	left:-650px;
-	top:0px;
+	left: -539px;
+	top: 18px;
 }
 #uti{
 	position:relative;
 	top: -450px;
-	left: 25px;
+	left: 23px;
 	border-radius: 300px;
 	margin-left:25px;
 	margin-right:25px;
@@ -85,6 +85,8 @@ body{
 p {
 	margin: auto;
 	padding-top: 10px;
+}
+#uti3 p{
 	font-size: 200px;
 }
 #sample1_table td{
@@ -143,50 +145,45 @@ td{
 	height: 41px;
 	border-radius: 50%;
 }
-.bingo_nin {
-	position:relative;
-	left:600px;
-	border: solid 6px #f00;
-	width:300px;
-	height:400px;
-	margin: 2em 0;
-	padding: 0.5em 1em;
-	border: solid 3px #95ccff;
-	border-radius: 8px;
-}
+
 bingo_nin, .box-title{
 	position: absolute;
 	display: inline-block;
-	top: -13px;
-	left: 10px;
-	padding: 0 9px;
+	top: -120px;
+	left: 4px;
+	padding: 16px 16px 6px 16px;
 	line-height: 1;
-	font-size: 19px;
+	font-size: 90px;
 	background: #FFF;
 	color: #95ccff;
 	font-weight: bold;
+	border: solid 4px #95ccff;
+	border-radius: 8px 8px 0px 0px;
 }
 .bingo_nin{
+	border: solid 4px #95ccff;
+	border-radius:8px;
 	width:500px;
 	height:300px;
 	position:relative;
-	top:-715px;
-	margin: 0; 
+	top: -715px;
+	left: 109%;
+	margin: 0;
 	padding: 0;
 	background-color:white;
 }
 p#bingosya{
 	position: relative;
-	top: 50px;
-	left: 100px;
-	font-size: 100px;
+	top: 25px;
+	float:  left;
+	text-align:  right;
+	width: 306px;
+	font-size: 170px;
 	font-weight:bold;
 }
 p#nin{
-	font-size: 100px;
-	position: relative;
-	top: -110px;
-	left: 300px;
+	font-size: 175px;
+	padding-left:330px;
 	font-weight:bold;
 }
 

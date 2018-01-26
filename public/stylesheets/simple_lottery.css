@@ -8,14 +8,8 @@ img {
 body {
     text-align: center;
     margin: 0;
-    background-color: BurlyWood;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, Wheat), color-stop(.5, transparent), to(transparent));
-    background-image: -moz-linear-gradient(Wheat 50%, transparent 50%, transparent);
-    background-image: -o-linear-gradient(Wheat 50%, transparent 50%, transparent);
-    background-image: linear-gradient(Wheat 50%, transparent 50%, transparent);
-    -webkit-background-size: 35px 35px;
-    -moz-background-size: 35px 35px;
-    background-size: 35px 35px;
+    background: url('/images/イースターエッグ_黄色.png');
+
 }
 #bangohyoji {
     margin-top: 0;
