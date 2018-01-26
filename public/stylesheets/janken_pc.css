@@ -1,6 +1,5 @@
 ﻿@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
-/*背景*/
 .bg{ 
 	margin: 0;
 	background-color: BurlyWood;
@@ -13,7 +12,6 @@
   	background-size: 35px 35px;
  }
 
-/*画面用*/
 p {
     display: block;
     -webkit-margin-before: 1em;
@@ -128,7 +126,7 @@ td{
 	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#abe4f8 50%', endColorstr='#74d0f4 50%');
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#abe4f8 50%', endColorstr='#74d0f4 50%')";
 }
-#next:active{  /* クリックした時 */
+#next:active{
 	-ms-transform: translateY(3px);
 	-webkit-transform: translateY(3px);
 	transform: translateY(3px);

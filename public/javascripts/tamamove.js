@@ -29,26 +29,24 @@ function Check(hantei){
             }
         }, 100);
 	}else{
-		//if(generated.length < 75){
-			randomInt = hantei;	//数字が入っているはず
-			box[0].innerHTML = randomInt;
-			if(randomInt > 60){
-				box2.style.backgroundColor=box3.style.backgroundColor="#FFFF66";
-			}else if(randomInt > 45){
-				box2.style.backgroundColor=box3.style.backgroundColor="#DD0000";
-			}else if(randomInt > 30){
-				box2.style.backgroundColor=box3.style.backgroundColor="#0000CC";
-			}else if(randomInt > 15){
-				box2.style.backgroundColor=box3.style.backgroundColor="#FFAAFF";
-			}else{
-				box2.style.backgroundColor=box3.style.backgroundColor="#f4a460";
-			}
-			generated[i] = randomInt;  
-			i++;
-			generatedCount++;
-			clearInterval(id);
-			addTable("sample1_table",randomInt);
-		//}
+		randomInt = hantei;
+		box[0].innerHTML = randomInt;
+		if(randomInt > 60){
+			box2.style.backgroundColor=box3.style.backgroundColor="#FFFF66";
+		}else if(randomInt > 45){
+			box2.style.backgroundColor=box3.style.backgroundColor="#DD0000";
+		}else if(randomInt > 30){
+			box2.style.backgroundColor=box3.style.backgroundColor="#0000CC";
+		}else if(randomInt > 15){
+			box2.style.backgroundColor=box3.style.backgroundColor="#FFAAFF";
+		}else{
+			box2.style.backgroundColor=box3.style.backgroundColor="#f4a460";
+		}
+		generated[i] = randomInt;  
+		i++;
+		generatedCount++;
+		clearInterval(id);
+		addTable("sample1_table",randomInt);
 	}
 }
 function addTable(id,randomInt) {

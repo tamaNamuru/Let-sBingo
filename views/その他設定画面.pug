@@ -18,7 +18,6 @@ html(lang='ja')
           span#me 面
       form(action='/other/submit', method='post')
         #settei
-          // 中に設定項目追加
           p.pre
             | ・景品抽選
             label
@@ -33,10 +32,8 @@ html(lang='ja')
         #syoki
           p#del
             | ルームの削除
-            // ビンゴの設定を全て削除する
           p.del
             | ビンゴを終了した場合実行してください。
-            // 現在の設定を破棄して、初期設定に戻しますか？
           .reset
             input.btn0(type='button', name='config', value='削除する', onclick='deleteRoom()')
         .home

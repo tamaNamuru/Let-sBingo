@@ -1,38 +1,32 @@
 ﻿const attack25_guest = io('/attack25_guest');
 
-(function($){  // 無名関数($の競合を回避)
-// ポップアップ用のタグを消す
+(function($){ 
 $('#popup-background').hide();
 $('#popup-background2').hide();
 $('#popup-background3').hide();
 var selectnumber =[]
 var hoveryouso;
-//var count=0;
 var trcount = 0;
 var i = 1;
-let loadflag = false;	//運営者がリロードして何度も送信してくる可能性があるので
-
+let loadflag = false;
 attack25_guest.on('guestStart', (opens) => {
 if(loadflag) return;
 loadflag = true;
-//td作成
 for(var count = 1; count <= opens.length; count++){
 	$('#table'+i).append('<div class="tiketd"><div class="tikekazu"></div></div>');
-	//奇数の場合
 	if( (count  % 2 ) != 0 ) {
 		$('.tiketd').eq(count-1).css('margin-left',"31px");
 		$('.tiketd').eq(count-1).css('margin-top',"13px");
 		$('.tiketd').eq(count-1).css('float',"left");
 	
 	}
-	//偶数の場合
 	if( (count  % 2 ) == 0 ) {
 		$('.tiketd').eq(count-1).css('margin-left',"4px");
 		$('.tiketd').eq(count-1).css('margin-top',"13px");
 		$('.tiketd').eq(count-1).css('float',"left");
 	
 	}
-    if(opens[count-1]){ //開封済み
+    if(opens[count-1]){
         $('.tiketd').eq(count-1).children().text("");
         $('.tiketd').eq(count-1).css({"background-image":'url("/images/tike5.png")'});
         selectnumber.push($('.tiketd').eq(count-1));
@@ -48,7 +42,6 @@ for(var count = 1; count <= opens.length; count++){
     }
 }
 var flag2;
-//hoverの処理（tdにクラスをつける)
 $(".tiketd").hover(function(){
 	hoveryouso=this;
 	var flag = "1";
@@ -78,17 +71,9 @@ $(".tiketd").hover(function(){
         $('#setumeiok').prop("disabled", false);
     });
     
-    //景品が贈られた
-    //attack25_guest.on('sendPrize', (name, picture_url) => {
-    //    $('#popup-td2').css({"background-image":"url("+picture_url+")"});
-    //    $('#popup-td3').text(name);
-    //});
-
-    //リダイレクト
     attack25_guest.on('redirect', (url) => {
 	   window.location.href = url;
     });
-    //リロード時
     attack25_guest.on('lotteryResult', (name, picture_url) => {
         $('#popup-td2').css({"background-image":"url("+picture_url+")"});
         $('#popup-td3').text(name);
@@ -97,24 +82,19 @@ $(".tiketd").hover(function(){
         
     });
     
-//count=0;
 setTimeout(function(){ ChangeTab('table1')},0);
-//最初の画面の削除
 $('#setumeiok').bind('click', function(e){
 	$('#setumei').hide();
 	$('#setumeiok').hide();
 });
 
-//クリックされた時のイベント定義
  $('.okbotton').bind('click', function(e){
 
-        // aタグでデフォルト動作を無効にする
         e.preventDefault(); 
 	if(hoveryouso == null || $(hoveryouso).children().text() == ""){
 		alert("番号が選択されていません!!");
 	}else{
 		
-	// 選択確認
 	if(!confirm($(hoveryouso).children().text()+'番でよろしいでしょうか？')){
 		return false;
 	} else {
@@ -130,12 +110,9 @@ $('#setumeiok').bind('click', function(e){
 function tikeyaburi(kazu){
   $('#popup-background2').fadeIn();
   selectnumber.push($(hoveryouso).children().text());
-  //$(hoveryouso).fadeOut();
-  //$(hoveryouso).remove();
   $("#tike4kazu").text( $(hoveryouso).children().text());
 	if(kazu == 1){
 	  $("#tike3").animate({marginLeft: "-800px",deg:"30"}, {duration:1000,
-				// 途中経過
 				progress:function() {
 					$('#tike3').css({
 						transform:'rotate(' + this.deg + 'deg)'
@@ -143,7 +120,6 @@ function tikeyaburi(kazu){
 				}
 	  });
 	  $("#tike4").animate({marginLeft: "1500px",deg:"-70"}, {duration:1000,
-				// 途中経過
 				progress:function() {
 					$('#tike4').css({
 						transform:'rotate(' + this.deg + 'deg)'
@@ -151,7 +127,6 @@ function tikeyaburi(kazu){
 				}
 	  });
 	  $("#tike4kazu").animate({marginLeft: "1500px",deg:"-250"}, {duration:1500,
-				// 途中経過
 				progress:function() {
 					$('#tike4kazu').css({
 						transform:'rotate(' + this.deg + 'deg)'

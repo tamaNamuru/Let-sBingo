@@ -1,42 +1,26 @@
 const attack25_manager = io('/attack25_manager');
 
-//transform:'rotate(200deg)' 傾けるCSS
-(function($){  // 無名関数($の競合を回避)
+(function($){
     var center = $('#center').offset();
     var count = 0;
     var stopcount = 0;
     var tdarray1 = new Array();
     var tdarray2 = new Array();
     var img1 = new Array();
-    //var img2 = new Array();
     var array;
     var tenmetucount =0;
     var vwint = [[830,0],[595,470],[440,390],[365,300],[170,325],[130,285],[90,245]];
     var boxkazu;
-//4行  17vh;
-//3行  26vh;
-    //8個  10;   235;
-    //7個　90;   245;
-    //6個　130;　285;
-    //5個　170;　325;
-    //4個  365;  300;
-    //3個  440;  390;
-    //2個  595;  470;
-    //1個  830;
 
-
-//景品の取得↓
 attack25_manager.on('sendPrizeNumber', (number, picture_url) => {
 	tenmetucount =0;
-    img1[number] = picture_url; //サーバ側で抽選権の番号を-1している
+    img1[number] = picture_url;
 	count = number;			
 	setTimeout(function(){ tenmetu(count,1)},500);
 	setTimeout(function(){ idou(count)},5500);
 	setTimeout(function(){ henka(count)},7500);
 	setTimeout(function(){ popup(count)},8000);
 });
-    
-//画像を交互に出して点滅
 function tenmetu(count,i){
 	if(i==0){
 	$('td').eq(count).css('background-image',"url(/images/l_e_present_70.png)");
@@ -49,7 +33,6 @@ function tenmetu(count,i){
 		tenmetucount++;
 	}
 }
-//最初の移動
    function idou(count,i){
    	var top1 = $('td').eq(count).offset();
 	var top2 = top1.top;
@@ -59,12 +42,10 @@ function tenmetu(count,i){
 	'top': center.top,height:"240px",width:"300px"},1000);
 	setTimeout(function(){ modoru(count,top2,left1)},8000);
    }
-//ボックスを開け煙を出す
    function henka(count){
 	$('td').eq(count).css('background-image',"url(/images/hako.png)");
 	$( "#minikemuri" ).fadeIn( "slow" ) ;
    }
-//2回目の移動
    function modoru(count,e,q){
 		$('td').eq(count).css({ position:'absolute',zIndex:1,height:"160px",width:"200px" });
 		$( "#minikemuri" ).fadeOut(0) ;
@@ -72,15 +53,13 @@ function tenmetu(count,i){
 		$('td').eq(count).css('font-size',"0px");
 		$('td').eq(count).animate({'left':q - parseInt($('td').eq(count).css("margin-left"))  ,'top': e},0);
    }
-//煙を出しポップアップを表示させる
    function popup(count){
 	$("#keihinimg").css('background-image',"url("+img1[count]+")");
 	$("#kemuri").fadeIn();
 	$("#kemuri").fadeOut( 2000 ) ;
 	$("#keihinimg").fadeIn( 2000 ) ;
 	$("#waku").fadeIn( 4000 ) ;	
-   }
-//ポップアップをクリックすると消す	
+   }	
    $('#keihinimg').bind('click', function(){
        $('#keihinimg').fadeOut();
        $("#waku").fadeOut();
@@ -206,12 +185,10 @@ attack25_manager.on('placeBox', (boxNum, shaffule) => {
 		$("#waku").fadeIn( 4000 ) ;
     });
     
-//景品セット↓
 attack25_manager.on('setImages', (images) => {
     $('#startButton').prop("disabled", true);
 	var tdlength = $('td').length;
     img1 = images;
-    //景品画像を挿入する
 	for(i = 0;i<tdlength;i++){
 		var imgtop = $("td").eq(i).offset().top - 130 + "px";
 		var imgleft = $("td").eq(i).offset().left + "px";
@@ -225,7 +202,6 @@ attack25_manager.on('setImages', (images) => {
 		setTimeout(function(){ idou2()},3500);
 	}, 3000);
 });
-//景品画像を下に移動させ消す
    function down(){
 	var tdlength = $('td').length;
 	for(i = 0;i<tdlength;i++){	
@@ -234,19 +210,16 @@ attack25_manager.on('setImages', (images) => {
 		$('.gazou').eq(i).fadeOut(1000);	
 	}
    }
-//ボックスを閉める
    function henka2(){
 	var tdlength = $('td').length;
 	for(i = 0;i<tdlength;i++){	
 		$('td').eq(i).css('background-image',"url(/images/l_e_present_70.png)");	
 	}
    }
-//tdの移動
    function idou2(){
 		var Array1 = new Array();
 		var areaycount = 0;
 		if(stopcount == 0){
-			//すべてのtdのトップとmargin-leftを配列に入れる(後で元の位置に戻すため)
 			for( count = 0; count < boxkazu ;count++){
 	   			tdarray1[count] = $('td').eq(count).offset().top;
 				tdarray2[count] = $('td').eq(count).css("margin-left");
@@ -254,11 +227,10 @@ attack25_manager.on('setImages', (images) => {
 			stopcount++;
 			setTimeout(function(){ idou2()});
 		}else if(stopcount < 5){
-			//ボックスをシャッフルする
 			for(i =0;i < Math.floor(boxkazu/2) ;i++){
 			var kae1 = Math.floor( Math.random() * ( boxkazu ));
 			while(true){
-				if(hantei(Array1, kae1)){  //数字の重複判定
+				if(hantei(Array1, kae1)){ 
 				  var kae1 = Math.floor( Math.random() * ( boxkazu ) );
 				}else{
 				  Array1[areaycount] = kae1;
@@ -268,7 +240,7 @@ attack25_manager.on('setImages', (images) => {
 			} 
 			var kae2 = Math.floor( Math.random() * ( boxkazu ) );
 			while(true){
-				if(hantei(Array1, kae2)){  //数字の重複判定
+				if(hantei(Array1, kae2)){ 
 				  var kae2 = Math.floor( Math.random() * ( boxkazu ));
 				}else{
 				  Array1[areaycount] = kae2;
@@ -286,7 +258,6 @@ attack25_manager.on('setImages', (images) => {
 			stopcount++;
 			setTimeout(function(){ idou2()},1000);
    		}else{
-			//すべてのボックスを中央に移動させる
    			for( count = 0; count <boxkazu;count++){
 			$('td').eq(count).animate({'left':center.left - parseInt($('td').eq(count).css("margin-left")) , 
 			'top': center.top},1000);
@@ -294,7 +265,6 @@ attack25_manager.on('setImages', (images) => {
 			setTimeout(function(){ idou3(tdarray1,tdarray2,0)},1000);
    		}
    }
-//順番に元の位置に移動する
    function idou3(tdarray1,tdarray2,count) {
   	if(count < boxkazu){
 		$('td').eq(count).animate({'top': tdarray1[count]+"px","left":"0px","margin-left":tdarray2[count]},1000);
@@ -305,14 +275,12 @@ attack25_manager.on('setImages', (images) => {
 	setTimeout(function(){ bangou()},1500);
    	}
    }
-//tdに番号が振られる
    function bangou(){
 	for( count = 0; count < boxkazu;count++){
 		$('td').eq(count).text(count+1);
 	}
     attack25_manager.emit('lotteryGuestTurn');
    }
-//数字が重複していないか判定	
    function hantei(arr, val) {
   	return arr.some(function(arrVal) {
     	return val == arrVal;
@@ -339,28 +307,19 @@ $('body').css({
  'top': -pointY
 });
 
- //キーボード操作などにより、オーバーレイが多重起動するのを防止する
- $( this ).blur() ; //ボタンからフォーカスを外す
- if( $( "#modal-overlay" )[0] ) return false ; //新しくモーダルウィンドウを起動しない (防止策1)
- //if($("#modal-overlay")[0]) $("#modal-overlay").remove() ;		//現在のモーダルウィンドウを削除して新しく起動する (防止策2)
- 
- //オーバーレイを出現させる
+ $( this ).blur() ;
+ if( $( "#modal-overlay" )[0] ) return false ;
  $( "body" ).append( '<div id="modal-overlay"></div>' ) ;
  $( "#modal-overlay" ).fadeIn( "slow" ) ;
  
- //コンテンツをセンタリングする
  centeringModalSyncer() ;
  
- //コンテンツをフェードインする
  $( "#modal-content" ).fadeIn( "slow" ) ;
  
- //[#modal-overlay]、または[#modal-close]をクリックしたら…
  $( "#modal-overlay,#modal-close" ).unbind().click( function(){
  
- //[#modal-content]と[#modal-overlay]をフェードアウトした後に…
  $( "#modal-content,#modal-overlay" ).fadeOut( "slow" , function(){
  
- //[#modal-overlay]を削除する
  $('#modal-overlay').remove() ;
  
  } ) ;
@@ -379,24 +338,18 @@ $('body').css({
 }
 
  
- //リサイズされたら、センタリングをする関数[centeringModalSyncer()]を実行する
  $( window ).resize( centeringModalSyncer ) ;
  
- //センタリングを実行する関数
  function centeringModalSyncer() {
  
- //画面(ウィンドウ)の幅、高さを取得
  var w = $( window ).width() ;
  var h = $( window ).height() ;
  
- // コンテンツ(#modal-content)の幅、高さを取得
- // jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
  var cw = $( "#modal-content" ).outerWidth( {margin:true} );
  var ch = $( "#modal-content" ).outerHeight( {margin:true} );
  var cw = $( "#modal-content" ).outerWidth();
  var ch = $( "#modal-content" ).outerHeight();
  
- //センタリングを実行する
  $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
  
  }

@@ -3,11 +3,9 @@
 body {
 	margin: 0px;
 }
-/*背景*/
 .bg{ 
 	background: linear-gradient(-135deg, #FFDBC9, #FFD5EC) fixed;
  }
-/*部屋名*/
 .roomtitle p {
 	display: block;
 	position: relative;
@@ -50,7 +48,6 @@ input{
 .roomtitle:hover{
 	background-color:#59b1ed;
 }
-/*文字*/
 p.use{
 	background-color: #59b1ed;
 	text-align: center; 

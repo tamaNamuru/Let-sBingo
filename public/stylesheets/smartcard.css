@@ -172,15 +172,15 @@ marquee{
    display:none;
 }
 
-/*ポップアップ内容*/
+
 #popup-background{
-    position:fixed;     /* 位置の固定 */
-    top: 0;             /* 表示位置 */
-    right: 0;            /* 表示位置 */
-    height: 100%;       /* 画面全体に表示 */
-    width: 100%;        /* 画面全体に表示 */
-    background:#FFF;    /* 背景色 */
-    z-index:1000;       /* 要素のz座標 */
+    position:fixed; 
+    top: 0; 
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background:#FFF;
+    z-index:1000;
     
 }
 #syousai{
@@ -298,7 +298,6 @@ animation:blink 0.3s ease-in-out infinite alternate;
     border-radius: 170px;
     height: 55%;
     width: 90%;
-    /* width: 100vw; */
     position: fixed;
     top: 23%;
     left: 2%;
@@ -312,7 +311,6 @@ animation:blink 0.3s ease-in-out infinite alternate;
     border-radius: 170px;
     height: 55%;
     width: 90%;
-    /* width: 100vw; */
     position: fixed;
     top: 23%;
     left: 2%;

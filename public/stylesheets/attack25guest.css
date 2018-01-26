@@ -7,7 +7,6 @@ body {
 	margin: auto;
 	padding: 0;
 	margin: 0;
-/*	font-size: 0;*/
 	font-family: 'ヒラギノ角ゴシック','メイリオ', 'ＭＳ Ｐゴシック';
 	background-color: BurlyWood;
   	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, Wheat), color-stop(.5, transparent), to(transparent));
@@ -42,23 +41,7 @@ div.gallery{
 	text-align: center;
 	max-width: 100%;
 }
-/*
-a{ 
-	display: inline-block;
-	height: 20%;
-	width: 20%;
-	text-align: center;
-	text-decoration: none;
-	margin-right: 20px;
-	margin-left: 22px;
-	margin-top: 25px;
-	font-size: 120px;
-	padding: 0; 
-	border: 1px solid #333333;
-	border-radius: 20px;
-	background:linear-gradient(to right bottom, #ffc, #ff0);
- }
-*/
+
 img{
 	height: 100%;
 }
@@ -71,12 +54,11 @@ img{
 	margin-right:20px;
 }
 #popup-item{
-    position:fixed;     /* 位置の固定 */
-    top: 50%;           /* 表示位置(真ん中に表示) */
-    left: 50%;          /* 表示位置(真ん中に表示) */
-    margin: 0;          /* 余白の削除 */
-    padding: 0;         /* 余白の削除 */
-    z-index:1001;       /* 要素のz座標 */
+    position:fixed;
+    left: 50%;
+    margin: 0;
+    padding: 0;
+    z-index:1001;
 }
 .tiketd{
     border-collapse: separate;

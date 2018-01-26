@@ -2,7 +2,7 @@
 
 let card = [];
 let reachflag;
-let waitflag;   //リーチのときセッションを更新するまで待つフラグ
+let waitflag;
 
 guest.on('cardSet', function(cardNumbers, numbers) {
 	for(let i=0; i < 5; i++){
@@ -34,12 +34,10 @@ guest.on('broadcastNumber', (number) => {
 	cardCheck(number);
 });
 
-//リダイレクト
 guest.on('redirect', (url) => {
 	window.location.href = url;
 });
 
-//ビンゴカードの判定
 function cardCheck(number) {
     if(waitflag) return;
     
@@ -66,16 +64,13 @@ function cardCheck(number) {
 	}
 	
 	if(urow != -1) {
-		//点滅(仮)
 		let num = table.rows[urow].cells[ucell];
 		let numspan = table.rows[urow].cells[ucell].firstChild;
 		numspan.className = "tenmetsu";
-		//押されたら
 		num.onclick = () => {
 			num.onclick = () => {};
 
 			numspan.className = "";
-			//穴あけ
 			num.style.backgroundImage = "url(/images/hit.png)";
 			num.style.backgroundSize = "100% 100%";
 			num.style.border = "0px #ff0000 solid";
@@ -84,21 +79,18 @@ function cardCheck(number) {
 
 			card[urow][ucell] = true;
 			let cnt = 0;
-			//横
 			for(let i=0; i < 5; i++){
 				if(card[urow][i])
 					++cnt;
 			}
 			let max = cnt;
 			cnt = 0;
-			//縦
 			for(let i=0; i < 5; i++){
 				if(card[i][ucell])
 					++cnt;
 			}
 			if(max < cnt) max = cnt;
 			cnt = 0;
-			//斜め
 			if(urow == ucell){
 				for(let i=0; i < 5; i++){
 					if(card[i][i])
@@ -111,12 +103,10 @@ function cardCheck(number) {
 				}
 			}
 			if(max < cnt) max = cnt;
-			//リーチ・ビンゴ判定
 			if(max == 4 && !reachflag){
 				reachflag = true;
                 waitflag = true;
 				guest.emit('reach', () => { waitflag = false;});
-                //アニメーション
                 document.getElementById("reachgif").style.display = "inline";
 				setTimeout(() => {
                     document.getElementById("reachgif").style.display = "none";

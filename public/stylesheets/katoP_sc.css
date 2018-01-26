@@ -4,7 +4,6 @@ html,body{
 	height:100%;
 	width:100%;
 }
-/*背景*/
 .bg{ 
 	margin-top: 0;
 	margin-right: 0;
@@ -13,7 +12,6 @@ html,body{
 	width: 100%;
 	background: #fff494;
  }
-/*テーブル設定(左)*/
 .lottery1 {
 	position: relative;
 	float: left;
@@ -23,18 +21,13 @@ html,body{
 	margin: 0;
 	text-align: center;
 	border: none;
-	/*	background: #ffffe0;*/
 }
-/*景品画像*/
 .lottery1 td.keihin_pic {
 	height: 699px;
     	width: 88%;
 	margin: 0;
 	padding: 1px;
 }
-
-/**/
-/*景品名*/
 .lottery1 td.keihin_name {
 	height: 255px;
 	width: 100%;
@@ -45,7 +38,6 @@ html,body{
 	border: dashed thick #dc143c;
 	background:radial-gradient( at 50% 50%, #ccff99, #99ff99, #99ffcc);
 }
-/*テーブル設定(右)*/
 .lottery2 {
 
     z-index: 2;
@@ -71,7 +63,6 @@ html,body{
                                 rgba(0, 0, 0, 0) 0,
                                 rgba(0, 0, 0, 0) 100px);
 }
-/*抽選番号の文字*/
 .lottery2 td.tyusen_name {
 	height: 449px;
 	width: 100%;
@@ -80,7 +71,6 @@ html,body{
 	margin: 0;
 	color: #000000;
 }
-/*抽選番号の数字*/
 .lottery2 td.tyusen_num {
 	height: 449px;
 	width: 100%;

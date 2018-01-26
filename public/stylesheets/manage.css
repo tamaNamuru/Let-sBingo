@@ -121,11 +121,11 @@ tr {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
 }
 
-.btn1:active{/*押したとき*/
+.btn1:active{
     -ms-transform: translateY(2px);
     -webkit-transform: translateY(2px);
-    transform: translateY(2px);/*沈むように*/
+    transform: translateY(2px);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
     background-image: linear-gradient(#acdfef 0%, #e0ffff 100%)
-    background-image: linear-gradient(#fed6e3 0%, #ffbcbc 100%);/*グラデーションを明るく*/
+    background-image: linear-gradient(#fed6e3 0%, #ffbcbc 100%);
 }

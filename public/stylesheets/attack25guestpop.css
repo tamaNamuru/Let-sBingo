@@ -2,16 +2,15 @@
 margin: 0;
 
 }
-/*ポップアップ3画面*/
+
 #popup-background{
     margin: 0;
-    position: fixed;     /* 位置の固定 */
-    top: 0;             /* 表示位置 */
-    right: 0;            /* 表示位置 */
-    height: 100%;       /* 画面全体に表示 */
-    width: 100%;        /* 画面全体に表示 */
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
     background-color:#FFF;
-    /*background:#FFF;     背景色 */
 }
 #popup-table{
     height:100%;
@@ -37,7 +36,6 @@ margin: 0;
     background-color: #f9ff1659
 }
 #popup-td2{
-    /*background-image: url("niku.jpg");*/
     background-size: 100% 100%;
 }
 #popup-td3{       
@@ -69,7 +67,6 @@ margin: 0;
     top: -1em;
     z-index: 1000;
 }
-/*ポップアップ3画面*/
 #popup-background2{
  margin: 0;
     position: fixed;    
@@ -125,11 +122,3 @@ top:-50px;
 position: absolute;
 top:0px;
 }
-@keyframes kirakira {
-    0% {
-        transform:translateY(0) rotateY(0);
-    }
-    100% {
-        transform:translateY(calc(100vh + 1em)) rotateY(3600deg);
-    }
-}*/

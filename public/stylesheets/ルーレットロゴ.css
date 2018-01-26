@@ -189,35 +189,35 @@ p#nin{
 }
 
 #popup-background{
-    position:fixed;     /* 位置の固定 */
-    top: 0;             /* 表示位置 */
-    left: 0;            /* 表示位置 */
-    height: 100%;       /* 画面全体に表示 */
-    width: 100%;        /* 画面全体に表示 */
-    background:#fff;    /* 背景色 */
-    opacity: 0.80;      /* 透明度 */
-    margin: 0;          /* 余白の削除 */
-    padding: 0;         /* 余白の削除 */
-    z-index:1000;       /* 要素のz座標 */
+    position:fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background:#fff;
+    opacity: 0.80;
+    margin: 0;
+    padding: 0;
+    z-index:1000;
 }
 .popup-roomname{
-    position:fixed;     /* 位置の固定 */
-    top: 10%;           /* 表示位置(真ん中に表示) */
-    left: 20%;          /* 表示位置(真ん中に表示) */
-    margin: 0;          /* 余白の削除 */
-    padding: 0;         /* 余白の削除 */
-    z-index:1001;       /* 要素のz座標 */
+    position:fixed;
+    top: 10%;
+    left: 20%;
+    margin: 0;
+    padding: 0;
+    z-index:1001;
     font-size: 150px;
     color: orangered;
     -webkit-text-stroke: 5px black;
 }
 .popup-roomid{
-    position:fixed;     /* 位置の固定 */
-    top: 40%;           /* 表示位置(真ん中に表示) */
-    left: 20%;          /* 表示位置(真ん中に表示) */
-    margin: 0;          /* 余白の削除 */
-    padding: 0;         /* 余白の削除 */
-    z-index:1001;       /* 要素のz座標 */
+    position:fixed;
+    top: 40%;
+    left: 20%;
+    margin: 0;
+    padding: 0;
+    z-index:1001;
     font-size: 150px;
     color: orangered;
     -webkit-text-stroke: 5px black;

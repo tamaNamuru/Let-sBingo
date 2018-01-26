@@ -1,5 +1,5 @@
 #layer {
-    display: none;  /* 初期表示は非表示 */
+    display: none;
     position: absolute; 
     left: 0px;
     top: 0px;
@@ -9,7 +9,7 @@
     opacity: 0.20;
 }
 #popup {
-    display: none;  /* 初期表示は非表示 */
+    display: none;
     position: fixed; 
     left: 10%;
     top: 30%;

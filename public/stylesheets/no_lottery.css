@@ -22,23 +22,14 @@ body{
     font-size: 321px;
     font-weight: bold;
     color: #F00;
-	/*-webkit-text-stroke-width: 0.5px;
-	-webkit-text-stroke-color: #fff;*/
 }
 
 #p{
 	    margin-top: -17px;
-    /* padding: 86px; */
-    /* padding-left: 58px; */
-    /* background-size: 100% 100%; */
-    /* background-repeat: no-repeat; */
-    /* font-family: 'Crete Round', serif; */
-    /* margin-top: 150px; */
+
     font-size: 154px;
     text-align: center;
     font-weight: bold;
-	/*-webkit-text-stroke-width: 0.5px;
-	-webkit-text-stroke-color: #fff;*/
 }
     
 #name{

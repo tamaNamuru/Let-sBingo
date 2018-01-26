@@ -1,6 +1,5 @@
 ﻿@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
-/*背景*/
 .bg{ 
 	background-color: BurlyWood;
   	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, Wheat), color-stop(.5, transparent), to(transparent));
@@ -11,8 +10,6 @@
   	-moz-background-size: 35px 35px;
   	background-size: 35px 35px;
  }
-/*じゃんけんの手*/
-
 .btn {
     padding-left: 16%;
     padding-right: 16%;
@@ -84,7 +81,6 @@ table.hand{
     display:none;
     background-size: 100% 100%;
 }
-/*文字*/
 h2#use{ 
 	width: 100%;
 	font-size: 60px;

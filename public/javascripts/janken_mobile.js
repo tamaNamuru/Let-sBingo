@@ -1,6 +1,6 @@
 ﻿//socket.io
 const janken_guest = io('/janken_guest');
-let wait = true;    //trueで結果待ちor待機中
+let wait = true;
 
 $(function() {
  $('.btn2').bind('click', function(e){
@@ -76,20 +76,16 @@ janken_guest.on('sendWin', () => {
 janken_guest.on('sendLose', () => {
     $("#use").text("あなたの負け<br>お疲れさまでした。5秒後に自動でログアウトします。");
     janken_guest.emit('resultLose');
-    //$("#all_btn").after("<input type='button' onclick='location.href=\"/logout/userexit\"' value='ログアウト'/>");
     setTimeout(()=>{ window.location.href = "/logout/userexit" },5000);
 });
     
 janken_guest.on('logoutOn', () => {
-    $("#use").text("お疲れさまでした。5秒後に自動でログアウトします。"); //下のボタンからログアウトしてください。
-    //$("#all_btn").after("<input type='button' onclick='location.href=\"/logout/userexit\"' value='ログアウト'/>");
+    $("#use").text("お疲れさまでした。5秒後に自動でログアウトします。"); 
     setTimeout(()=>{ window.location.href = "/logout/userexit" },5000);
-})
-//リダイレクト
+});
 janken_guest.on('redirect', (url) => {
 	window.location.href = url;
 });
-//リロードじゃんけん結果待ち
 janken_guest.on('reloadView', (te) => {
     $("#gu_btn").hide();
 	$("#ch_btn").hide();
