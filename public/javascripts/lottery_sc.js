@@ -27,7 +27,7 @@ $(function() {
 		
 });
 function Check(hantei){
-		if(hantei<20){
+		if(hantei<100){
 			randomInt = Math.floor( Math.random() * ( 99 ) + 1 );
 			/*for(var j = 0; j < generated.length; j++) {
 				if(randomInt == generated[j]){
