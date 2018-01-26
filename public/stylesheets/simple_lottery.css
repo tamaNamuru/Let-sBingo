@@ -8,7 +8,7 @@ img {
 body {
     text-align: center;
     margin: 0;
-    background: url('/images/イースターエッグ_黄色.png');
+    background: url(/images/egg_yellow.png);
 
 }
 #bangohyoji {
