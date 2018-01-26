@@ -45,7 +45,7 @@ function next(){
     window.location.href = '/bingo/lottery';
 }
 janken_manager.on('jankenStart', () => {
-    document.getElementById("message").innerHTML = "まだ手が決まっていない人がいます。しばらくお待ちください。";
+    document.getElementById("message").innerHTML = "手が決まっていない人がいます。<br/>しばらくお待ちください。";
     //次のじゃんけんを開始するボタンを作ったほうがいいかもしれないがとりあえず三秒後次に進む
     window.setTimeout( () => {
         reset();
