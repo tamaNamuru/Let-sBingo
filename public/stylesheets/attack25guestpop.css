@@ -49,7 +49,7 @@ margin: 0;
 }
 #popup-td4{
     background-image: url("/images/keihintyuui.jpg");
-    background-size: 100% 100%;
+    background-size: contain;
     width: 43%;
 }
 #popup-td5{
@@ -102,8 +102,8 @@ margin: 0;
     top: 85%;             
     right: 10%;
     height: 10%;
-    width: 30%; 
-    font-size:60px;
+    width: 40%; 
+    font-size:50px;
 }
 #tike4kazu{
     position: fixed;
