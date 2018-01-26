@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
 
+html,body{
+	height:100%;
+	width:100%;
+}
 /*背景*/
 .bg{ 
 	margin-top: 0;
@@ -14,12 +18,12 @@
 	position: relative;
 	float: left;
 	width: 60%;
-	height: 100%;
+	height: 71.9%;
 	font-weight: bold;
 	margin: 0;
 	text-align: center;
-	border: none; 
-/*	background: #ffffe0;*/
+	border: none;
+	/*	background: #ffffe0;*/
 }
 /*景品画像*/
 .lottery1 td.keihin_pic {
@@ -71,7 +75,7 @@
 .lottery2 td.tyusen_name {
 	height: 449px;
 	width: 100%;
-	font-size: 190px;
+	font-size: 155px;
 	text-align: center;
 	margin: 0;
 	color: #000000;
@@ -95,26 +99,25 @@
 }
 .image{
     position: absolute;
-    height: 123%;
+    height: 119%;
     padding-left: -14%;
     margin-bottom: 39px;
-    left: 136px;
-    top: 47px;
+    left: 120px;
+    top: 75px;
     width: 77%;
 }
 #img2{
-left: -749px;
+left: -654px;
 }
 #title{
-z-index: 1;
-top:-140px;
-    position: absolute;
-    font-size: 91px;
-    background-color: #ffffffb8;;
-    width: 77%;
-    height: 30%;
-    left: 134px;
-    
+	z-index: 1;
+	top:-195px;
+	position: absolute;
+	font-size: 91px;
+	background-color: #ffffffb8;
+	width: 76.5%;
+	height: 35%;
+	left: 121px;
 }
 #titlename{  
     font-size: 170px;
