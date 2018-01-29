@@ -14,7 +14,7 @@ const attack25_sub = io('/attack25_sub');
     var tenmetucount =0;
     var vwint = [[830,0],[595,470],[440,390],[365,300],[170,325],[130,285],[90,245]];
     var boxkazu;
-↓
+
 attack25_sub.on('sendPrizeNumber', (number, picture_url, name) => {
 	tenmetucount =0;
     img1[number] = picture_url;

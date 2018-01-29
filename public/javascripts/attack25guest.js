@@ -80,6 +80,7 @@ attack25_guest.on('lotteryResult', (name, picture_url) => {
         $('#setumei').hide();
         $('#setumeiok').hide();
         
+        $('#popup-background').fadeIn(100);
 });
     
 setTimeout(function(){ ChangeTab('table1')},0);
@@ -142,6 +143,7 @@ function kyuukei(){
   	$(hoveryouso).children().text("");
   	$(hoveryouso).css({"background-image":'url("/images/tike5.png")'});
   	$('#popup-background3').fadeIn();
+  	setTimeout(function() { $('#popup-background').fadeIn(100); }, 6000);
 }
 })(jQuery)
 
