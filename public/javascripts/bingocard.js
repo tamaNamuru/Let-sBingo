@@ -17,6 +17,8 @@ guest.on('cardSet', function(cardNumbers, numbers) {
 			if(i==2 && j == 2) {
 				card[j][i] = true;
 				table.rows[j].cells[i].style.color = "red";
+				table.rows[j].cells[i].style.backgroundImage = "url(/images/hit.png)";
+				table.rows[j].cells[i].style.backgroundSize = "100% 100%";
 				continue;
 			}
 			card[j][i] = false;
