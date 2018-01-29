@@ -74,7 +74,7 @@ janken_guest.on('sendWin', () => {
 });
 
 janken_guest.on('sendLose', () => {
-    $("#use").text("あなたの負け<br>お疲れさまでした。5秒後に自動でログアウトします。");
+    $("#use").text("あなたの負け\nお疲れさまでした。5秒後に自動でログアウトします。");
     janken_guest.emit('resultLose');
     setTimeout(()=>{ window.location.href = "/logout/userexit" },5000);
 });

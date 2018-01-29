@@ -115,13 +115,13 @@ module.exports = class Room {
 		}
 		//景品詳細表示
 		socket.on('prizeInfo', (prizeid) => {
-            let rows = [];
+            		let rows = [];
 			let request = new Request(
 				select,
 				(err, rowCount) => {
-                socket.emit('getPrize', rows[0].name, rows[0].count, rows[0].description);
-			});
-            request.on('row', function(columns) {
+                			socket.emit('getPrize', rows[0].name, rows[0].count, rows[0].description);
+				});
+            		request.on('row', function(columns) {
                 let row = {};
                 columns.forEach(function(column) {
                     row[column.metadata.colName] = column.value;
