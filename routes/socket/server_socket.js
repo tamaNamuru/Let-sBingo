@@ -140,7 +140,7 @@ module.exports = function(io) {
 				if(resultJanken == 0){ //人数変動なし
 					socket.emit('jankenStart');
 					janken_guest.to(idroom.id).emit('jankenStart');
-                    janken_sub.to(idroom.id).emit('screenUpdate', 'n');    //隠す
+                    //janken_sub.to(idroom.id).emit('screenUpdate', 'n');    //隠す
 				}
 			}
 		});
@@ -196,7 +196,7 @@ module.exports = function(io) {
 			case 2:	//じゃんけん続行
 				janken_manager.to(idroom.id).emit('jankenStart');
 				janken_guest.to(idroom.id).emit('jankenStart');
-				janken_sub.to(idroom.id).emit('screenUpdate', 'n');    //隠す
+				//janken_sub.to(idroom.id).emit('screenUpdate', 'n');    //隠す
 				break;
 			}
 		});
@@ -214,7 +214,7 @@ module.exports = function(io) {
 			case 2:	//じゃんけん続行
 				janken_manager.to(idroom.id).emit('jankenStart');
 				janken_guest.to(idroom.id).emit('jankenStart');
-				janken_sub.to(idroom.id).emit('screenUpdate', 'n');    //隠す
+				//janken_sub.to(idroom.id).emit('screenUpdate', 'n');    //隠す
 				break;
 			}
 		});

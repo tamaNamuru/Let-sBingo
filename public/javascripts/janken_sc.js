@@ -4,7 +4,7 @@ $(function() {
 	var first_img = "/images/usa.png"; //じゃんけんなし
 	var janken_array = ["/images/usa.png","/images/usagu.png", 
 		"/images/usach.png", "/images/usapa.png"]; //表示なし(0),グー(1)、チョキ(2)、パー(3)
-    $('.btn').on("click", function() {
+    /*$('.btn').on("click", function() {
         //選択したもの格納
         var te = $(this).val();
         
@@ -18,12 +18,12 @@ $(function() {
             default: changeImg(0);
                 break;
         }
-    });
+    });*/
     function changeImg(te) {
         var te_img = janken_array[te];
             $('#re').attr({
             "src": te_img
-            }, 2000);
+            });
     }
 
     janken_sub.on('screenUpdate', (te) => {
@@ -37,6 +37,7 @@ $(function() {
             default: changeImg(0);
                 break;
         }
+        //setTimeout( changeImg(0), 5000);
     });
     
     janken_sub.on('redirect', (url) => {
