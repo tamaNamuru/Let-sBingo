@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 				req.session.destroy();
 				res.render('adminlogout.html');
 			});
-			req.addParameter('room_id', TYPES.NVarChar, '%"id":"' + req.session.user.id + '"%');
+			request.addParameter('room_id', TYPES.NVarChar, '%"id":"' + req.session.user.id + '"%');
 			connection.execSql(request);
 		}else {
 			res.render('logout_display.html');
