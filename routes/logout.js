@@ -1,15 +1,26 @@
 ﻿var express = require('express');
 var router = express.Router();
+var connection = require('../tediousConnection');
+var Request = require('tedious').Request;
+var TYPES = require('tedious').TYPES;
 
+var delete_sessions = 'delete from sessions where session like @room_id';
 //ログアウト
 router.get('/', function(req, res, next) {
 	if(req.session.user){
-		let logoutView = 'logout_display.html';
+		
 		if(req.session.user.administrator){
-			logoutView = 'adminlogout.html';
-			req.session.destroy();
+			let request = new Request(
+			delete_sessions,
+			(err, rowCount) => {
+				req.session.destroy();
+				res.render('adminlogout.html');
+			});
+			req.addParameter('room_id', TYPES.NVarChar, '%"id":"' + req.session.user.id + '"%');
+			connection.execSql(request);
+		}else {
+			res.render('logout_display.html');
 		}
-		res.render(logoutView);
 	}else
 		res.redirect('/index');
 });

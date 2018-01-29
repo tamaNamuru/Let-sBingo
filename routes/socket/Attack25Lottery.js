@@ -4,7 +4,7 @@ module.exports = class Attack25Lottery extends SimpleLottery {
 	constructor(prizes) {
 		super(prizes);
 		this.attack25Info = [];	//[景品数-1] = prize_id
-		this.roomOpens = []	//[景品数-1] = trueで開封済み
+		this.roomOpens = [];	//[景品数-1] = trueで開封済み
 		for(let i=0; i < prizes.length; i++){
 			for(let j=0; j < prizes[i].count; j++){
 				this.attack25Info.push(i+1);
