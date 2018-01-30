@@ -143,7 +143,7 @@ module.exports = class Room {
 	}
 	
 	reachUpdate(socket){
-		if(socket.request.session.guest.winner == none){
+		if(socket.request.session.guest.winner == none && this.mode == 0){
 			socket.request.session.guest.winner = reach;
 			return true;
 		}
@@ -151,7 +151,7 @@ module.exports = class Room {
 	}
 	
 	bingoUpdate(socket){
-		if(socket.request.session.guest.winner == reach){
+		if(socket.request.session.guest.winner == reach && this.mode == 0){
 			++this.bingoCount;
 			++this.lastBingoCount;
 			socket.leave(this.id);	//番号を受信する必要がなくなったので部屋を抜け

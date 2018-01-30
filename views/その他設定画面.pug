@@ -22,13 +22,13 @@ html(lang='ja')
             | ・景品抽選
             label
               input.size(type='radio', name='or', value='0', checked=(0 == lottery_id))
-              | なし
+              | なし&emsp;&emsp;&emsp;&emsp;&emsp;：順位表だけ表示します。
             label
               input.size(type='radio', name='or', value='1', checked=(1 == lottery_id))
-              | デフォルト
+              | 通常くじ&emsp;&emsp;&emsp;：運営者が商品を選んで抽選します。
             label
               input.size(type='radio', name='or', value='2', checked=(2 == lottery_id))
-              | アタック25
+              | 数字選択式くじ：参加者が抽選券を選んで抽選します。
         #syoki
           p#del
             | ルームの削除
