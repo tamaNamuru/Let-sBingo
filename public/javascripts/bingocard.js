@@ -120,7 +120,7 @@ function cardCheck(number) {
                 document.getElementById("bingogif").style.display = "inline";
 				setTimeout(() => {
                     document.getElementById("bingogif").style.display = "none";
-                },7000);
+                },8500);
 			}
 		}
 	}
