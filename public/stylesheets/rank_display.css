@@ -15,6 +15,12 @@
   	-moz-background-size: 35px 35px;
   	background-size: 35px 35px;
  }
+.btn1{
+	text-align: center;
+	width: 10%;
+	height: 50px;
+	font-size: 30px;
+}
 .b_table {
 	position: relative;
 	float: left;

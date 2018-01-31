@@ -66,9 +66,9 @@ router.get('/', function(req, res, next) {
         }],
     (err, prizes, lottery_id, card_url) => {
         if(lottery_id == 3){
-        	res.render('bingocardlight', { prizes: prizes });
+            res.render('bingocardlight', { prizes: prizes });
         }else{
-        	res.render('bingocard', { prizes: prizes, style_url: card_url });
+            res.render('bingocard', { prizes: prizes, style_url: card_url });
         }
     });
 });

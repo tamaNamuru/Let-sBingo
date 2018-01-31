@@ -8,21 +8,9 @@ var count = 0;
     
     let guests; //[]{rank, name}
     nolottery_manager.on('sendResult', (guestInfo) => {
-    	
         guests = guestInfo;
-        /*let homo = 0;
-	let id = setInterval(function(){
-		homo++;
-		if(homo < 6) {
-			Array.prototype.push.apply(guests, guestInfo);
-		}else {
-			setTimeout(function(){a()}, 0);
-			clearInterval(id);
-		}
-	}, 10);*/
 	
         setTimeout(function(){a()}, 0);
-        
     });
 	$('.btn1').click(function(e){
         if(confirm('終了しますがよろしいですか？')){

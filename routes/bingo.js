@@ -6,10 +6,23 @@ var Request = require('tedious').Request;
 var TYPES = require('tedious').TYPES;
 
 var lottery = 'SELECT lottery_id FROM room WHERE room_id = @ID;';
+var sum = 'SELECT SUM(count) AS prizeMax FROM prize WHERE room_id = @ID;';
 
 //ビンゴ
 router.get('/', function(req, res, next) {
-	res.render('ビンゴ管理側.html');
+    let request = new Request(
+        sum,
+        (err, rowCount) => {
+        });
+        request.on('row', (columns) => {
+            if(columns[0].value == 0){
+                res.redirect('../');
+            }else{
+                res.render('ビンゴ管理側.html');
+            }
+        });
+    request.addParameter('ID', TYPES.NChar, this.id);
+	connection.execSql(request);
 });
 //大画面
 router.get('/roulette', function(req, res, next) {

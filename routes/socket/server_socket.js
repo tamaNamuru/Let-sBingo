@@ -269,10 +269,16 @@ module.exports = function(io) {
 		if(socket.request.session.guest.winner == Room.none() || socket.request.session.guest.winner == Room.reach()) return;	//urlに直接アクセスされたときのため
 		socket.join(socket.request.session.user.id);
 		
+        socket.on('getRank', () => {
+            if(idroom.lottery.getRank(socket.request.session.guest.winner))
+                socket.emit('sendRank', idroom.lottery.getRank(socket.request.session.guest.winner));
+        });
+        
 		let guestInfo = idroom.lotteryGuestInit(socket);
 		if(guestInfo){
 			nolottery_manager.to(idroom.id).emit('sendResult', guestInfo);
 			nolottery_sub.to(idroom.id).emit('sendResult', guestInfo);
+            nolottery_guest.to(idroom.id).emit('setRank');
 		}
 	});
 	

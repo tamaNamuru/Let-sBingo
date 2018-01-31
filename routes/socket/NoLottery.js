@@ -5,13 +5,7 @@ module.exports = class NoLottery extends BaseLottery {
 		super();
 		this.roomGuestInfo = [];	//[0～抽選者数-1] = {rank:, name:}
         this.guestJumpurl = '/guest/nolottery';
-        //ここkaらテスト
-        /*for(let i=0; i < 30; i++){
-            this.winnerSessions.set(i, 1);
-            this.guestPriority.push( [i+20, "テスト"+i] );
-        }
-        this.prizeMax += 30;*/
-        //ここまで
+        this.winnerRank = new Map();
 	}
 	
 	reloadInit(socket) {
@@ -43,6 +37,7 @@ module.exports = class NoLottery extends BaseLottery {
 						prewin = guest[0];
 						rank += add;
 						add = 1;
+                        this.winnerRank.set(guest[0], rank);
 					}else{
 						++add;
 					}
@@ -50,8 +45,13 @@ module.exports = class NoLottery extends BaseLottery {
 				}
 				return this.roomGuestInfo;
 			}
-		}
-		this.winnerSessions.set(socket.request.sessionID, socket.id);
+		}else{
+            this.winnerSessions.set(socket.request.sessionID, socket.id);
+        }
 		return null;
 	}
+    
+    getRank(winner) {
+        return this.winnerRank.get(winner);
+    }
 }
