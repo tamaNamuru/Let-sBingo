@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
         (prizes, next) => {
             let rows = [];
             let request = new Request(
-            'SELECT lottery_id FROM room WHERE room_id = @ID',
+            'SELECT lottery_id FROM room WHERE room_id = @ID;',
             (err, rowCount) => {
                 next(null, prizes, rows[0].lottery_id);
             });
@@ -65,10 +65,10 @@ router.get('/', function(req, res, next) {
             }
         }],
     (err, prizes, lottery_id, card_url) => {
-        if(lottery_id == 3
-           res.render('bingocardlight', { prizes: prizes });
+        if(lottery_id == 3){
+        	res.render('bingocardlight', { prizes: prizes });
         }else{
-            res.render('bingocard', { prizes: prizes, style_url: card_url });
+        	res.render('bingocard', { prizes: prizes, style_url: card_url });
         }
     });
 });
