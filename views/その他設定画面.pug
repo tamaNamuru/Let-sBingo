@@ -32,6 +32,10 @@ html(lang='ja')
             label
               input.size(type='radio', name='or', value='2', checked=(2 == lottery_id))
               | 数字選択式くじ：参加者が抽選券を選んで抽選します。
+            br
+            label
+              input.size(type='radio', name='or', value='3', checked=(3 == lottery_id))
+              | 軽量化版&emsp;&emsp;&emsp;：参加者の演出なし、順位表のみ。
         #syoki
           p#del
             | ルームの削除

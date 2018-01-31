@@ -35,6 +35,7 @@ router.get('/lottery', function(req, res, next) {
     request.on('row', (columns) => {
         switch(columns[0].value){
     	case 0:	//景品抽選なし
+        case 3: //軽量化版
     		res.render('rank_controller.html');
     		break;
     	case 1:	//デフォルト抽選
