@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
         (err, rowCount) => {
         });
         request.on('row', (columns) => {
-            if(columns[0].value == 0){
+            if(columns[0].value == null || columns[0].value == 0){
                 res.redirect('../');
             }else{
                 res.render('ビンゴ管理側.html');
