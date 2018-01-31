@@ -15,10 +15,10 @@ router.get('/', function(req, res, next) {
         (err, rowCount) => {
         });
         request.on('row', (columns) => {
-            if(columns[0].value === null || columns[0].value == 0){
-                res.redirect('../');
-            }else{
+            if(columns[0].value && columns[0].value > 0){
                 res.render('ビンゴ管理側.html');
+            }else{
+                res.redirect('../');
             }
         });
     request.addParameter('ID', TYPES.NChar, this.id);
