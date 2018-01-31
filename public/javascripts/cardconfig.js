@@ -56,7 +56,7 @@ function update(){ //変更処理
 	if(!imagefile.value){	//ファイルが指定されていなければ
 		var bingoback = document.getElementById("bingo");	//現在の背景のurlを取得して送信
 		var style = window.getComputedStyle(bingoback);
-        if(style.backgroundImage){  //存在するなら
+        if(style.backgroundImage != 'none'){  //存在するなら
             document.getElementById("imagefileup_url").value = 
                 "url(\"" +
                 style.backgroundImage.slice(style.backgroundImage.indexOf("/projects"));
@@ -67,7 +67,7 @@ function update(){ //変更処理
 	if(!imagefile.value){
 		var bingoback = document.getElementById("number");
 		var style = window.getComputedStyle(bingoback);
-        if(style.backgroundImage){  //存在するなら
+        if(style.backgroundImage != 'none'){  //存在するなら
             document.getElementById("imagefiledown_url").value = 
                 "url(\"" +
                 style.backgroundImage.slice(style.backgroundImage.indexOf("/projects"));
