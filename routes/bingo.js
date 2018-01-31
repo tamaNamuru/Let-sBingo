@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
                 res.redirect('../');
             }
         });
-    request.addParameter('ID', TYPES.NChar, this.id);
+    request.addParameter('ID', TYPES.NChar, req.session.user.id);
 	connection.execSql(request);
 });
 //大画面
