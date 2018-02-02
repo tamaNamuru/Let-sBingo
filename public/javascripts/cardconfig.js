@@ -21,8 +21,7 @@
 	//枠線
 	var waku = document.getElementsByName("waku");
 	if(!(waku[0].checked || waku[1].checked)) {	//両方チェックされていない
-		var kazu = document.getElementsByClassName("kazu")[0];
-		if(style.webkitTextStroke == '0px'){	//現在枠なし
+		if(style.webkitTextStrokeWidth == '0px'){	//現在枠なし
 			waku[1].checked = true;
 		}else{
 			waku[0].checked = true;
