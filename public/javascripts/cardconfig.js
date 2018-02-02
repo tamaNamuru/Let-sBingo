@@ -55,10 +55,16 @@ function update(){ //変更処理
 	if(!imagefile.value){	//ファイルが指定されていなければ
 		var bingoback = document.getElementById("bingo");	//現在の背景のurlを取得して送信
 		var style = window.getComputedStyle(bingoback);
-        if(style.backgroundImage != 'none' && style.backgroundImage.indexOf("/projects") != -1){  //存在するなら
-            document.getElementById("imagefileup_url").value = 
-                "url(\"" +
-                style.backgroundImage.slice(style.backgroundImage.indexOf("/projects"));
+        if(style.backgroundImage != 'none'){  //画像あり
+            if(style.backgroundImage.indexOf("/projects") != -1){   //アップロード画像
+                document.getElementById("imagefileup_url").value = 
+                    "url(\"" +
+                    style.backgroundImage.slice(style.backgroundImage.indexOf("/projects"));
+            }else{  //サンプル画像
+                document.getElementById("imagefileup_url").value = 
+                    "url(\"" +
+                    style.backgroundImage.slice(style.backgroundImage.indexOf("/images"));
+            }
         } else
             document.getElementById("imagefileup_url").value = style.backgroundImage;
 	}
@@ -66,10 +72,16 @@ function update(){ //変更処理
 	if(!imagefile.value){
 		var bingoback = document.getElementById("number");
 		var style = window.getComputedStyle(bingoback);
-        if(style.backgroundImage != 'none' && style.backgroundImage.indexOf("/projects") != -1){  //存在するなら
-            document.getElementById("imagefiledown_url").value = 
-                "url(\"" +
-                style.backgroundImage.slice(style.backgroundImage.indexOf("/projects"));
+        if(style.backgroundImage != 'none'){
+            if(style.backgroundImage.indexOf("/projects") != -1){
+                document.getElementById("imagefiledown_url").value = 
+                    "url(\"" +
+                    style.backgroundImage.slice(style.backgroundImage.indexOf("/projects"));
+            }else{
+                document.getElementById("imagefiledown_url").value = 
+                    "url(\"" +
+                    style.backgroundImage.slice(style.backgroundImage.indexOf("/images"));
+            }  
         } else
             document.getElementById("imagefiledown_url").value = style.backgroundImage;
 	}
