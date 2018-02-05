@@ -47,7 +47,7 @@ function Check(hantei){
 					}
 				}*/
 				document.getElementById("tyusen_num").innerHTML = setNumber;
-				generated.push(number);
+				//generated.push(number);
 		}
 }
 $(function() {
