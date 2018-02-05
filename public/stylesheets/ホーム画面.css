@@ -96,14 +96,9 @@ tr {
   transform: rotate(8deg);   	
 }
 .logout{
-    left: 936px;
-    bottom: 23px;
-    font-size: 20px;
-    position: fixed;
+    font-size: 25px;
     text-decoration: none;
     color: #333;
-    width: 128px;
-    height: 46px;
     line-height: 50px;
     border-radius: 5px;
     font-weight: bold;
