@@ -167,7 +167,6 @@ var countflag = 0;
 sub.on('broadcastNumber', (number) => {
     kaitenflag = false;
     aAudio.get(0).pause();
-	bAudio.get(0).play();
 	bAudio.get(0).load();
 	bAudio.get(0).play();
 	Check(number);	//送られてきた数字を入力
@@ -182,7 +181,6 @@ sub.on('broadcastNumber', (number) => {
 sub.on('stopRoulette', () => {
     kaitenflag = false;
     aAudio.get(0).pause();
-	bAudio.get(0).play();
 	bAudio.get(0).load();
 	bAudio.get(0).play();
     clearInterval(id);
