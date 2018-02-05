@@ -35,6 +35,8 @@ module.exports = function(io) {
 				guest.to(idroom.id).emit('broadcastNumber', num);
 				sub.to(idroom.id).emit('broadcastNumber', num);
 				fn(num);
+			}else {
+				sub.to(idroom.id).emit('stopRoulette');
 			}
 		});
 		

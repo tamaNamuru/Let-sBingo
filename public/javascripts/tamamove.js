@@ -179,6 +179,35 @@ sub.on('broadcastNumber', (number) => {
 	}
 });
 
+sub.on('stopRoulette', () => {
+    kaitenflag = false;
+    aAudio.get(0).pause();
+	bAudio.get(0).play();
+	bAudio.get(0).load();
+	bAudio.get(0).play();
+    clearInterval(id);
+    let tmp = 1;
+    if(i == 0){
+        box[0].innerHTML = 1;
+    }else {
+        box[0].innerHTML = generated[i-1];
+        tmp = generated[i-1];
+    }
+    var box2= document.getElementById("soto");
+    var box3 = document.getElementById("uti2");
+    if(tmp > 60){
+        box2.style.backgroundColor=box3.style.backgroundColor="#FFFF66";
+    }else if(tmp > 45){
+        box2.style.backgroundColor=box3.style.backgroundColor="#DD0000";
+    }else if(tmp > 30){
+        box2.style.backgroundColor=box3.style.backgroundColor="#0000CC";
+    }else if(tmp > 15){
+        box2.style.backgroundColor=box3.style.backgroundColor="#FFAAFF";
+    }else{
+        box2.style.backgroundColor=box3.style.backgroundColor="#f4a460";
+    }
+});
+
 //じゃんけんに
 sub.on('redirect', (url) => {
     window.location.href = url;
